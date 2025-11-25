@@ -27,6 +27,98 @@
             overflow: hidden;
         }
 
+        /* Seasonal Banner Styles */
+        .seasonal-banner {
+            padding: 15px 40px;
+            text-align: center;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .seasonal-banner .banner-icon {
+            font-size: 1.5em;
+        }
+
+        .seasonal-banner .banner-text {
+            font-size: 1.1em;
+        }
+
+        .seasonal-banner a {
+            color: inherit;
+            text-decoration: underline;
+            margin-left: 10px;
+        }
+
+        /* Did You Know Section */
+        .did-you-know {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 20px 40px;
+            border-bottom: 2px solid #dee2e6;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .dyk-icon {
+            font-size: 2.5em;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .dyk-content {
+            flex: 1;
+        }
+
+        .dyk-label {
+            font-size: 0.85em;
+            color: #007A33;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .dyk-fact {
+            color: #333;
+            line-height: 1.5;
+            font-size: 1.05em;
+        }
+
+        .dyk-nav {
+            display: flex;
+            gap: 10px;
+        }
+
+        .dyk-nav button {
+            background: #004C97;
+            color: white;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: all 0.3s;
+        }
+
+        .dyk-nav button:hover {
+            background: #003366;
+            transform: scale(1.1);
+        }
+
         header {
             background: linear-gradient(135deg, #004C97 0%, #007A33 100%);
             color: white;
@@ -448,6 +540,16 @@
             text-decoration: underline;
         }
 
+        /* Last Updated Badge */
+        .last-updated {
+            text-align: center;
+            padding: 10px;
+            background: #f8f9fa;
+            color: #666;
+            font-size: 0.85em;
+            border-top: 1px solid #e9ecef;
+        }
+
         @media (max-width: 768px) {
             header h1 {
                 font-size: 1.8em;
@@ -492,15 +594,47 @@
                 margin-left: 0;
                 margin-top: 10px;
             }
+
+            .seasonal-banner {
+                padding: 12px 20px;
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .did-you-know {
+                padding: 15px 20px;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .dyk-nav {
+                margin-top: 15px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- Dynamic Seasonal Banner -->
+        <div id="seasonalBanner" class="seasonal-banner"></div>
+
         <header>
             <h1>🧬 Guttmann Research Lab</h1>
             <p>University of West Florida | Department of Biology</p>
         </header>
+
+        <!-- Did You Know Section -->
+        <div class="did-you-know">
+            <div class="dyk-icon">🧠</div>
+            <div class="dyk-content">
+                <div class="dyk-label">Did You Know?</div>
+                <div class="dyk-fact" id="dykFact"></div>
+            </div>
+            <div class="dyk-nav">
+                <button onclick="prevFact()" title="Previous fact">‹</button>
+                <button onclick="nextFact()" title="Next fact">›</button>
+            </div>
+        </div>
 
         <div class="tabs">
             <div class="tab active" data-tab="students">Students</div>
@@ -709,16 +843,6 @@
                             <span class="student-status alumni">Alumni</span>
                         </div>
                     </div>
-
- <div class="student-card has-bio" data-name="Maddy Scott" data-category="alumni" onclick="openModal('maddy-scott')">
-                        <div class="student-photo-container">
-                            <img src="maddy-scott.jpg" alt="Maddy Scott" class="student-photo">
-                        </div>
-                        <div class="student-info">
-                            <div class="student-name">Maddy Scott</div>
-                            <span class="student-status alumni">Alumni</span>
-                        </div>
-                    </div>
                     
               <div class="student-card has-bio" data-name="Matthew Hayslip" data-category="alumni" onclick="openModal('matthew-hayslip')">
     <div class="student-photo-container">
@@ -729,7 +853,18 @@
         <span class="student-status alumni">Alumni</span>
     </div>
 </div>                       
-                                 
+                    
+
+                    <div class="student-card has-bio" data-name="Maddy Scott" data-category="alumni" onclick="openModal('maddy-scott')">
+                        <div class="student-photo-container">
+                            <img src="maddy-scott.jpg" alt="Maddy Scott" class="student-photo">
+                        </div>
+                        <div class="student-info">
+                            <div class="student-name">Maddy Scott</div>
+                            <span class="student-status alumni">Alumni</span>
+                        </div>
+                    </div>
+
                     <div class="student-card" data-name="Nicholas Ludergnani" data-category="alumni">
                         <div class="student-photo-container">
                             <div class="student-photo-placeholder">NL</div>
@@ -1227,7 +1362,160 @@
     </div>
 
     <script>
-// Student biographies
+// ============================================
+// SEASONAL BANNER SYSTEM
+// ============================================
+const seasonalEvents = [
+    // JANUARY
+    { month: 1, startDay: 1, endDay: 7, icon: "🎉", text: "Happy New Year! Wishing our lab family a year of discovery and success.", bg: "linear-gradient(135deg, #FFD700 0%, #FF6B6B 100%)", color: "#333" },
+    { month: 1, startDay: 15, endDay: 21, icon: "✊", text: "Honoring Dr. Martin Luther King Jr. — 'The time is always right to do what is right.'", bg: "linear-gradient(135deg, #4a4a4a 0%, #2c3e50 100%)", color: "white" },
+    
+    // FEBRUARY
+    { month: 2, startDay: 1, endDay: 28, icon: "❤️", text: "February is Heart Health Month — cardiovascular health connects to brain health!", bg: "linear-gradient(135deg, #e74c3c 0%, #c0392b 100%)", color: "white", link: "https://www.heart.org/" },
+    { month: 2, startDay: 14, endDay: 14, icon: "💜", text: "Happy Valentine's Day from the Guttmann Lab!", bg: "linear-gradient(135deg, #e74c3c 0%, #8e44ad 100%)", color: "white" },
+    
+    // MARCH
+    { month: 3, startDay: 11, endDay: 17, icon: "🧠", text: "Brain Awareness Week — celebrating neuroscience research and education!", bg: "linear-gradient(135deg, #9b59b6 0%, #3498db 100%)", color: "white", link: "https://www.dana.org/brain-awareness-week/" },
+    { month: 3, startDay: 17, endDay: 17, icon: "☘️", text: "Happy St. Patrick's Day! May the luck of the Irish be with your experiments.", bg: "linear-gradient(135deg, #27ae60 0%, #2ecc71 100%)", color: "white" },
+    
+    // APRIL
+    { month: 4, startDay: 1, endDay: 1, icon: "🃏", text: "April Fools' Day — but our research results are no joke!", bg: "linear-gradient(135deg, #f39c12 0%, #e74c3c 100%)", color: "white" },
+    { month: 4, startDay: 22, endDay: 22, icon: "🌍", text: "Earth Day — sustainable science for a healthier planet and healthier aging.", bg: "linear-gradient(135deg, #27ae60 0%, #3498db 100%)", color: "white" },
+    { month: 4, startDay: 15, endDay: 21, icon: "🔬", text: "National Volunteer Week — thank you to all who support our research!", bg: "linear-gradient(135deg, #3498db 0%, #9b59b6 100%)", color: "white" },
+    
+    // MAY
+    { month: 5, startDay: 1, endDay: 31, icon: "💚", text: "May is Mental Health Awareness Month — brain health includes mental wellness.", bg: "linear-gradient(135deg, #27ae60 0%, #16a085 100%)", color: "white", link: "https://www.nami.org/Get-Involved/Awareness-Events/Mental-Health-Awareness-Month" },
+    { month: 5, startDay: 1, endDay: 31, icon: "👴", text: "Older Americans Month — celebrating healthy aging research!", bg: "linear-gradient(135deg, #004C97 0%, #007A33 100%)", color: "white" },
+    { month: 5, startDay: 26, endDay: 26, icon: "🇺🇸", text: "Memorial Day — honoring those who served. Lab closed for observance.", bg: "linear-gradient(135deg, #c0392b 0%, #2c3e50 100%)", color: "white" },
+    
+    // JUNE
+    { month: 6, startDay: 1, endDay: 30, icon: "💜", text: "June is Alzheimer's & Brain Awareness Month — #EndALZ. Join us in the fight!", bg: "linear-gradient(135deg, #8e44ad 0%, #3498db 100%)", color: "white", link: "https://www.alz.org/abam" },
+    { month: 6, startDay: 21, endDay: 21, icon: "☀️", text: "Happy Summer Solstice — the longest day to make discoveries!", bg: "linear-gradient(135deg, #f39c12 0%, #e67e22 100%)", color: "white" },
+    
+    // JULY
+    { month: 7, startDay: 4, endDay: 4, icon: "🎆", text: "Happy Independence Day! Lab closed for the holiday.", bg: "linear-gradient(135deg, #c0392b 0%, #2980b9 100%)", color: "white" },
+    
+    // AUGUST
+    { month: 8, startDay: 15, endDay: 31, icon: "📚", text: "Welcome back students! Fall semester research opportunities available.", bg: "linear-gradient(135deg, #004C97 0%, #007A33 100%)", color: "white" },
+    
+    // SEPTEMBER
+    { month: 9, startDay: 1, endDay: 30, icon: "💜", text: "September is World Alzheimer's Month — raising awareness, advancing research.", bg: "linear-gradient(135deg, #8e44ad 0%, #9b59b6 100%)", color: "white", link: "https://www.alzint.org/get-involved/world-alzheimers-month/" },
+    { month: 9, startDay: 21, endDay: 21, icon: "🌍", text: "World Alzheimer's Day — join the global movement to end dementia.", bg: "linear-gradient(135deg, #8e44ad 0%, #3498db 100%)", color: "white", link: "https://www.alzint.org/get-involved/world-alzheimers-day/" },
+    { month: 9, startDay: 2, endDay: 2, icon: "⚙️", text: "Happy Labor Day! Celebrating hard work in science.", bg: "linear-gradient(135deg, #2c3e50 0%, #3498db 100%)", color: "white" },
+    
+    // OCTOBER
+    { month: 10, startDay: 1, endDay: 31, icon: "🎀", text: "October is Breast Cancer Awareness Month — early detection saves lives.", bg: "linear-gradient(135deg, #e91e8c 0%, #ff69b4 100%)", color: "white" },
+    { month: 10, startDay: 31, endDay: 31, icon: "🎃", text: "Happy Halloween from the Guttmann Lab! 🧟‍♂️", bg: "linear-gradient(135deg, #e67e22 0%, #8e44ad 100%)", color: "white" },
+    
+    // NOVEMBER
+    { month: 11, startDay: 1, endDay: 30, icon: "💜", text: "November is National Alzheimer's Disease Awareness Month.", bg: "linear-gradient(135deg, #8e44ad 0%, #004C97 100%)", color: "white", link: "https://www.alz.org/" },
+    { month: 11, startDay: 8, endDay: 8, icon: "🔬", text: "National STEM Day — inspiring the next generation of scientists!", bg: "linear-gradient(135deg, #3498db 0%, #27ae60 100%)", color: "white" },
+    { month: 11, startDay: 28, endDay: 28, icon: "🦃", text: "Happy Thanksgiving! Grateful for our students, mentors, and research community.", bg: "linear-gradient(135deg, #d35400 0%, #c0392b 100%)", color: "white" },
+    
+    // DECEMBER
+    { month: 12, startDay: 1, endDay: 24, icon: "❄️", text: "Season's Greetings from the Guttmann Lab! Wishing you warmth and wonder.", bg: "linear-gradient(135deg, #3498db 0%, #2c3e50 100%)", color: "white" },
+    { month: 12, startDay: 25, endDay: 25, icon: "🎄", text: "Merry Christmas! Lab closed for the holiday.", bg: "linear-gradient(135deg, #27ae60 0%, #c0392b 100%)", color: "white" },
+    { month: 12, startDay: 31, endDay: 31, icon: "🎊", text: "Happy New Year's Eve! Cheers to another year of discoveries.", bg: "linear-gradient(135deg, #f1c40f 0%, #9b59b6 100%)", color: "white" }
+];
+
+function getSeasonalBanner() {
+    const now = new Date();
+    const month = now.getMonth() + 1;
+    const day = now.getDate();
+    
+    // Find matching event (most specific first - single day events take priority)
+    const singleDayEvents = seasonalEvents.filter(e => e.startDay === e.endDay);
+    const rangeEvents = seasonalEvents.filter(e => e.startDay !== e.endDay);
+    
+    // Check single day events first
+    let event = singleDayEvents.find(e => e.month === month && e.startDay === day);
+    
+    // Then check range events
+    if (!event) {
+        event = rangeEvents.find(e => e.month === month && day >= e.startDay && day <= e.endDay);
+    }
+    
+    return event;
+}
+
+function displaySeasonalBanner() {
+    const banner = document.getElementById('seasonalBanner');
+    const event = getSeasonalBanner();
+    
+    if (event) {
+        banner.style.background = event.bg;
+        banner.style.color = event.color;
+        
+        let html = `<span class="banner-icon">${event.icon}</span>`;
+        html += `<span class="banner-text">${event.text}</span>`;
+        if (event.link) {
+            html += `<a href="${event.link}" target="_blank" style="color: ${event.color}">Learn More →</a>`;
+        }
+        
+        banner.innerHTML = html;
+        banner.style.display = 'flex';
+    } else {
+        // Default banner when no special event
+        banner.style.background = 'linear-gradient(135deg, #004C97 0%, #007A33 100%)';
+        banner.style.color = 'white';
+        banner.innerHTML = `
+            <span class="banner-icon">🔬</span>
+            <span class="banner-text">Advancing neuroscience research and training the next generation of scientists.</span>
+        `;
+        banner.style.display = 'flex';
+    }
+}
+
+// ============================================
+// DID YOU KNOW FACTS
+// ============================================
+const neurofacts = [
+    "The human brain contains approximately 86 billion neurons, each forming thousands of connections.",
+    "Your brain uses about 20% of your body's total energy, despite being only 2% of your body weight.",
+    "Tau protein, which we study in our lab, normally helps stabilize microtubules that transport nutrients in neurons.",
+    "The earliest changes in Alzheimer's disease can begin 20 years before symptoms appear, highlighting the importance of early detection research.",
+    "Phage display technology, developed in the 1980s, won the 2018 Nobel Prize in Chemistry and is central to our biomarker research.",
+    "Spider silk is five times stronger than steel by weight, making it a fascinating target for biomaterial engineering.",
+    "Neuroplasticity means your brain can form new neural connections throughout life, which is why cognitive stimulation matters at any age.",
+    "The blood-brain barrier protects your brain but also makes drug delivery challenging, driving innovative research approaches.",
+    "Calpains, enzymes we study in our lab, are involved in memory formation but can cause damage when overactivated.",
+    "Over 55 million people worldwide live with dementia, a number projected to nearly triple by 2050.",
+    "M13 bacteriophages, which we use in our research, are harmless to humans and can display over a billion different peptides.",
+    "Undergraduate research experience is one of the strongest predictors of success in graduate school and STEM careers.",
+    "The hippocampus, critical for memory, is often one of the first brain regions affected in Alzheimer's disease.",
+    "Robotic pets have shown promise in reducing agitation and improving quality of life for people with dementia.",
+    "Alpha-synuclein aggregation in Parkinson's disease shares some mechanisms with tau aggregation in Alzheimer's.",
+    "Your brain generates about 12-25 watts of electricity, enough to power a low-wattage LED bulb."
+];
+
+let currentFactIndex = 0;
+
+function displayFact() {
+    const factElement = document.getElementById('dykFact');
+    factElement.style.opacity = '0';
+    
+    setTimeout(() => {
+        factElement.textContent = neurofacts[currentFactIndex];
+        factElement.style.opacity = '1';
+    }, 200);
+}
+
+function nextFact() {
+    currentFactIndex = (currentFactIndex + 1) % neurofacts.length;
+    displayFact();
+}
+
+function prevFact() {
+    currentFactIndex = (currentFactIndex - 1 + neurofacts.length) % neurofacts.length;
+    displayFact();
+}
+
+// Auto-rotate facts every 15 seconds
+setInterval(nextFact, 15000);
+
+// ============================================
+// STUDENT BIOGRAPHIES
+// ============================================
 const bios = {
    
     'alayna-kliche': {
@@ -1343,7 +1631,9 @@ const bios = {
     }
 };
 
-// Tab switching
+// ============================================
+// TAB SWITCHING
+// ============================================
 document.querySelectorAll('.tab').forEach(tab => {
     tab.addEventListener('click', () => {
         document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
@@ -1354,7 +1644,9 @@ document.querySelectorAll('.tab').forEach(tab => {
     });
 });
 
-// Filter buttons
+// ============================================
+// FILTER BUTTONS
+// ============================================
 document.querySelectorAll('.filter-btn').forEach(button => {
     button.addEventListener('click', () => {
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -1373,7 +1665,9 @@ document.querySelectorAll('.filter-btn').forEach(button => {
     });
 });
 
-// Search functionality
+// ============================================
+// SEARCH FUNCTIONALITY
+// ============================================
 document.getElementById('searchInput').addEventListener('input', (e) => {
     const searchTerm = e.target.value.toLowerCase();
     const cards = document.querySelectorAll('.student-card');
@@ -1388,7 +1682,9 @@ document.getElementById('searchInput').addEventListener('input', (e) => {
     });
 });
 
-// Project details toggle
+// ============================================
+// PROJECT DETAILS TOGGLE
+// ============================================
 function toggleDetails(button) {
     const projectCard = button.closest('.project-card');
     const details = projectCard.querySelector('.project-details');
@@ -1402,7 +1698,9 @@ function toggleDetails(button) {
     }
 }
 
-// Modal functions for student bios
+// ============================================
+// MODAL FUNCTIONS
+// ============================================
 function openModal(studentId) {
     const bio = bios[studentId];
     if (bio) {
@@ -1410,7 +1708,6 @@ function openModal(studentId) {
         document.getElementById('modalClass').innerHTML = bio.class;
         document.getElementById('modalBio').innerHTML = bio.bio;
         
-        // Handle optional link
         const linkContainer = document.getElementById('modalLink');
         if (bio.link) {
             linkContainer.innerHTML = '<a href="' + bio.link + '" target="_blank" class="profile-link">🔗 View Profile</a>';
@@ -1419,8 +1716,6 @@ function openModal(studentId) {
         }
         
         document.getElementById('bioModal').style.display = 'block';
-        
-        // After modal content is loaded, attach event listeners to internal project links
         attachProjectLinkListeners();
     }
 }
@@ -1430,16 +1725,13 @@ function closeModal() {
 }
 
 function switchToProjects(projectId) {
-    // Switch to Projects tab
     document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
     document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
     document.querySelector('[data-tab="projects"]').classList.add('active');
     document.getElementById('projects-content').classList.add('active');
     
-    // Close the bio modal
     closeModal();
     
-    // Scroll to specific project if ID provided
     if (projectId) {
         setTimeout(() => {
             const element = document.getElementById(projectId);
@@ -1452,7 +1744,6 @@ function switchToProjects(projectId) {
     }
 }
 
-// Attach event listeners to project links within modal
 function attachProjectLinkListeners() {
     const projectLinks = document.querySelectorAll('.project-link-internal');
     projectLinks.forEach(link => {
@@ -1464,22 +1755,28 @@ function attachProjectLinkListeners() {
     });
 }
 
-// Event delegation for student cards
+// ============================================
+// INITIALIZATION
+// ============================================
 document.addEventListener('DOMContentLoaded', () => {
-    const studentsGrid = document.getElementById('studentsGrid');
+    // Display seasonal banner
+    displaySeasonalBanner();
     
+    // Display first fact
+    displayFact();
+    
+    // Student card click handling
+    const studentsGrid = document.getElementById('studentsGrid');
     studentsGrid.addEventListener('click', (e) => {
-        // Find the student card that was clicked
         const card = e.target.closest('.student-card.has-bio');
         if (card) {
-            // Extract student ID from the data-name attribute
             const studentName = card.getAttribute('data-name');
             const studentId = studentName.toLowerCase().replace(/'/g, '').replace(/\s+/g, '-');
             openModal(studentId);
         }
     });
     
-    // Close modal when clicking outside of it
+    // Modal close handling
     const modal = document.getElementById('bioModal');
     window.addEventListener('click', (event) => {
         if (event.target === modal) {
@@ -1487,7 +1784,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     
-    // Close button
     const closeBtn = document.querySelector('.close');
     if (closeBtn) {
         closeBtn.addEventListener('click', closeModal);

@@ -636,7 +636,15 @@
                         </div>
                     </div>
 
-                   
+                         <div class="student-card has-bio" data-name="Soni Sherpa" data-category="current">
+    <div class="student-photo-container">
+        <img src="soni-sherpa.jpg" alt="Soni Sherpa" class="student-photo">
+    </div>
+    <div class="student-info">
+        <div class="student-name">Soni Sherpa</div>
+        <span class="student-status">Current Student</span>
+    </div>
+</div>
 
                     <div class="student-card has-bio" data-name="Sean Bacon" data-category="current" onclick="openModal('sean-bacon')">
                         <div class="student-photo-container">
@@ -699,17 +707,12 @@
     </div>
 </div>
 
-                    <div class="student-card has-bio" data-name="Soni Sherpa" data-category="current">
-    <div class="student-photo-container">
-        <img src="soni-sherpa.jpg" alt="Soni Sherpa" class="student-photo">
-    </div>
-    <div class="student-info">
-        <div class="student-name">Soni Sherpa</div>
-        <span class="student-status">Current Student</span>
-    </div>
+                    <div class="student-card" data-status="alumni" onclick="openModal('matthew-hayslip')">
+    <img src="matthew-hayslip.jpg" alt="Matthew Hayslip">
+    <h3>Matthew Hayslip</h3>
+    <p>B.S. Biomedical Science, 2019</p>
 </div>
-
-                    
+                               
                     <div class="student-card has-bio" data-name="Joshua Cook" data-category="alumni" onclick="openModal('joshua-cook')">
                         <div class="student-photo-container">
                             <img src="joshua-cook.jpg" alt="Joshua Cook" class="student-photo">
@@ -1313,6 +1316,13 @@ const bios = {
         class: 'Class of 2022 | Biology Major<br>Minor: Kugelman Honors Program',
         bio: 'Stephanie graduated from the University of West Florida in 2022 with a degree in Biology and a minor in the Kugelman Honors Program. She worked in the Guttmann Lab from Spring 2020 to Spring 2022, contributing to NIH-funded research on early Alzheimer\'s detection.<br><br>Following her bachelor\'s degree, Stephanie completed a post-baccalaureate research fellowship at the National Institute of Environmental Health Sciences (NIEHS/NIH) under the mentorship of Dr. Serena Dudek, where she focused on hippocampal area CA2 and synaptic plasticity. This work explored a unique brain region involved in social memory and learning. Currently, Stephanie is a PhD student in the Pharmacology Graduate Program at the University of Pennsylvania\'s Perelman School of Medicine, where her research interests focus on discovering therapeutic targets for various diseases.<br><br><strong>Research Project:</strong> <a href="#" class="project-link-internal" data-project="nih-alzheimers" style="color: #007A33; font-weight: 600; text-decoration: underline;">NIH-Funded Research on Early Alzheimer\'s Detection</a>'
     },
+
+    'matthew-hayslip': {
+    name: 'Matthew Hayslip',
+    degree: 'B.S. Biomedical Science, 2019',
+    image: 'matthew-hayslip.jpg',
+    bio: 'Matt conducted research on neurodegenerative diseases in the Guttmann Lab from 2017 to 2019, contributing to phage-based biomarker development for Alzheimer\'s disease detection. He presented this work at the National Conference on Undergraduate Research in Oklahoma City and the UWF Student Scholars Symposium. Matt also designed and implemented an independent study examining N-Acetyl Cysteine\'s effects on neuroblastoma cell lines, exploring potential therapeutic approaches for Parkinson\'s disease. During his time at UWF, he placed in the College of Business Elevator Pitch competition alongside fellow lab members.<br><br>After graduating, Matt earned a second bachelor\'s degree in Computer Engineering from Florida Atlantic University and is currently pursuing his M.S. in Analytics at Georgia Institute of Technology. He works as a Data Scientist at SIXT, where he architects ETL pipelines and develops business intelligence dashboards to drive data-driven decision making.<br><br><a href="https://www.linkedin.com/in/matthewhayslip/" target="_blank">Connect on LinkedIn</a>'
+},
 
     'soni-sherpa': {
     name: 'Soni Sherpa',

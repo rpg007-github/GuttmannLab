@@ -505,7 +505,7 @@
         <div class="tabs">
             <div class="tab active" data-tab="students">Students</div>
             <div class="tab" data-tab="projects">Projects</div>
-            <div class="tab" data-tab="outcomes">Outcomes</div>
+            <div class="tab" data-tab="outcomes">Beyond UWF</div>
         </div>
 
         <div class="tab-content active" id="students-content">
@@ -960,7 +960,7 @@
         <div class="tab-content" id="outcomes-content">
             <div style="text-align: center; padding: 60px 20px; color: #6c757d;">
                 <div style="font-size: 72px; margin-bottom: 20px;">🎓</div>
-                <h2>Student Outcomes</h2>
+                <h2>Beyond UWF</h2>
                 <p>Coming Soon</p>
             </div>
         </div>
@@ -992,12 +992,12 @@
             'alayna-kliche': {
                 name: 'Alayna Kliche',
                 class: 'Class of 2028 | Biomedical Sciences Major',
-                bio: 'Alayna was born in Rapid City, South Dakota and graduated from Pace High School in 2024. She is majoring in Biomedical Sciences and plans to attend medical school to become a neurosurgeon. In addition to her interests in biology and healthcare, Alayna enjoys spending time with family and friends, learning new skills, and creating 3D art through ceramics and crochet.'
+                bio: 'Alayna was born in Rapid City, South Dakota and graduated from Pace High School in 2024. She is majoring in Biomedical Sciences and plans to attend medical school to become a neurosurgeon. In addition to her interests in biology and healthcare, Alayna enjoys spending time with family and friends, learning new skills, and creating 3D art through ceramics and crochet.'<br><br><strong>Research Project:</strong> <a href="#" onclick="switchToProjects(); return false;" style="color: #007A33; font-weight: 600; text-decoration: underline;">NIH-Funded Research on Early Alzheimer\'s Detection</a>
             },
             'bonnie-bruner': {
                 name: 'Bonnie Bruner',
                 class: 'Class of 2026 | Biomedical Sciences Major<br>Minors: Medical Humanities, Kugelman Honors',
-                bio: 'Bonnie joined the Guttmann Lab through the FYRE program in 2022, where her research focuses on targeting the receptor tyrosine kinase EGFR. Outside the lab, she is preparing for medical school and serves as a mentor to fellow students in the University of West Florida\'s Biology Department.'
+                bio: 'Bonnie joined the Guttmann Lab through the FYRE program in 2022, where her research focuses on targeting the receptor tyrosine kinase EGFR. Outside the lab, she is preparing for medical school and serves as a mentor to fellow students in the University of West Florida\'s Biology Department.' <br><br><strong>Research Project:</strong> <a href="#" onclick="switchToProjects(); return false;" style="color: #007A33; font-weight: 600; text-decoration: underline;">Phage-Display for Cancer Treatment (Targeting RTKs)</a>
             },
             'bryley-lyublanovits': {
                 name: 'Bryley Lyublanovits',
@@ -1174,7 +1174,17 @@
         function closeModal() {
             document.getElementById('bioModal').style.display = 'none';
         }
-
+function switchToProjects() {
+    // Switch to Projects tab
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    document.querySelector('[data-tab="projects"]').classList.add('active');
+    document.getElementById('projects-content').classList.add('active');
+    // Close the bio modal
+    closeModal();
+    // Scroll to top
+    window.scrollTo(0, 0);
+}
         // Close modal when clicking outside of it
         window.onclick = function(event) {
             const modal = document.getElementById('bioModal');

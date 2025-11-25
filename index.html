@@ -1497,6 +1497,7 @@ function displaySeasonalBanner() {
 // DID YOU KNOW FACTS
 // ============================================
 const neurofacts = [
+    // ORIGINAL 16
     "The human brain contains approximately 86 billion neurons, each forming thousands of connections.",
     "Your brain uses about 20% of your body's total energy, despite being only 2% of your body weight.",
     "Tau protein, which we study in our lab, normally helps stabilize microtubules that transport nutrients in neurons.",
@@ -1512,7 +1513,98 @@ const neurofacts = [
     "The hippocampus, critical for memory, is often one of the first brain regions affected in Alzheimer's disease.",
     "Robotic pets have shown promise in reducing agitation and improving quality of life for people with dementia.",
     "Alpha-synuclein aggregation in Parkinson's disease shares some mechanisms with tau aggregation in Alzheimer's.",
-    "Your brain generates about 12-25 watts of electricity, enough to power a low-wattage LED bulb."
+    "Your brain generates about 12-25 watts of electricity, enough to power a low-wattage LED bulb.",
+
+    // BRAIN & NEUROSCIENCE
+    "The brain's texture is similar to firm tofu or soft butter, which is why the skull and cerebrospinal fluid are so important for protection.",
+    "Information can travel through neurons at speeds up to 268 miles per hour.",
+    "The human brain triples in size during the first year of life and doesn't fully mature until around age 25.",
+    "Your brain processes images in as little as 13 milliseconds, faster than the blink of an eye.",
+    "The brain has no pain receptors, which is why brain surgery can be performed while patients are awake.",
+    "Neurons can live for over 100 years, making them among the longest-lived cells in the human body.",
+    "The average adult brain weighs about 3 pounds, roughly the same as a cantaloupe.",
+    "Your brain is about 73% water, and even mild dehydration can affect concentration and memory.",
+    "The brain can process approximately 11 million bits of information per second, though we're only conscious of about 40.",
+    "Synapses, the connections between neurons, number around 100 trillion in the adult brain.",
+    "The cerebral cortex, if flattened out, would be about the size of a large pizza.",
+    "Brain cells called astrocytes outnumber neurons and play crucial roles in brain function and disease.",
+    "The brain continues to form new neurons in certain regions throughout adulthood, a process called neurogenesis.",
+    "Myelin, the fatty coating on neurons, increases signal speed by up to 100 times.",
+    "The left and right hemispheres of the brain are connected by about 200 million nerve fibers called the corpus callosum.",
+
+    // ALZHEIMER'S & DEMENTIA
+    "Alzheimer's disease was first described by Dr. Alois Alzheimer in 1906 after examining a patient named Auguste Deter.",
+    "Two-thirds of Americans with Alzheimer's disease are women.",
+    "Alzheimer's is the sixth leading cause of death in the United States.",
+    "The cost of caring for those with Alzheimer's and other dementias is estimated at $355 billion annually in the U.S.",
+    "There are over 6 million Americans currently living with Alzheimer's disease.",
+    "Caregivers for people with dementia provide an estimated 18 billion hours of unpaid care annually.",
+    "The word 'dementia' comes from the Latin 'de' (out of) and 'mens' (mind).",
+    "Alzheimer's disease accounts for 60-80% of all dementia cases.",
+    "Sleep may help clear beta-amyloid and other toxic proteins from the brain through the glymphatic system.",
+    "Exercise has been shown to reduce the risk of cognitive decline and may slow Alzheimer's progression.",
+    "Social engagement and lifelong learning are associated with reduced dementia risk.",
+    "The amyloid hypothesis, proposed in 1991, suggests that beta-amyloid plaques are central to Alzheimer's pathology.",
+    "Tau tangles spread through the brain in a predictable pattern as Alzheimer's disease progresses.",
+    "Cognitive reserve, built through education and mental stimulation, may help the brain compensate for early damage.",
+    "Music therapy can help people with dementia recall memories and improve mood, even in late stages.",
+    "The sense of smell is often one of the first things affected in Alzheimer's disease.",
+    
+    // TAU & PROTEIN RESEARCH
+    "Tau protein was discovered in 1975 and named for its role in promoting microtubule assembly.",
+    "There are six different forms of tau protein in the adult human brain, created by alternative splicing.",
+    "Tau can have over 80 different sites where phosphate groups can be added, affecting its function.",
+    "Tau tangles can spread from neuron to neuron in a prion-like manner.",
+    "The tau protein contains regions that can form structures called beta-sheets, which promote aggregation.",
+    "Post-translational modifications of tau, beyond phosphorylation, include acetylation, ubiquitination, and truncation.",
+    "Tau oligomers, small clusters of misfolded tau, may be more toxic than the larger tangles.",
+    "Targeting tau has become a major focus of Alzheimer's drug development in recent years.",
+    
+    // PHAGE DISPLAY & RESEARCH METHODS
+    "A single phage display library can contain over 10 billion different peptide sequences.",
+    "George Smith and Sir Gregory Winter shared the 2018 Nobel Prize for developing and applying phage display technology.",
+    "Phage display has been used to develop several FDA-approved drugs, including adalimumab (Humira).",
+    "Biopanning, the selection process in phage display, typically involves 3-5 rounds of selection to enrich for binders.",
+    "M13 phage is about 900 nanometers long but only 6 nanometers wide, giving it a thread-like shape.",
+    "Directed evolution mimics natural selection in the laboratory to create improved proteins.",
+    "The 2018 Nobel Prize in Chemistry recognized directed evolution alongside phage display technology.",
+    "Error-prone PCR deliberately introduces mutations at a rate of about 1-3 per 1000 base pairs.",
+    
+    // AGING & HEALTHSPAN
+    "The global population of people over 65 is expected to double by 2050.",
+    "Sarcopenia, age-related muscle loss, can begin as early as age 30 and accelerates after 60.",
+    "Bone density peaks around age 30 and gradually declines thereafter.",
+    "Regular weight-bearing exercise can help maintain bone density and muscle mass with aging.",
+    "The number of Americans over 85 is projected to triple by 2060.",
+    "Falls are the leading cause of injury death among adults 65 and older.",
+    "Healthy lifestyle factors may add over a decade of disease-free life expectancy.",
+    "The field of geroscience studies how aging processes contribute to multiple age-related diseases.",
+    
+    // PARKINSON'S & OTHER DISEASES
+    "Parkinson's disease affects about 1 million Americans and 10 million people worldwide.",
+    "Lewy bodies, found in Parkinson's disease, are primarily composed of aggregated alpha-synuclein protein.",
+    "James Parkinson first described the disease in 1817 in 'An Essay on the Shaking Palsy.'",
+    "Deep brain stimulation can dramatically improve symptoms for some Parkinson's patients.",
+    "The gut microbiome may play a role in Parkinson's disease, with some researchers calling it a 'gut-brain' disorder.",
+    "Frontotemporal dementia often affects personality and behavior before memory.",
+    "Chronic traumatic encephalopathy (CTE) involves tau pathology similar to Alzheimer's disease.",
+    
+    // SPIDER SILK & BIOMATERIALS
+    "Spiders produce up to seven different types of silk, each with unique properties.",
+    "Darwin's bark spider produces silk ten times tougher than Kevlar.",
+    "Spider silk is biodegradable and biocompatible, making it attractive for medical applications.",
+    "Scientists have engineered goats, silkworms, and bacteria to produce spider silk proteins.",
+    "Spider silk could potentially be used for artificial tendons, sutures, and tissue engineering.",
+    "The dragline silk spiders use for their web frames can stretch up to 40% without breaking.",
+    
+    // CAREER & EDUCATION
+    "Students who participate in undergraduate research are more likely to pursue advanced degrees.",
+    "The NIH invests over $42 billion annually in medical research.",
+    "STEM careers are projected to grow 10.8% from 2021 to 2031, faster than other occupations.",
+    "Mentorship in research has been shown to increase student confidence and career success.",
+    "Presenting research at conferences builds communication skills valued across all careers.",
+    "Collaborative research teaches teamwork skills that translate to any professional setting.",
+    "Critical thinking developed through research applies to careers far beyond the laboratory."
 ];
 
 let currentFactIndex = 0;

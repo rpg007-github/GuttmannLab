@@ -412,6 +412,24 @@
             margin-bottom: 20px;
         }
 
+        .profile-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            background: #007A33;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .profile-link:hover {
+            background: #005a24;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,122,51,0.3);
+        }
+
         footer {
             background: #2c3e50;
             color: white;
@@ -689,9 +707,9 @@
                         </div>
                     </div>
 
-                    <div class="student-card has-bio" data-name="Maddy Scott" data-category="alumni" onclick="openModal('maddy-scott')">
+                    <div class="student-card" data-name="Maddy Scott" data-category="alumni">
                         <div class="student-photo-container">
-                            <img src="maddy-scott.jpg" alt="Maddy Scott" class="student-photo">
+                            <div class="student-photo-placeholder">MS</div>
                         </div>
                         <div class="student-info">
                             <div class="student-name">Maddy Scott</div>
@@ -711,7 +729,7 @@
 
                     <div class="student-card has-bio" data-name="Peyton Lurk" data-category="alumni" onclick="openModal('peyton-lurk')">
                         <div class="student-photo-container">
-                            <img src="peyton-lurk.jpg" alt="Peyton Lurk" class="student-photo">
+                            <div class="student-photo-placeholder">PL</div>
                         </div>
                         <div class="student-info">
                             <div class="student-name">Peyton Lurk</div>
@@ -959,7 +977,10 @@
                 <h2 id="modalName"></h2>
                 <div class="class-info" id="modalClass"></div>
             </div>
-            <div class="modal-body" id="modalBio"></div>
+            <div class="modal-body">
+                <div id="modalBio"></div>
+                <div id="modalLink"></div>
+            </div>
         </div>
     </div>
 
@@ -1014,7 +1035,8 @@
             'abby-williamson': {
                 name: 'Abby Williamson',
                 class: 'Class of 2022 | B.S. Biomedical Sciences',
-                bio: 'Abby graduated from UWF in 2022 with a Bachelor of Science in Biomedical Sciences. She is currently pursuing her PhD in Molecular Nutrition at the University of Alabama at Birmingham (UAB), where she is advancing her research interests in the molecular mechanisms underlying nutrition and health.'
+                bio: 'Abby graduated from UWF in 2022 with a Bachelor of Science in Biomedical Sciences. She is currently pursuing her PhD in Molecular Nutrition at the University of Alabama at Birmingham (UAB), where she is advancing her research interests in the molecular mechanisms underlying nutrition and health.',
+                link: 'https://www.linkedin.com/in/abigail-williamson-29873a23a'
             },
             'allie-linkous': {
                 name: 'Allie Linkous',
@@ -1027,16 +1049,11 @@
                 bio: 'Joshua is an interdisciplinary professional with over 8 years of experience in Biomedical Science, 5+ years in Clinical Research, and 2+ years in Data Science, with a strong ability to synthesize complex data, develop predictive models, and lead impactful clinical research projects. Currently, he is a Clinical Researcher at Woodlands Medical Specialists and an Adjunct Instructor at the University of West Florida. Certified in Project Management and Clinical Research Coordination, he is committed to advancing healthcare through innovative clinical trial design and management. As a science communicator and instructor, he excels in conveying complex information to diverse audiences and is passionate about teaching and mentorship.'
             },
             'peyton-lurk': {
-        name: 'Peyton Lurk',
-        class: 'B.S. Biomedical Sciences (UWF) | M.P.H. (FSU)',
-        bio: 'Peyton holds a Bachelor\'s degree...'
-    },
-    'maddy-scott': {
-        name: 'Maddy Scott',
-        class: 'Class of 2024 | B.S. Biomedical Sciences<br>Minor: Kugelman Honors Program',
-        bio: 'Maddy graduated summa cum laude from the University of West Florida in May 2024 with a degree in Biomedical Sciences and a minor in the Kugelman Honors Program. She worked in the Guttmann Lab from 2021 to 2024, where her research focused on testing the peptide LSEAL and its potential inhibitory effects on calpain hyperactivation in Alzheimer\'s disease. Her work involved western blots, in vitro calpain assays, bacterial phage techniques, DNA sequencing, and data analysis using GraphPad Prism.<br><br>Currently, Maddy is a first-year medical student at the Alabama College of Osteopathic Medicine. During her gap year, she worked as a medical scribe at a local neurology clinic. She is passionate about neurodegenerative diseases, seizure disorders, and brain neoplasms, with a particular interest in Alzheimer\'s disease, Parkinson\'s disease, and traumatic brain injury. As a future physician, she hopes to bridge gaps in communication and patient care while emphasizing a warm and welcoming environment for patients with debilitating neurodegenerative conditions.'
-    }
-};
+                name: 'Peyton Lurk',
+                class: 'B.S. Biomedical Sciences (UWF) | M.P.H. (FSU)',
+                bio: 'Peyton holds a Bachelor\'s degree in Biomedical Sciences from the University of West Florida and a Master\'s degree in Public Health from Florida State University. As an undergraduate, he conducted research in the Guttmann Laboratory, focusing on the protein calpain. During his graduate studies, Peyton interned at the Florida Agency for Health Care Administration (AHCA), where he collaborated with the Chief Medical Officer on public health initiatives, including a statewide colorectal cancer screening campaign and a legislative report on Medicaid utilization among patients with sickle cell disease.<br><br>Currently, Peyton serves as an Epidemiologist at the Florida Department of Health (FDOH). His work centers on reducing cancer mortality throughout Florida through data-driven analysis, policy development, and strategic partnerships. He works closely with organizations such as the Florida Cancer Data System, Florida Cancer Connect, and Florida\'s four National Cancer Institutes.'
+            }
+        };
 
         // Tab switching
         document.querySelectorAll('.tab').forEach(tab => {
@@ -1104,6 +1121,15 @@
                 document.getElementById('modalName').textContent = bio.name;
                 document.getElementById('modalClass').innerHTML = bio.class;
                 document.getElementById('modalBio').innerHTML = bio.bio;
+                
+                // Handle optional link
+                const linkContainer = document.getElementById('modalLink');
+                if (bio.link) {
+                    linkContainer.innerHTML = '<a href="' + bio.link + '" target="_blank" class="profile-link">🔗 View Profile</a>';
+                } else {
+                    linkContainer.innerHTML = '';
+                }
+                
                 document.getElementById('bioModal').style.display = 'block';
             }
         }

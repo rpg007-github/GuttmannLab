@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guttmann Research Lab | Student Researchers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --uwf-blue: #004C97;
+            --uwf-green: #007A33;
+            --uwf-blue-light: #009CDE;
+            --uwf-green-light: #40A829;
+            --uwf-blue-dark: #003865;
+            --uwf-green-dark: #005a28;
+            --uwf-gold: #FFB81C;
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a5568;
+            --bg-light: #f8fafc;
+            --bg-card: #ffffff;
+            --border-color: #e2e8f0;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg-light); color: var(--text-primary); line-height: 1.6; }
+        
+        header { background: linear-gradient(135deg, var(--uwf-blue) 0%, var(--uwf-blue-dark) 100%); color: white; padding: 2.5rem 2rem; text-align: center; }
+        header h1 { font-size: 2.25rem; font-weight: 700; margin-bottom: 0.25rem; }
+        header .subtitle { font-size: 1rem; opacity: 0.9; margin-bottom: 0.75rem; }
+        header p { font-size: 0.95rem; opacity: 0.85; max-width: 700px; margin: 0 auto; }
+        
+        .nav-tabs { display: flex; justify-content: center; gap: 0.75rem; padding: 1rem; background: white; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100; flex-wrap: wrap; }
+        .tab-btn { padding: 0.6rem 1.25rem; border: 2px solid var(--uwf-blue); background: white; color: var(--uwf-blue); font-size: 0.9rem; font-weight: 600; border-radius: 8px; cursor: pointer; transition: all 0.2s ease; }
+        .tab-btn:hover, .tab-btn.active { background: var(--uwf-blue); color: white; }
+        
+        .container { max-width: 1100px; margin: 0 auto; padding: 1.5rem; }
+        
+        .section-header { margin-bottom: 1.5rem; text-align: center; }
+        .section-header h2 { font-size: 1.5rem; color: var(--uwf-blue); margin-bottom: 0.25rem; }
+        .section-header p { color: var(--text-secondary); font-size: 0.95rem; }
+        
+        .student-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.25rem; }
+        
+        .student-card-full { background: var(--bg-card); border-radius: 12px; border: 1px solid var(--border-color); overflow: hidden; transition: box-shadow 0.2s ease; }
+        .student-card-full:hover { box-shadow: 0 4px 20px rgba(0, 76, 151, 0.15); }
+        
+        .student-photo-container { width: 100%; height: 280px; overflow: hidden; background: linear-gradient(135deg, var(--uwf-blue) 0%, var(--uwf-green) 100%); display: flex; align-items: center; justify-content: center; }
+        .student-photo { width: 100%; height: 100%; object-fit: cover; }
+        .student-photo-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 4rem; font-weight: 700; color: white; opacity: 0.7; }
+        
+        .student-details { padding: 1.25rem; }
+        .student-details h3 { font-size: 1.2rem; color: var(--text-primary); margin-bottom: 0.25rem; }
+        .student-meta-info { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.5rem; font-size: 0.8rem; }
+        .class-year { background: var(--uwf-gold); color: white; padding: 0.15rem 0.5rem; border-radius: 4px; font-weight: 600; }
+        .major { color: var(--text-secondary); }
+        .student-status { color: var(--uwf-blue); font-weight: 600; font-size: 0.85rem; margin-bottom: 0.25rem; }
+        .student-project { color: var(--text-secondary); font-size: 0.8rem; margin-bottom: 0.75rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border-color); }
+        .student-bio { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 0.75rem; }
+        .pub-badge { display: inline-block; background: #fef3c7; color: #92400e; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.8rem; font-weight: 600; text-decoration: none; margin-right: 0.5rem; margin-bottom: 0.5rem; }
+        .pub-badge:hover { background: #fde68a; }
+        .linkedin-badge { display: inline-block; background: #dbeafe; color: #1e40af; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.8rem; font-weight: 600; text-decoration: none; }
+        .linkedin-badge:hover { background: #bfdbfe; }
+        
+        .filter-buttons { display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .filter-btn { padding: 0.5rem 1rem; border: 1px solid var(--border-color); background: white; color: var(--text-secondary); font-size: 0.85rem; border-radius: 20px; cursor: pointer; transition: all 0.2s; }
+        .filter-btn:hover, .filter-btn.active { background: var(--uwf-blue); color: white; border-color: var(--uwf-blue); }
+        
+        .search-bar { margin-bottom: 1.5rem; }
+        .search-bar input { width: 100%; max-width: 400px; display: block; margin: 0 auto; padding: 0.75rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; font-size: 0.95rem; }
+        .search-bar input:focus { outline: none; border-color: var(--uwf-blue); }
+        
+        footer { background: var(--uwf-blue-dark); color: white; padding: 1.5rem; text-align: center; margin-top: 2rem; }
+        footer a { color: var(--uwf-gold); }
+        
+        .hidden { display: none !important; }
+        
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.75rem; }
+            .student-grid { grid-template-columns: 1fr; }
+            .student-photo-container { height: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- 
+===================================================================================
+EDITING INSTRUCTIONS - READ THIS BEFORE MAKING CHANGES
+===================================================================================
+
+HOW TO ADD A STUDENT PHOTO:
+1. Upload the photo to the "photos" folder in this repository
+2. Find the student's card below (search for their name)
+3. Replace this line:
+   <div class="student-photo-placeholder">INITIALS</div>
+   
+   With this line:
+   <img src="photos/firstname-lastname.jpg" alt="Student Name" class="student-photo">
+   
+   Example:
+   <img src="photos/alayna-kliche.jpg" alt="Alayna Kliche" class="student-photo">
+
+HOW TO ADD A NEW STUDENT:
+1. Copy an entire student card section (from <div class="student-card-full"> to its closing </div>)
+2. Paste it where you want the new student to appear
+3. Update all the information:
+   - data-name (lowercase name for search)
+   - data-category ("current" or "alumni")
+   - Photo (add photo or use placeholder with initials)
+   - Name (h3 tag)
+   - Class year, major
+   - Status, project description
+   - Bio
+   - Publications/LinkedIn (if applicable)
+
+HOW TO CHANGE A STUDENT FROM CURRENT TO ALUMNI:
+1. Find the student's card
+2. Change: data-category="current" to data-category="alumni"
+3. Update their status line to show where they went (e.g., "Ph.D. Student at UPenn")
+
+HOW TO UPDATE TEXT (Header, Footer, etc.):
+1. Find the section you want to edit (use Ctrl+F to search)
+2. Change the text between the HTML tags
+3. Don't change anything inside < > brackets
+
+UPLOADING TO GITHUB:
+1. Save this file
+2. Go to your GuttmannLab repository on GitHub
+3. Click "Add file" > "Upload files"
+4. Drag this file and your photos folder
+5. Click "Commit changes"
+
+Your site will be live at: https://rpg007-github.github.io/GuttmannLab/
+
+===================================================================================
+-->
+
+    <header>
+        <h1>Guttmann Research Lab</h1>
+        <p class="subtitle">University of West Florida | Department of Biology</p>
+        <p><a href="https://uwf.edu/hmcse/departments/biology/faculty/dr-rodney-guttmann.html" target="_blank" style="color:#FFB81C;">Dr. Rodney P. Guttmann, Principal Investigator</a></p>
+        <p style="margin-top:0.5rem;opacity:0.85;">Training the next generation of scientists while advancing neuroscience research to fight Alzheimer's and support caregivers.</p>
+    </header>
+
+    <nav class="nav-tabs">
+        <button class="tab-btn active" onclick="showTab('students')">Our Students</button>
+        <button class="tab-btn" onclick="showTab('projects')">Research Projects</button>
+        <button class="tab-btn" onclick="showTab('outcomes')">Student Outcomes</button>
+    </nav>
+
+    <main class="container">
+        <!-- Students Tab -->
+        <section id="students-tab">
+            <div class="section-header">
+                <h2>Meet Our Student Researchers</h2>
+                <p>Undergraduate and graduate students conducting cutting-edge biomedical research</p>
+            </div>
+            
+            <div class="search-bar">
+                <input type="text" id="student-search" placeholder="Search by name, project, or major..." oninput="filterStudents()">
+            </div>
+            
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterCategory('all', this)">All Students</button>
+                <button class="filter-btn" onclick="filterCategory('current', this)">Current</button>
+                <button class="filter-btn" onclick="filterCategory('alumni', this)">Alumni</button>
+            </div>
+            
+            <div class="student-grid" id="student-grid">
+                <!-- STUDENT CARD EXAMPLE - Copy this entire section to add a new student -->
+                <div class="student-card-full" data-name="alayna kliche" data-category="current">
+                    <div class="student-photo-container">
+                        <!-- TO ADD PHOTO: Replace the line below with <img src="photos/alayna-kliche.jpg" alt="Alayna Kliche" class="student-photo"> -->
+                        <div class="student-photo-placeholder">AK</div>
+                    </div>
+                    <div class="student-details">
+                        <h3>Alayna Kliche</h3>
+                        <div class="student-meta-info">
+                            <span class="class-year">Senior</span>
+                            <span class="major">Biomedical Sciences</span>
+                        </div>
+                        <p class="student-status">Current Undergraduate Researcher</p>
+                        <p class="student-project">Project: Investigating tau protein phosphorylation sites using phage display and recombinant protein expression</p>
+                        <p class="student-bio">Alayna is exploring how specific tau phosphorylation patterns contribute to Alzheimer's disease pathology. Her work involves molecular cloning and protein biochemistry techniques.</p>
+                    </div>
+                </div>
+
+                <div class="student-card-full" data-name="skylar perry" data-category="current">
+                    <div class="student-photo-container">
+                        <!-- TO ADD PHOTO: Replace the line below with <img src="photos/skylar-perry.jpg" alt="Skylar Perry" class="student-photo"> -->
+                        <div class="student-photo-placeholder">SP</div>
+                    </div>
+                    <div class="student-details">
+                        <h3>Skylar Perry</h3>
+                        <div class="student-meta-info">
+                            <span class="class-year">Senior</span>
+                            <span class="major">Biomedical Sciences</span>
+                        </div>
+                        <p class="student-status">Current Undergraduate Researcher</p>
+                        <p class="student-project">Project: Characterizing novel tau-binding peptides identified through phage display screening</p>
+                        <p class="student-bio">Skylar's research focuses on validating peptide interactions with tau protein using biochemical assays. She is developing expertise in protein purification and binding studies.</p>
+                    </div>
+                </div>
+
+                <div class="student-card-full" data-name="abby williamson" data-category="alumni">
+                    <div class="student-photo-container">
+                        <div class="student-photo-placeholder">AW</div>
+                    </div>
+                    <div class="student-details">
+                        <h3>Abby Williamson</h3>
+                        <div class="student-meta-info">
+                            <span class="class-year">2024 Graduate</span>
+                            <span class="major">Biomedical Sciences</span>
+                        </div>
+                        <p class="student-status">Ph.D. Student - University of Alabama at Birmingham</p>
+                        <p class="student-project">Thesis: Novel peptide inhibitors targeting tau aggregation in Alzheimer's disease</p>
+                        <p class="student-bio">Abby led breakthrough research identifying peptide sequences that prevent tau protein aggregation. Her honors thesis earned department recognition and she presented at multiple national conferences.</p>
+                        <div>
+                            <a href="#" class="pub-badge">📄 Publication</a>
+                            <a href="#" class="linkedin-badge">LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="student-card-full" data-name="brennen lewis" data-category="alumni">
+                    <div class="student-photo-container">
+                        <div class="student-photo-placeholder">BL</div>
+                    </div>
+                    <div class="student-details">
+                        <h3>Brennen Lewis</h3>
+                        <div class="student-meta-info">
+                            <span class="class-year">2023 Graduate</span>
+                            <span class="major">Biology</span>
+                        </div>
+                        <p class="student-status">Ph.D. Student - University of Pennsylvania</p>
+                        <p class="student-project">Research: Phage display screening for Alzheimer's biomarkers</p>
+                        <p class="student-bio">Brennen's undergraduate research established foundational protocols for the lab's phage display platform. He co-authored a paper on peptide library screening methods and received the Outstanding Biology Senior award.</p>
+                        <div>
+                            <a href="#" class="pub-badge">📄 Publication</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="student-card-full" data-name="erica kim" data-category="alumni">
+                    <div class="student-photo-container">
+                        <div class="student-photo-placeholder">EK</div>
+                    </div>
+                    <div class="student-details">
+                        <h3>Erica Kim</h3>
+                        <div class="student-meta-info">
+                            <span class="class-year">2023 Graduate</span>
+                            <span class="major">Biomedical Sciences</span>
+                        </div>
+                        <p class="student-status">Research Assistant - Harvard University</p>
+                        <p class="student-project">Research: Characterization of calpain protease activity in neurodegeneration</p>
+                        <p class="student-bio">Erica developed enzyme kinetics assays to study calpain inhibitors. She presented her work at the Society for Neuroscience conference and is now conducting aging research at Harvard Medical School.</p>
+                    </div>
+                </div>
+
+                <div class="student-card-full" data-name="stephanie jones" data-category="alumni">
+                    <div class="student-photo-container">
+                        <div class="student-photo-placeholder">SJ</div>
+                    </div>
+                    <div class="student-details">
+                        <h3>Stephanie Jones</h3>
+                        <div class="student-meta-info">
+                            <span class="class-year">2022 Graduate</span>
+                            <span class="major">Biology</span>
+                        </div>
+                        <p class="student-status">Ph.D. Student - University of Pennsylvania</p>
+                        <p class="student-project">Research: Spider silk protein expression in bacteriophage systems</p>
+                        <p class="student-bio">Stephanie pioneered the lab's biomaterials research direction by engineering phages to produce spider silk proteins. Her work demonstrated the potential for scalable production of high-strength biomimetic materials.</p>
+                    </div>
+                </div>
+
+                <div class="student-card-full" data-name="peyton sims" data-category="alumni">
+                    <div class="student-photo-container">
+                        <div class="student-photo-placeholder">PS</div>
+                    </div>
+                    <div class="student-details">
+                        <h3>Peyton Sims</h3>
+                        <div class="student-meta-info">
+                            <span class="class-year">2022 Graduate</span>
+                            <span class="major">Biomedical Sciences</span>
+                        </div>
+                        <p class="student-status">Ph.D. Student - University of Kentucky</p>
+                        <p class="student-project">Research: Tau protein post-translational modifications</p>
+                        <p class="student-bio">Peyton investigated how different phosphorylation patterns affect tau protein function. Her research combined molecular biology with computational analysis to predict pathogenic tau variants.</p>
+                        <div>
+                            <a href="#" class="pub-badge">📄 Publication</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="student-card-full" data-name="maddy scott" data-category="alumni">
+                    <div class="student-photo-container">
+                        <div class="student-photo-placeholder">MS</div>
+                    </div>
+                    <div class="student-details">
+                        <h3>Maddy Scott</h3>
+                        <div class="student-meta-info">
+                            <span class="class-year">2021 Graduate</span>
+                            <span class="major">Biology</span>
+                        </div>
+                        <p class="student-status">D.O. Student - Alabama College of Osteopathic Medicine</p>
+                        <p class="student-project">Research: Cancer cell migration assays using RTK-targeting peptides</p>
+                        <p class="student-bio">Maddy studied how receptor tyrosine kinase inhibitors affect cancer cell metastasis. Her research provided insights into therapeutic targeting strategies and strengthened her medical school applications.</p>
+                    </div>
+                </div>
+
+                <div class="student-card-full" data-name="allie linkous" data-category="alumni">
+                    <div class="student-photo-container">
+                        <div class="student-photo-placeholder">AL</div>
+                    </div>
+                    <div class="student-details">
+                        <h3>Allie Linkous</h3>
+                        <div class="student-meta-info">
+                            <span class="class-year">2021 Graduate</span>
+                            <span class="major">Biomedical Sciences</span>
+                        </div>
+                        <p class="student-status">Post-Baccalaureate Fellow - Buck Institute for Research on Aging</p>
+                        <p class="student-project">Research: Alzheimer's biomarker discovery using mass spectrometry</p>
+                        <p class="student-bio">Allie developed proteomics workflows to identify novel tau modifications. Her work at the Buck Institute focuses on aging biology and neurodegenerative disease mechanisms.</p>
+                    </div>
+                </div>
+
+                <div class="student-card-full" data-name="joey peterson" data-category="alumni">
+                    <div class="student-photo-container">
+                        <div class="student-photo-placeholder">JP</div>
+                    </div>
+                    <div class="student-details">
+                        <h3>Joey Peterson</h3>
+                        <div class="student-meta-info">
+                            <span class="class-year">2020 Graduate</span>
+                            <span class="major">Biology</span>
+                        </div>
+                        <p class="student-status">Ph.D. Student - Florida State University</p>
+                        <p class="student-project">Research: Calpain protease specificity and inhibitor design</p>
+                        <p class="student-bio">Joey's research characterized pentapeptide inhibitors for calpain enzymes. His work on protease specificity contributed to understanding therapeutic targets for neurological disorders.</p>
+                    </div>
+                </div>
+
+                <div class="student-card-full" data-name="sydney truax" data-category="alumni">
+                    <div class="student-photo-container">
+                        <div class="student-photo-placeholder">ST</div>
+                    </div>
+                    <div class="student-details">
+                        <h3>Sydney Truax</h3>
+                        <div class="student-meta-info">
+                            <span class="class-year">2020 Graduate</span>
+                            <span class="major">Biomedical Sciences</span>
+                        </div>
+                        <p class="student-status">Physician Assistant Student - Florida State University</p>
+                        <p class="student-project">Research: Dementia caregiver stress and intervention strategies</p>
+                        <p class="student-bio">Sydney investigated how robotic pet therapy affects caregiver well-being. Her research combined neuroscience with public health approaches to address caregiver burden in dementia care.</p>
+                    </div>
+                </div>
+
+                <div class="student-card-full" data-name="lexie tremaine" data-category="alumni">
+                    <div class="student-photo-container">
+                        <div class="student-photo-placeholder">LT</div>
+                    </div>
+                    <div class="student-details">
+                        <h3>Lexie Tremaine</h3>
+                        <div class="student-meta-info">
+                            <span class="class-year">2019 Graduate</span>
+                            <span class="major">Biology</span>
+                        </div>
+                        <p class="student-status">D.O. Student</p>
+                        <p class="student-project">Research: Phage display peptide library construction</p>
+                        <p class="student-bio">Lexie contributed to establishing the lab's peptide screening platform. She developed protocols for library amplification and quality control that are still used today.</p>
+                    </div>
+                </div>
+
+                <div class="student-card-full" data-name="nicholas ludergnani" data-category="alumni">
+                    <div class="student-photo-container">
+                        <div class="student-photo-placeholder">NL</div>
+                    </div>
+                    <div class="student-details">
+                        <h3>Nicholas Ludergnani</h3>
+                        <div class="student-meta-info">
+                            <span class="class-year">2019 Graduate</span>
+                            <span class="major">Biomedical Sciences</span>
+                        </div>
+                        <p class="student-status">Medical Student</p>
+                        <p class="student-project">Research: Tau protein expression and purification optimization</p>
+                        <p class="student-bio">Nicholas optimized recombinant protein production systems for tau research. His work improved yield and purity of research-grade tau protein for the lab's biochemical studies.</p>
+                    </div>
+                </div>
+
+                <div class="student-card-full" data-name="savannah snider" data-category="alumni">
+                    <div class="student-photo-container">
+                        <div class="student-photo-placeholder">SS</div>
+                    </div>
+                    <div class="student-details">
+                        <h3>Savannah Snider</h3>
+                        <div class="student-meta-info">
+                            <span class="class-year">2018 Graduate</span>
+                            <span class="major">Biology</span>
+                        </div>
+                        <p class="student-status">Physician Assistant Student - Florida State University</p>
+                        <p class="student-project">Research: Cell culture models for Alzheimer's research</p>
+                        <p class="student-bio">Savannah established neuronal cell culture systems for testing therapeutic peptides. Her work created important in vitro models that the lab continues to use.</p>
+                    </div>
+                </div>
+
+                <div class="student-card-full" data-name="anthony noll" data-category="alumni">
+                    <div class="student-photo-container">
+                        <div class="student-photo-placeholder">AN</div>
+                    </div>
+                    <div class="student-details">
+                        <h3>Anthony Noll</h3>
+                        <div class="student-meta-info">
+                            <span class="class-year">2018 Graduate</span>
+                            <span class="major">Biomedical Sciences</span>
+                        </div>
+                        <p class="student-status">D.O. Student</p>
+                        <p class="student-project">Research: Protein-protein interaction studies</p>
+                        <p class="student-bio">Anthony investigated tau interactions with other neuronal proteins. His work contributed to understanding how tau pathology spreads in Alzheimer's disease.</p>
+                    </div>
+                </div>
+
+                <div class="student-card-full" data-name="isabel holland" data-category="alumni">
+                    <div class="student-photo-container">
+                        <div class="student-photo-placeholder">IH</div>
+                    </div>
+                    <div class="student-details">
+                        <h3>Isabel Holland</h3>
+                        <div class="student-meta-info">
+                            <span class="class-year">2017 Graduate</span>
+                            <span class="major">Biology</span>
+                        </div>
+                        <p class="student-status">Physician Assistant Student - Florida State University</p>
+                        <p class="student-project">Research: Dementia education website development</p>
+                        <p class="student-bio">Isabel created digital health education resources to improve public understanding of dementia. Her work combined scientific communication with web development skills.</p>
+                    </div>
+                </div>
+
+                <div class="student-card-full" data-name="peyton lurk" data-category="alumni">
+                    <div class="student-photo-container">
+                        <div class="student-photo-placeholder">PL</div>
+                    </div>
+                    <div class="student-details">
+                        <h3>Peyton Lurk</h3>
+                        <div class="student-meta-info">
+                            <span class="class-year">2017 Graduate</span>
+                            <span class="major">Public Health</span>
+                        </div>
+                        <p class="student-status">Epidemiologist - Florida Department of Health</p>
+                        <p class="student-project">Research: Public health approaches to dementia care</p>
+                        <p class="student-bio">Peyton studied community-level interventions for dementia prevention and caregiver support. She now applies epidemiological methods to public health challenges at the state level.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        
+        <!-- Projects Tab -->
+        <section id="projects-tab" class="hidden">
+            <div class="section-header">
+                <h2>Active Research Projects</h2>
+                <p>Diverse research opportunities spanning basic science to translational applications</p>
+            </div>
+            <div class="student-grid">
+                <div class="student-card-full">
+                    <div class="student-photo-container" style="height:120px;background:linear-gradient(135deg,#059669,#065f46);">
+                        <div style="color:white;font-size:2.5rem;">🧬</div>
+                    </div>
+                    <div class="student-details">
+                        <h3>Alzheimer's Biomarker Discovery</h3>
+                        <p class="student-bio">Using phage-display technology to identify novel peptide biomarkers for early Alzheimer's detection. Students learn molecular cloning, protein expression, and mass spectrometry techniques.</p>
+                    </div>
+                </div>
+                <div class="student-card-full">
+                    <div class="student-photo-container" style="height:120px;background:linear-gradient(135deg,#0891b2,#0e7490);">
+                        <div style="color:white;font-size:2.5rem;">🧪</div>
+                    </div>
+                    <div class="student-details">
+                        <h3>Tau Protein Research</h3>
+                        <p class="student-bio">Investigating post-translational modifications of tau protein and their role in neurodegeneration. Projects include recombinant protein production, phosphorylation studies, and aggregation assays.</p>
+                    </div>
+                </div>
+                <div class="student-card-full">
+                    <div class="student-photo-container" style="height:120px;background:linear-gradient(135deg,#7c3aed,#4c1d95);">
+                        <div style="color:white;font-size:2.5rem;">🎯</div>
+                    </div>
+                    <div class="student-details">
+                        <h3>Cancer RTK Research</h3>
+                        <p class="student-bio">Using phage-display to target receptor tyrosine kinases (EGFR, HER2) to inhibit cancer cell growth and metastasis. Students learn cell transfection, protein screening, and migration assays.</p>
+                    </div>
+                </div>
+                <div class="student-card-full">
+                    <div class="student-photo-container" style="height:120px;background:linear-gradient(135deg,#059669,#047857);">
+                        <div style="color:white;font-size:2.5rem;">🕷️</div>
+                    </div>
+                    <div class="student-details">
+                        <h3>Spider Silk Synthesis</h3>
+                        <p class="student-bio">Engineering M13 bacteriophages to produce synthetic spider silk proteins. This biomimetic approach creates high-strength materials for textiles, medical devices, and composites.</p>
+                    </div>
+                </div>
+                <div class="student-card-full">
+                    <div class="student-photo-container" style="height:120px;background:linear-gradient(135deg,#dc2626,#991b1b);">
+                        <div style="color:white;font-size:2.5rem;">🤖</div>
+                    </div>
+                    <div class="student-details">
+                        <h3>RISE-UP: Robotic Pet Therapy</h3>
+                        <p class="student-bio">Investigating how robotic pets can improve sleep and reduce stress for dementia caregivers. Students develop assessment protocols and intervention strategies.</p>
+                    </div>
+                </div>
+                <div class="student-card-full">
+                    <div class="student-photo-container" style="height:120px;background:linear-gradient(135deg,#0891b2,#0e7490);">
+                        <div style="color:white;font-size:2.5rem;">🌐</div>
+                    </div>
+                    <div class="student-details">
+                        <h3>Dementia Education Website</h3>
+                        <p class="student-bio">Creating accessible digital health resources to educate the public about dementia and its subtypes. Students learn health communication and web development.</p>
+                    </div>
+                </div>
+                <div class="student-card-full">
+                    <div class="student-photo-container" style="height:120px;background:linear-gradient(135deg,#ea580c,#c2410c);">
+                        <div style="color:white;font-size:2.5rem;">🔬</div>
+                    </div>
+                    <div class="student-details">
+                        <h3>Calpain Inhibition Research</h3>
+                        <p class="student-bio">Investigating the specificity of pentapeptide inhibitors for calpain proteases. Students conduct enzyme kinetics studies with implications for neurodegenerative disease therapeutics.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Outcomes Tab -->
+        <section id="outcomes-tab" class="hidden">
+            <div class="section-header">
+                <h2>Where Our Students Go</h2>
+                <p>Guttmann Lab alumni advance to top graduate programs, medical schools, and research positions</p>
+            </div>
+            <div class="student-grid">
+                <div class="student-card-full" style="border-left:4px solid var(--uwf-gold);">
+                    <div class="student-details">
+                        <h3>Ph.D. Programs</h3>
+                        <p class="student-bio"><strong>University of Pennsylvania</strong> - Brennen Lewis, Stephanie Jones<br><strong>University of Kentucky</strong> - Peyton Sims<br><strong>University of Alabama at Birmingham</strong> - Abby Williamson<br><strong>Florida State University</strong> - Joey Peterson</p>
+                    </div>
+                </div>
+                <div class="student-card-full" style="border-left:4px solid var(--uwf-green);">
+                    <div class="student-details">
+                        <h3>Medical & PA Programs</h3>
+                        <p class="student-bio"><strong>DO Programs</strong> - Maddy Scott (ACOM), Lexie Tremaine, Anthony Noll<br><strong>PA Programs (FSU)</strong> - Sydney Truax, Savannah Snider, Isabel Holland<br><strong>Medical School</strong> - Nicholas Ludergnani</p>
+                    </div>
+                </div>
+                <div class="student-card-full" style="border-left:4px solid #7c3aed;">
+                    <div class="student-details">
+                        <h3>Research Positions</h3>
+                        <p class="student-bio"><strong>Harvard University</strong> - Erica Kim (Research Assistant)<br><strong>Buck Institute for Research on Aging</strong> - Allie Linkous (Post-bac)<br><strong>FL Department of Health</strong> - Peyton Lurk (Epidemiologist)</p>
+                    </div>
+                </div>
+                <div class="student-card-full" style="border-left:4px solid #dc2626;">
+                    <div class="student-details">
+                        <h3>Publications</h3>
+                        <p class="student-bio">Our students have co-authored peer-reviewed papers in:<br>• Research Ideas and Outcomes<br>• Inquiries Journal<br>• Journal of Student Research</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p><strong>Guttmann Research Lab</strong> | Department of Biology | University of West Florida</p>
+        <p style="margin-top:0.5rem;"><a href="https://uwf.edu/hmcse/departments/biology/faculty/dr-rodney-guttmann.html" target="_blank">Dr. Guttmann's Faculty Page</a> | <a href="https://uwf.edu/hmcse/departments/biology/research/guttmann-research-lab/" target="_blank">Official UWF Lab Page</a></p>
+    </footer>
+
+    <script>
+        function showTab(tabName) {
+            document.querySelectorAll('section').forEach(s => s.classList.add('hidden'));
+            document.getElementById(tabName + '-tab').classList.remove('hidden');
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+        
+        function filterStudents() {
+            const query = document.getElementById('student-search').value.toLowerCase();
+            document.querySelectorAll('.student-card-full[data-name]').forEach(card => {
+                const text = card.textContent.toLowerCase();
+                card.style.display = text.includes(query) ? 'block' : 'none';
+            });
+        }
+        
+        function filterCategory(cat, btn) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            document.querySelectorAll('.student-card-full[data-category]').forEach(card => {
+                if (cat === 'all' || card.dataset.category === cat) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

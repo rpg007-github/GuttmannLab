@@ -585,7 +585,7 @@
                         </div>
                     </div>
 
-                    <div class="student-card" data-name="Carli Carrillo" data-category="current">
+                    <div class="student-card has-bio" data-name="Carli Carrillo" data-category="current" onclick="openModal('carli-carrillo')">
                         <div class="student-photo-container">
                             <img src="carli-carrillo.jpg" alt="Carli Carrillo" class="student-photo">
                         </div>
@@ -595,7 +595,7 @@
                         </div>
                     </div>
 
-                    <div class="student-card" data-name="Carly Goodman" data-category="current">
+                    <div class="student-card has-bio" data-name="Carly Goodman" data-category="current" onclick="openModal('carly-goodman')">
                         <div class="student-photo-container">
                             <img src="carly-goodman.jpg" alt="Carly Goodman" class="student-photo">
                         </div>
@@ -636,15 +636,7 @@
                         </div>
                     </div>
 
-                    <div class="student-card" data-name="Savannah Snider" data-category="current">
-                        <div class="student-photo-container">
-                            <img src="savannah-snider.jpg" alt="Savannah Snider" class="student-photo">
-                        </div>
-                        <div class="student-info">
-                            <div class="student-name">Savannah Snider</div>
-                            <span class="student-status">Current Student</span>
-                        </div>
-                    </div>
+                   
 
                     <div class="student-card has-bio" data-name="Sean Bacon" data-category="current" onclick="openModal('sean-bacon')">
                         <div class="student-photo-container">
@@ -697,6 +689,16 @@
                         </div>
                     </div>
 
+ <div class="student-card has-bio" data-name="Savannah Snider" data-category="alumni" onclick="openModal('savannah-snider')">
+    <div class="student-photo-container">
+        <img src="savannah-snider.jpg" alt="Savannah Snider" class="student-photo">
+    </div>
+    <div class="student-info">
+        <div class="student-name">Savannah Snider</div>
+        <span class="student-status alumni">Alumni</span>
+    </div>
+</div>
+                    
                     <div class="student-card has-bio" data-name="Joshua Cook" data-category="alumni" onclick="openModal('joshua-cook')">
                         <div class="student-photo-container">
                             <img src="joshua-cook.jpg" alt="Joshua Cook" class="student-photo">
@@ -1007,6 +1009,13 @@
                 class: 'Class of 2025 | Biochemistry Major',
                 bio: 'Caleb is a senior at the University of West Florida majoring in Biochemistry. He plans to pursue an MD/PhD with the ultimate goal of researching aging-related diseases. His academic and career interests are driven by a passion for advancing our understanding of the biological processes behind aging and age-associated conditions.'
             },
+            
+'carli-carrillo': {
+    name: 'Carli Carrillo',
+    class: 'Class of 2027 | Biomedical Sciences Major<br>Minors: Spanish, Kugelman Honors Program',
+    bio: 'Carli is a Biomedical Sciences major in the class of 2027 with minors in Spanish and the Kugelman Honors Program. She began conducting literature reviews of dementia research for Dr. Guttmann in the summer of 2024. Currently, she is working with Dr. Guttmann to develop a website to better educate the public about dementia and its subtypes. Outside of research, Carli enjoys kayaking, shadowing local veterinarians, volunteering at the local animal shelter, and spoiling her dogs.'
+},
+            
             'djuan-wimberly': {
                 name: 'D\'juan Wimberly',
                 class: 'Class of 2026 | Biomedical Sciences Major<br>Minor: Psychology',
@@ -1038,12 +1047,26 @@
                 bio: 'Abby graduated from UWF in 2022 with a Bachelor of Science in Biomedical Sciences. She is currently pursuing her PhD in Molecular Nutrition at the University of Alabama at Birmingham (UAB), where she is advancing her research interests in the molecular mechanisms underlying nutrition and health.',
                 link: 'https://www.linkedin.com/in/abigail-williamson-29873a23a'
             },
+
+            'savannah-snider': {
+    name: 'Savannah Snider',
+    class: 'Class of 2021 | B.S. Biomedical Sciences<br>Minor: Kugelman Honors Program<br>M.S. Physician Assistant Practice, FSU (2024)',
+    bio: 'Savannah graduated from the University of West Florida in 2021 with a Bachelor of Science in Biomedical Sciences and a minor in the Kugelman Honors Program. She worked as a Student Research Assistant in the Guttmann Lab from 2019 to 2021, contributing to NIH-funded research on identifying biomarkers for early detection of Alzheimer\'s disease using phage display. Her work involved aseptic technique, DNA sequencing analysis, and supporting collaborative research efforts.<br><br>While completing her undergraduate degree, Savannah also worked as a Medical Assistant at Health and Hope Clinic, where she assisted with clinical procedures, coordinated patient care, and helped connect patients with free healthcare resources. She completed her Master of Science in Physician Assistant Practice at Florida State University College of Medicine in 2024 and is now NCCPA Board Certified.',
+    link: 'https://www.linkedin.com/in/savannahsnider1/'
+},
+            
             'allie-linkous': {
                 name: 'Allie Linkous',
                 class: 'Class of 2024 | B.S. Biomedical Sciences<br>Minor: Psychology',
                 bio: 'Allie joined the Guttmann Lab in Spring 2021. In the Guttmann lab, Allie conducted research focused on developing biomarker assays to detect early indicators of Alzheimer\'s Disease. They also helped develop the project utilizing phage-display to target receptor tyrosine kinases. Currently, Allie is working as a post-baccalaureate researcher in the Hansen Lab at Buck Institute for Research on Aging. Their project is focused on understanding how autophagy regulates intestinal barrier function with age and in age-related diseases using C. elegans as a model organism. They plan to pursue a PhD in Cellular Biology.'
             },
 
+            'carly-goodman': {
+    name: 'Carly Goodman',
+    class: 'Biochemistry Major | 2024 Top Scholar',
+    bio: 'Carly is a Biochemistry major and 2024 Top Scholar at the University of West Florida. She joined the Guttmann Lab in Fall 2024 and plans to pursue an MD/PhD, combining her interests in clinical medicine and biomedical research.'
+},
+            
             'christina-kilpatrick': {
     name: 'Christina Kilpatrick',
     class: 'Class of 2021 | B.S. Biomedical Sciences<br>M.S. Biology (2023)',

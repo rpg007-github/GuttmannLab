@@ -987,207 +987,205 @@
     </div>
 
     <script>
-        // Student biographies
-        const bios = {
-           
+// Student biographies
+const bios = {
+   
     'alayna-kliche': {
         name: 'Alayna Kliche',
         class: 'Class of 2028 | Biomedical Sciences Major',
-        bio: 'Alayna was born in Rapid City, South Dakota and graduated from Pace High School in 2024. She is majoring in Biomedical Sciences and plans to attend medical school to become a neurosurgeon. In addition to her interests in biology and healthcare, Alayna enjoys spending time with family and friends, learning new skills, and creating 3D art through ceramics and crochet.<br><br><strong>Research Project:</strong> <a href="#" onclick="switchToProjects(\'nih-alzheimers\'); return false;" style="color: #007A33; font-weight: 600; text-decoration: underline;">NIH-Funded Research on Early Alzheimer\'s Detection</a>'
+        bio: 'Alayna was born in Rapid City, South Dakota and graduated from Pace High School in 2024. She is majoring in Biomedical Sciences and plans to attend medical school to become a neurosurgeon. In addition to her interests in biology and healthcare, Alayna enjoys spending time with family and friends, learning new skills, and creating 3D art through ceramics and crochet.<br><br><strong>Research Project:</strong> <a href="#" class="project-link-internal" data-project="nih-alzheimers" style="color: #007A33; font-weight: 600; text-decoration: underline;">NIH-Funded Research on Early Alzheimer\'s Detection</a>'
     },
-        'bonnie-bruner': {
+    'bonnie-bruner': {
         name: 'Bonnie Bruner',
         class: 'Class of 2026 | Biomedical Sciences Major<br>Minors: Medical Humanities, Kugelman Honors',
-        bio: 'Bonnie joined the Guttmann Lab through the FYRE program in 2022, where her research focuses on targeting the receptor tyrosine kinase EGFR. Outside the lab, she is preparing for medical school and serves as a mentor to fellow students in the University of West Florida\'s Biology Department.<br><br><strong>Research Project:</strong> <a href="#" onclick="switchToProjects('phage-cancer'); return false;" style="color: #007A33; font-weight: 600; text-decoration: underline;">Phage-Display for Cancer Treatment (Targeting RTKs)</a>'
+        bio: 'Bonnie joined the Guttmann Lab through the FYRE program in 2022, where her research focuses on targeting the receptor tyrosine kinase EGFR. Outside the lab, she is preparing for medical school and serves as a mentor to fellow students in the University of West Florida\'s Biology Department.<br><br><strong>Research Project:</strong> <a href="#" class="project-link-internal" data-project="phage-cancer" style="color: #007A33; font-weight: 600; text-decoration: underline;">Phage-Display for Cancer Treatment (Targeting RTKs)</a>'
     },
     'bryley-lyublanovits': {
         name: 'Bryley Lyublanovits',
         class: 'Class of 2026 | Biochemistry Major<br>Minor: Biology',
-        bio: 'Bryley joined the Guttmann Lab in 2023, where her research focuses on using phage display to target the HER2 receptor. Outside the lab, she is preparing for a Ph.D. program in cancer or genetic research and serves as a member of Chemistry Club and Chemistry Scholars. <br><br><strong>Research Project:</strong> <a href="#" onclick="switchToProjects('phage-cancer'); return false;" style="color: #007A33; font-weight: 600; text-decoration: underline;">Phage-Display for Cancer Treatment (Targeting RTKs)</a>'
+        bio: 'Bryley joined the Guttmann Lab in 2023, where her research focuses on using phage display to target the HER2 receptor. Outside the lab, she is preparing for a Ph.D. program in cancer or genetic research and serves as a member of Chemistry Club and Chemistry Scholars. <br><br><strong>Research Project:</strong> <a href="#" class="project-link-internal" data-project="phage-cancer" style="color: #007A33; font-weight: 600; text-decoration: underline;">Phage-Display for Cancer Treatment (Targeting RTKs)</a>'
     },
-            'caleb-hanners': {
-                name: 'Caleb Hanners',
-                class: 'Class of 2025 | Biochemistry Major',
-                bio: 'Caleb is a senior at the University of West Florida majoring in Biochemistry. He plans to pursue an MD/PhD with the ultimate goal of researching aging-related diseases. His academic and career interests are driven by a passion for advancing our understanding of the biological processes behind aging and age-associated conditions. <br><br><strong>Research Project:</strong> <a href="#" onclick="switchToProjects('nih-alzheimers'); return false;" style="color: #007A33; font-weight: 600; text-decoration: underline;">NIH-Funded Research on Early Alzheimer\'s Detection</a>'
-            },
-            
-'carli-carrillo': {
-    name: 'Carli Carrillo',
-    class: 'Class of 2027 | Biomedical Sciences Major<br>Minors: Spanish, Kugelman Honors Program',
-    bio: 'Carli is a Biomedical Sciences major in the class of 2027 with minors in Spanish and the Kugelman Honors Program. She began conducting literature reviews of dementia research for Dr. Guttmann in the summer of 2024. Currently, she is working with Dr. Guttmann to develop a website to better educate the public about dementia and its subtypes. Outside of research, Carli enjoys kayaking, shadowing local veterinarians, volunteering at the local animal shelter, and spoiling her dogs. <br><br><strong>Research Project:</strong> <a href="#" onclick="switchToProjects('digital-health'); return false;" style="color: #007A33; font-weight: 600; text-decoration: underline;">Digital Health Resources Development</a>'
-},
-            
-            'djuan-wimberly': {
-                name: 'D\'juan Wimberly',
-                class: 'Class of 2026 | Biomedical Sciences Major<br>Minor: Psychology',
-                bio: 'D\'Juan is a junior at the University of West Florida majoring in Biomedical Sciences with a minor in Psychology. He is passionate about pursuing a career in medicine and has a strong interest in Alzheimer\'s research, particularly in understanding how the disease impacts the brain and memory. His academic focus reflects a deep curiosity about the connection between biology and behavior. Outside the classroom, D\'Juan volunteers in his community and is dedicated to helping others in meaningful ways. <br><br><strong>Research Project:</strong> <a href="#" onclick="switchToProjects('nih-alzheimers'); return false;" style="color: #007A33; font-weight: 600; text-decoration: underline;">NIH-Funded Research on Early Alzheimer\'s Detection</a>'
-            },
-            'joseph-flannigan': {
-                name: 'Joseph Flannigan',
-                class: 'Class of 2027 | Biomedical Sciences Major',
-                bio: 'Joseph is a junior at the University of West Florida majoring in Biomedical Sciences. He plans to pursue an MD/PhD with his end goal being a well-rounded clinician and researcher. His academic and career interests are driven by a passion for advancing our understanding of the biological processes behind internal medicine. With strong interests in both family medicine and surgery, he seeks to bridge the gap between hands-on patient care and translational research. <br><br><strong>Research Project:</strong> <a href="#" onclick="switchToProjects('nih-alzheimers'); return false;" style="color: #007A33; font-weight: 600; text-decoration: underline;">NIH-Funded Research on Early Alzheimer\'s Detection</a>'
-            },
-            'savannah-bonnett': {
-                name: 'Savannah Bonnett',
-                class: 'Class of 2027 | Biology Major',
-                bio: 'Savannah joined the Guttmann Lab in Fall 2025, concentrating her research on tau protein, specifically the formation of tau oligomers in vitro and the potential use of peptide-generating phages to resolve or prevent the advancement of tau fibrillization & tangles. Beyond her lab work, she is enthusiastic about outdoor activities such as hiking, diving, and wildlife photography!'
-            },
+    'caleb-hanners': {
+        name: 'Caleb Hanners',
+        class: 'Class of 2025 | Biochemistry Major',
+        bio: 'Caleb is a senior at the University of West Florida majoring in Biochemistry. He plans to pursue an MD/PhD with the ultimate goal of researching aging-related diseases. His academic and career interests are driven by a passion for advancing our understanding of the biological processes behind aging and age-associated conditions. <br><br><strong>Research Project:</strong> <a href="#" class="project-link-internal" data-project="nih-alzheimers" style="color: #007A33; font-weight: 600; text-decoration: underline;">NIH-Funded Research on Early Alzheimer\'s Detection</a>'
+    },
+    'carli-carrillo': {
+        name: 'Carli Carrillo',
+        class: 'Class of 2027 | Biomedical Sciences Major<br>Minors: Spanish, Kugelman Honors Program',
+        bio: 'Carli is a Biomedical Sciences major in the class of 2027 with minors in Spanish and the Kugelman Honors Program. She began conducting literature reviews of dementia research for Dr. Guttmann in the summer of 2024. Currently, she is working with Dr. Guttmann to develop a website to better educate the public about dementia and its subtypes. Outside of research, Carli enjoys kayaking, shadowing local veterinarians, volunteering at the local animal shelter, and spoiling her dogs. <br><br><strong>Research Project:</strong> <a href="#" class="project-link-internal" data-project="digital-health" style="color: #007A33; font-weight: 600; text-decoration: underline;">Digital Health Resources Development</a>'
+    },
+    'carly-goodman': {
+        name: 'Carly Goodman',
+        class: 'Biochemistry Major | 2024 Top Scholar',
+        bio: 'Carly is a Biochemistry major and 2024 Top Scholar at the University of West Florida. She joined the Guttmann Lab in Fall 2024 and plans to pursue an MD/PhD, combining her interests in clinical medicine and biomedical research. <br><br><strong>Research Project:</strong> <a href="#" class="project-link-internal" data-project="nih-alzheimers" style="color: #007A33; font-weight: 600; text-decoration: underline;">NIH-Funded Research on Early Alzheimer\'s Detection</a>'
+    },
+    'djuan-wimberly': {
+        name: 'D\'juan Wimberly',
+        class: 'Class of 2026 | Biomedical Sciences Major<br>Minor: Psychology',
+        bio: 'D\'Juan is a junior at the University of West Florida majoring in Biomedical Sciences with a minor in Psychology. He is passionate about pursuing a career in medicine and has a strong interest in Alzheimer\'s research, particularly in understanding how the disease impacts the brain and memory. His academic focus reflects a deep curiosity about the connection between biology and behavior. Outside the classroom, D\'Juan volunteers in his community and is dedicated to helping others in meaningful ways. <br><br><strong>Research Project:</strong> <a href="#" class="project-link-internal" data-project="nih-alzheimers" style="color: #007A33; font-weight: 600; text-decoration: underline;">NIH-Funded Research on Early Alzheimer\'s Detection</a>'
+    },
+    'joseph-flannigan': {
+        name: 'Joseph Flannigan',
+        class: 'Class of 2027 | Biomedical Sciences Major',
+        bio: 'Joseph is a junior at the University of West Florida majoring in Biomedical Sciences. He plans to pursue an MD/PhD with his end goal being a well-rounded clinician and researcher. His academic and career interests are driven by a passion for advancing our understanding of the biological processes behind internal medicine. With strong interests in both family medicine and surgery, he seeks to bridge the gap between hands-on patient care and translational research. <br><br><strong>Research Project:</strong> <a href="#" class="project-link-internal" data-project="nih-alzheimers" style="color: #007A33; font-weight: 600; text-decoration: underline;">NIH-Funded Research on Early Alzheimer\'s Detection</a>'
+    },
+    'savannah-bonnett': {
+        name: 'Savannah Bonnett',
+        class: 'Class of 2027 | Biology Major',
+        bio: 'Savannah joined the Guttmann Lab in Fall 2025, concentrating her research on tau protein, specifically the formation of tau oligomers in vitro and the potential use of peptide-generating phages to resolve or prevent the advancement of tau fibrillization & tangles. Beyond her lab work, she is enthusiastic about outdoor activities such as hiking, diving, and wildlife photography!'
+    },
+    'sean-bacon': {
+        name: 'Sean Bacon',
+        class: 'Class of 2027 | General Biology Major',
+        bio: 'Sean is a Biology major at the University of West Florida with a focus on phage display research aimed at producing spider silk. He plans to pursue a Master\'s degree in Entomology after earning his B.S. in Biology. Sean is passionate about arthropods, horticulture, and ecology. In his free time, he enjoys gardening, cooking, and creating ceramics.<br><br><strong>Research Project:</strong> <a href="#" class="project-link-internal" data-project="spider-silk" style="color: #007A33; font-weight: 600; text-decoration: underline;">Spider Silk Phage Display: Biomaterial Engineering</a>'
+    },
+    'sophie-mislevy': {
+        name: 'Sophie Mislevy',
+        class: 'Class of 2027 | Biology Major',
+        bio: 'Sophie is a Junior at Nova Southeastern University and is majoring in Biology. She plans to pursue a Pharm. D. with the goal of researching psychological diseases and conditions, exploring how medications affect both the physical brain as well as the mind.'
+    },
+    'abby-williamson': {
+        name: 'Abby Williamson',
+        class: 'Class of 2022 | B.S. Biomedical Sciences',
+        bio: 'Abby graduated from UWF in 2022 with a Bachelor of Science in Biomedical Sciences. She is currently pursuing her PhD in Molecular Nutrition at the University of Alabama at Birmingham (UAB), where she is advancing her research interests in the molecular mechanisms underlying nutrition and health. <br><br><strong>Research Project:</strong> <a href="#" class="project-link-internal" data-project="nih-alzheimers" style="color: #007A33; font-weight: 600; text-decoration: underline;">NIH-Funded Research on Early Alzheimer\'s Detection</a>',
+        link: 'https://www.linkedin.com/in/abigail-williamson-29873a23a'
+    },
+    'savannah-snider': {
+        name: 'Savannah Snider',
+        class: 'Class of 2021 | B.S. Biomedical Sciences<br>Minor: Kugelman Honors Program<br>M.S. Physician Assistant Practice, FSU (2024)',
+        bio: 'Savannah graduated from the University of West Florida in 2021 with a Bachelor of Science in Biomedical Sciences and a minor in the Kugelman Honors Program. She worked as a Student Research Assistant in the Guttmann Lab from 2019 to 2021, contributing to NIH-funded research on identifying biomarkers for early detection of Alzheimer\'s disease using phage display. Her work involved aseptic technique, DNA sequencing analysis, and supporting collaborative research efforts.<br><br>While completing her undergraduate degree, Savannah also worked as a Medical Assistant at Health and Hope Clinic, where she assisted with clinical procedures, coordinated patient care, and helped connect patients with free healthcare resources. She completed her Master of Science in Physician Assistant Practice at Florida State University College of Medicine in 2024 and is now NCCPA Board Certified.<br><br><strong>Research Project:</strong> <a href="#" class="project-link-internal" data-project="nih-alzheimers" style="color: #007A33; font-weight: 600; text-decoration: underline;">NIH-Funded Research on Early Alzheimer\'s Detection</a>',
+        link: 'https://www.linkedin.com/in/savannahsnider1/'
+    },
+    'allie-linkous': {
+        name: 'Allie Linkous',
+        class: 'Class of 2024 | B.S. Biomedical Sciences<br>Minor: Psychology',
+        bio: 'Allie joined the Guttmann Lab in Spring 2021. In the Guttmann lab, Allie conducted research focused on developing biomarker assays to detect early indicators of Alzheimer\'s Disease. They also helped develop the project utilizing phage-display to target receptor tyrosine kinases. Currently, Allie is working as a post-baccalaureate researcher in the Hansen Lab at Buck Institute for Research on Aging. Their project is focused on understanding how autophagy regulates intestinal barrier function with age and in age-related diseases using C. elegans as a model organism. They plan to pursue a PhD in Cellular Biology.<br><br><strong>Research Projects:</strong> <a href="#" class="project-link-internal" data-project="nih-alzheimers" style="color: #007A33; font-weight: 600; text-decoration: underline;">NIH-Funded Research on Early Alzheimer\'s Detection</a>, <a href="#" class="project-link-internal" data-project="phage-cancer" style="color: #007A33; font-weight: 600; text-decoration: underline;">Phage-Display for Cancer Treatment</a>'
+    },
+    'christina-kilpatrick': {
+        name: 'Christina Kilpatrick',
+        class: 'Class of 2021 | B.S. Biomedical Sciences<br>M.S. Biology (2023)',
+        bio: 'Christina graduated from the University of West Florida with a Bachelor of Science in Biomedical Sciences in 2021 and completed her Master of Science in Biology in 2023. During her graduate studies, she served as a Graduate Teaching Assistant in anatomy labs and worked as a research lab assistant.<br><br>After graduation, Christina taught Pre-IB Biology at Vanguard High School and served as Lab Manager for Marion County Public School\'s BSL-2 Research Lab, where she mentored students competing at state and international science fairs. Currently, she is a Visiting Instructor and Lab Manager at UWF, teaching pharmacology and biochemistry labs. In the Guttmann Lab, she conducts research on early biomarker detection of Alzheimer\'s disease, focusing on post-translational modifications of the tau protein.<br><br><strong>Research Project:</strong> <a href="#" class="project-link-internal" data-project="nih-alzheimers" style="color: #007A33; font-weight: 600; text-decoration: underline;">NIH-Funded Research on Early Alzheimer\'s Detection</a>',
+        link: 'https://www.linkedin.com/in/christina-kilpatrick-44333021b/'
+    },
+    'joshua-cook': {
+        name: 'Joshua J. Cook, M.S. (DS), M.S. (CRM), ACRP-PM, CCRC',
+        class: 'Alumni',
+        bio: 'Joshua is an interdisciplinary professional with over 8 years of experience in Biomedical Science, 5+ years in Clinical Research, and 2+ years in Data Science, with a strong ability to synthesize complex data, develop predictive models, and lead impactful clinical research projects. Currently, he is a Clinical Researcher at Woodlands Medical Specialists and an Adjunct Instructor at the University of West Florida. Certified in Project Management and Clinical Research Coordination, he is committed to advancing healthcare through innovative clinical trial design and management. As a science communicator and instructor, he excels in conveying complex information to diverse audiences and is passionate about teaching and mentorship.<br><br><strong>Research Project:</strong> <a href="#" class="project-link-internal" data-project="clinical-trial" style="color: #007A33; font-weight: 600; text-decoration: underline;">Clinical Trial Coordination for Alzheimer\'s Disease</a>'
+    },
+    'maddy-scott': {
+        name: 'Maddy Scott',
+        class: 'Class of 2024 | B.S. Biomedical Sciences<br>Minor: Kugelman Honors Program',
+        bio: 'Maddy graduated summa cum laude from the University of West Florida in May 2024 with a degree in Biomedical Sciences and a minor in the Kugelman Honors Program. She worked in the Guttmann Lab from 2021 to 2024, where her research focused on testing the peptide LSEAL and its potential inhibitory effects on calpain hyperactivation in Alzheimer\'s disease. Her work involved western blots, in vitro calpain assays, bacterial phage techniques, DNA sequencing, and data analysis using GraphPad Prism.<br><br>Currently, Maddy is a first-year medical student at the Alabama College of Osteopathic Medicine. During her gap year, she worked as a medical scribe at a local neurology clinic. She is passionate about neurodegenerative diseases, seizure disorders, and brain neoplasms, with a particular interest in Alzheimer\'s disease, Parkinson\'s disease, and traumatic brain injury. As a future physician, she hopes to bridge gaps in communication and patient care while emphasizing a warm and welcoming environment for patients with debilitating neurodegenerative conditions.<br><br><strong>Research Project:</strong> <a href="#" class="project-link-internal" data-project="calpain-lseal" style="color: #007A33; font-weight: 600; text-decoration: underline;">Calpain LSEAL Research: Enzyme Kinetics</a>'
+    },
+    'stephanie-jones': {
+        name: 'Stephanie Jones',
+        class: 'Class of 2022 | Biology Major<br>Minor: Kugelman Honors Program',
+        bio: 'Stephanie graduated from the University of West Florida in 2022 with a degree in Biology and a minor in the Kugelman Honors Program. She worked in the Guttmann Lab from Spring 2020 to Spring 2022, contributing to NIH-funded research on early Alzheimer\'s detection.<br><br>Following her bachelor\'s degree, Stephanie completed a post-baccalaureate research fellowship at the National Institute of Environmental Health Sciences (NIEHS/NIH) under the mentorship of Dr. Serena Dudek, where she focused on hippocampal area CA2 and synaptic plasticity. This work explored a unique brain region involved in social memory and learning. Currently, Stephanie is a PhD student in the Pharmacology Graduate Program at the University of Pennsylvania\'s Perelman School of Medicine, where her research interests focus on discovering therapeutic targets for various diseases.<br><br><strong>Research Project:</strong> <a href="#" class="project-link-internal" data-project="nih-alzheimers" style="color: #007A33; font-weight: 600; text-decoration: underline;">NIH-Funded Research on Early Alzheimer\'s Detection</a>'
+    },
+    'peyton-lurk': {
+        name: 'Peyton Lurk',
+        class: 'B.S. Biomedical Sciences (UWF) | M.P.H. (FSU)',
+        bio: 'Peyton holds a Bachelor\'s degree in Biomedical Sciences from the University of West Florida and a Master\'s degree in Public Health from Florida State University. As an undergraduate, he conducted research in the Guttmann Laboratory, focusing on the protein calpain. During his graduate studies, Peyton interned at the Florida Agency for Health Care Administration (AHCA), where he collaborated with the Chief Medical Officer on public health initiatives, including a statewide colorectal cancer screening campaign and a legislative report on Medicaid utilization among patients with sickle cell disease.<br><br>Currently, Peyton serves as an Epidemiologist at the Florida Department of Health (FDOH). His work centers on reducing cancer mortality throughout Florida through data-driven analysis, policy development, and strategic partnerships. He works closely with organizations such as the Florida Cancer Data System, Florida Cancer Connect, and Florida\'s four National Cancer Institutes.<br><br><strong>Research Project:</strong> <a href="#" class="project-link-internal" data-project="calpain-lseal" style="color: #007A33; font-weight: 600; text-decoration: underline;">Calpain LSEAL Research: Enzyme Kinetics</a>'
+    }
+};
 
-        'maddy-scott': {
-    name: 'Maddy Scott',
-    class: 'Class of 2024 | B.S. Biomedical Sciences<br>Minor: Kugelman Honors Program',
-    bio: 'Maddy graduated summa cum laude from the University of West Florida in May 2024 with a degree in Biomedical Sciences and a minor in the Kugelman Honors Program. She worked in the Guttmann Lab from 2021 to 2024, where her research focused on testing the peptide LSEAL and its potential inhibitory effects on calpain hyperactivation in Alzheimer\'s disease. Her work involved western blots, in vitro calpain assays, bacterial phage techniques, DNA sequencing, and data analysis using GraphPad Prism.<br><br>Currently, Maddy is a first-year medical student at the Alabama College of Osteopathic Medicine. During her gap year, she worked as a medical scribe at a local neurology clinic. She is passionate about neurodegenerative diseases, seizure disorders, and brain neoplasms, with a particular interest in Alzheimer\'s disease, Parkinson\'s disease, and traumatic brain injury. As a future physician, she hopes to bridge gaps in communication and patient care while emphasizing a warm and welcoming environment for patients with debilitating neurodegenerative conditions.<br><br><strong>Research Project:</strong> <a href="#" onclick="switchToProjects('calpain-lseal'); return false;" style="color: #007A33; font-weight: 600; text-decoration: underline;">Calpain LSEAL Research: Enzyme Kinetics</a>'
-},
+// Tab switching
+document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab + '-content').classList.add('active');
+    });
+});
 
-            'stephanie-jones': {
-    name: 'Stephanie Jones',
-    class: 'Class of 2022 | Biology Major<br>Minor: Kugelman Honors Program',
-    bio: 'Stephanie graduated from the University of West Florida in 2022 with a degree in Biology and a minor in the Kugelman Honors Program. She worked in the Guttmann Lab from Spring 2020 to Spring 2022, contributing to NIH-funded research on early Alzheimer\'s detection.<br><br>Following her bachelor\'s degree, Stephanie completed a post-baccalaureate research fellowship at the National Institute of Environmental Health Sciences (NIEHS/NIH) under the mentorship of Dr. Serena Dudek, where she focused on hippocampal area CA2 and synaptic plasticity. This work explored a unique brain region involved in social memory and learning. Currently, Stephanie is a PhD student in the Pharmacology Graduate Program at the University of Pennsylvania\'s Perelman School of Medicine, where her research interests focus on discovering therapeutic targets for various diseases.<br><br><strong>Research Project:</strong> <a href="#" onclick="switchToProjects(\'nih-alzheimers\'); return false;" style="color: #007A33; font-weight: 600; text-decoration: underline;">NIH-Funded Research on Early Alzheimer\'s Detection</a>'
-            },
-                'sean-bacon': {
-    name: 'Sean Bacon',
-    class: 'Class of 2027 | General Biology Major',
-    bio: 'Sean is a Biology major at the University of West Florida with a focus on phage display research aimed at producing spider silk. He plans to pursue a Master\'s degree in Entomology after earning his B.S. in Biology. Sean is passionate about arthropods, horticulture, and ecology. In his free time, he enjoys gardening, cooking, and creating ceramics.<br><br><strong>Research Project:</strong> <a href="#" onclick="switchToProjects(\'spider-silk\'); return false;" style="color: #007A33; font-weight: 600; text-decoration: underline;">Spider Silk Phage Display: Biomaterial Engineering</a>'
-},
-            'sophie-mislevy': {
-                name: 'Sophie Mislevy',
-                class: 'Class of 2027 | Biology Major',
-                bio: 'Sophie is a Junior at Nova Southeastern University and is majoring in Biology. She plans to pursue a Pharm. D. with the goal of researching psychological diseases and conditions, exploring how medications affect both the physical brain as well as the mind.'
-            },
-            'abby-williamson': {
-                name: 'Abby Williamson',
-                class: 'Class of 2022 | B.S. Biomedical Sciences',
-                bio: 'Abby graduated from UWF in 2022 with a Bachelor of Science in Biomedical Sciences. She is currently pursuing her PhD in Molecular Nutrition at the University of Alabama at Birmingham (UAB), where she is advancing her research interests in the molecular mechanisms underlying nutrition and health. <br><br><strong>Research Project:</strong> <a href="#" onclick="switchToProjects('nih-alzheimers'); return false;" style="color: #007A33; font-weight: 600; text-decoration: underline;">NIH-Funded Research on Early Alzheimer\'s Detection</a>',
-                link: 'https://www.linkedin.com/in/abigail-williamson-29873a23a'
-            },
-
-            'savannah-snider': {
-    name: 'Savannah Snider',
-    class: 'Class of 2021 | B.S. Biomedical Sciences<br>Minor: Kugelman Honors Program<br>M.S. Physician Assistant Practice, FSU (2024)',
-    bio: 'Savannah graduated from the University of West Florida in 2021 with a Bachelor of Science in Biomedical Sciences and a minor in the Kugelman Honors Program. She worked as a Student Research Assistant in the Guttmann Lab from 2019 to 2021, contributing to NIH-funded research on identifying biomarkers for early detection of Alzheimer\'s disease using phage display. Her work involved aseptic technique, DNA sequencing analysis, and supporting collaborative research efforts.<br><br>While completing her undergraduate degree, Savannah also worked as a Medical Assistant at Health and Hope Clinic, where she assisted with clinical procedures, coordinated patient care, and helped connect patients with free healthcare resources. She completed her Master of Science in Physician Assistant Practice at Florida State University College of Medicine in 2024 and is now NCCPA Board Certified.<br><br><strong>Research Project:</strong> <a href="#" onclick="switchToProjects(\'nih-alzheimers\'); return false;" style="color: #007A33; font-weight: 600; text-decoration: underline;">NIH-Funded Research on Early Alzheimer\'s Detection</a>',
-    link: 'https://www.linkedin.com/in/savannahsnider1/'
-},
-            
-            'allie-linkous': {
-                name: 'Allie Linkous',
-                class: 'Class of 2024 | B.S. Biomedical Sciences<br>Minor: Psychology',
-                bio: 'Allie joined the Guttmann Lab in Spring 2021. In the Guttmann lab, Allie conducted research focused on developing biomarker assays to detect early indicators of Alzheimer\'s Disease. They also helped develop the project utilizing phage-display to target receptor tyrosine kinases. Currently, Allie is working as a post-baccalaureate researcher in the Hansen Lab at Buck Institute for Research on Aging. Their project is focused on understanding how autophagy regulates intestinal barrier function with age and in age-related diseases using C. elegans as a model organism. They plan to pursue a PhD in Cellular Biology.<br><br><strong>Research Projects:</strong> <a href="#" onclick="switchToProjects(\'nih-alzheimers\'); return false;" style="color: #007A33; font-weight: 600; text-decoration: underline;">NIH-Funded Research on Early Alzheimer\'s Detection</a>, <a href="#" onclick="switchToProjects(\'phage-cancer\'); return false;" style="color: #007A33; font-weight: 600; text-decoration: underline;">Phage-Display for Cancer Treatment</a>'
-            },
-
-            'carly-goodman': {
-    name: 'Carly Goodman',
-    class: 'Biochemistry Major | 2024 Top Scholar',
-    bio: 'Carly is a Biochemistry major and 2024 Top Scholar at the University of West Florida. She joined the Guttmann Lab in Fall 2024 and plans to pursue an MD/PhD, combining her interests in clinical medicine and biomedical research. <br><br><strong>Research Project:</strong> <a href="#" onclick="switchToProjects('nih-alzheimers'); return false;" style="color: #007A33; font-weight: 600; text-decoration: underline;">NIH-Funded Research on Early Alzheimer\'s Detection</a>'
-},
-            
-            'christina-kilpatrick': {
-    name: 'Christina Kilpatrick',
-    class: 'Class of 2021 | B.S. Biomedical Sciences<br>M.S. Biology (2023)',
-    bio: 'Christina graduated from the University of West Florida with a Bachelor of Science in Biomedical Sciences in 2021 and completed her Master of Science in Biology in 2023. During her graduate studies, she served as a Graduate Teaching Assistant in anatomy labs and worked as a research lab assistant.<br><br>After graduation, Christina taught Pre-IB Biology at Vanguard High School and served as Lab Manager for Marion County Public School\'s BSL-2 Research Lab, where she mentored students competing at state and international science fairs. Currently, she is a Visiting Instructor and Lab Manager at UWF, teaching pharmacology and biochemistry labs. In the Guttmann Lab, she conducts research on early biomarker detection of Alzheimer\'s disease, focusing on post-translational modifications of the tau protein.<br><br><strong>Research Project:</strong> <a href="#" onclick="switchToProjects(\'nih-alzheimers\'); return false;" style="color: #007A33; font-weight: 600; text-decoration: underline;">NIH-Funded Research on Early Alzheimer\'s Detection</a>',
-    link: 'https://www.linkedin.com/in/christina-kilpatrick-44333021b/'
-},
-            'joshua-cook': {
-                name: 'Joshua J. Cook, M.S. (DS), M.S. (CRM), ACRP-PM, CCRC',
-                class: 'Alumni',
-                bio: 'Joshua is an interdisciplinary professional with over 8 years of experience in Biomedical Science, 5+ years in Clinical Research, and 2+ years in Data Science, with a strong ability to synthesize complex data, develop predictive models, and lead impactful clinical research projects. Currently, he is a Clinical Researcher at Woodlands Medical Specialists and an Adjunct Instructor at the University of West Florida. Certified in Project Management and Clinical Research Coordination, he is committed to advancing healthcare through innovative clinical trial design and management. As a science communicator and instructor, he excels in conveying complex information to diverse audiences and is passionate about teaching and mentorship.<br><br><strong>Research Project:</strong> <a href="#" onclick="switchToProjects(\'clinical-trial\'); return false;" style="color: #007A33; font-weight: 600; text-decoration: underline;">Clinical Trial Coordination for Alzheimer\'s Disease</a>'
-            },
-            'peyton-lurk': {
-                name: 'Peyton Lurk',
-                class: 'B.S. Biomedical Sciences (UWF) | M.P.H. (FSU)',
-                bio: 'Peyton holds a Bachelor\'s degree in Biomedical Sciences from the University of West Florida and a Master\'s degree in Public Health from Florida State University. As an undergraduate, he conducted research in the Guttmann Laboratory, focusing on the protein calpain. During his graduate studies, Peyton interned at the Florida Agency for Health Care Administration (AHCA), where he collaborated with the Chief Medical Officer on public health initiatives, including a statewide colorectal cancer screening campaign and a legislative report on Medicaid utilization among patients with sickle cell disease.<br><br>Currently, Peyton serves as an Epidemiologist at the Florida Department of Health (FDOH). His work centers on reducing cancer mortality throughout Florida through data-driven analysis, policy development, and strategic partnerships. He works closely with organizations such as the Florida Cancer Data System, Florida Cancer Connect, and Florida\'s four National Cancer Institutes.<br><br><strong>Research Project:</strong> <a href="#" onclick="switchToProjects(\'calpain-lseal\'); return false;" style="color: #007A33; font-weight: 600; text-decoration: underline;">Calpain LSEAL Research: Enzyme Kinetics</a>'
-            }
-        };
-
-        // Tab switching
-        document.querySelectorAll('.tab').forEach(tab => {
-            tab.addEventListener('click', () => {
-                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-                
-                tab.classList.add('active');
-                document.getElementById(tab.dataset.tab + '-content').classList.add('active');
-            });
-        });
-
-        // Filter buttons
-        document.querySelectorAll('.filter-btn').forEach(button => {
-            button.addEventListener('click', () => {
-                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-                button.classList.add('active');
-                
-                const filter = button.dataset.filter;
-                const cards = document.querySelectorAll('.student-card');
-                
-                cards.forEach(card => {
-                    if (filter === 'all' || card.dataset.category === filter) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
-
-        // Search functionality
-        document.getElementById('searchInput').addEventListener('input', (e) => {
-            const searchTerm = e.target.value.toLowerCase();
-            const cards = document.querySelectorAll('.student-card');
-            
-            cards.forEach(card => {
-                const name = card.dataset.name.toLowerCase();
-                if (name.includes(searchTerm)) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        });
-
-        // Project details toggle
-        function toggleDetails(button) {
-            const projectCard = button.closest('.project-card');
-            const details = projectCard.querySelector('.project-details');
-            
-            if (details.classList.contains('show')) {
-                details.classList.remove('show');
-                button.textContent = 'View Project Details';
+// Filter buttons
+document.querySelectorAll('.filter-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        button.classList.add('active');
+        
+        const filter = button.dataset.filter;
+        const cards = document.querySelectorAll('.student-card');
+        
+        cards.forEach(card => {
+            if (filter === 'all' || card.dataset.category === filter) {
+                card.style.display = 'block';
             } else {
-                details.classList.add('show');
-                button.textContent = 'Hide Project Details';
+                card.style.display = 'none';
             }
-        }
+        });
+    });
+});
 
-        // Modal functions for student bios
-        function openModal(studentId) {
-            const bio = bios[studentId];
-            if (bio) {
-                document.getElementById('modalName').textContent = bio.name;
-                document.getElementById('modalClass').innerHTML = bio.class;
-                document.getElementById('modalBio').innerHTML = bio.bio;
-                
-                // Handle optional link
-                const linkContainer = document.getElementById('modalLink');
-                if (bio.link) {
-                    linkContainer.innerHTML = '<a href="' + bio.link + '" target="_blank" class="profile-link">🔗 View Profile</a>';
-                } else {
-                    linkContainer.innerHTML = '';
-                }
-                
-                document.getElementById('bioModal').style.display = 'block';
-            }
+// Search functionality
+document.getElementById('searchInput').addEventListener('input', (e) => {
+    const searchTerm = e.target.value.toLowerCase();
+    const cards = document.querySelectorAll('.student-card');
+    
+    cards.forEach(card => {
+        const name = card.dataset.name.toLowerCase();
+        if (name.includes(searchTerm)) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
         }
+    });
+});
 
-        function closeModal() {
-            document.getElementById('bioModal').style.display = 'none';
+// Project details toggle
+function toggleDetails(button) {
+    const projectCard = button.closest('.project-card');
+    const details = projectCard.querySelector('.project-details');
+    
+    if (details.classList.contains('show')) {
+        details.classList.remove('show');
+        button.textContent = 'View Project Details';
+    } else {
+        details.classList.add('show');
+        button.textContent = 'Hide Project Details';
+    }
+}
+
+// Modal functions for student bios
+function openModal(studentId) {
+    const bio = bios[studentId];
+    if (bio) {
+        document.getElementById('modalName').textContent = bio.name;
+        document.getElementById('modalClass').innerHTML = bio.class;
+        document.getElementById('modalBio').innerHTML = bio.bio;
+        
+        // Handle optional link
+        const linkContainer = document.getElementById('modalLink');
+        if (bio.link) {
+            linkContainer.innerHTML = '<a href="' + bio.link + '" target="_blank" class="profile-link">🔗 View Profile</a>';
+        } else {
+            linkContainer.innerHTML = '';
         }
+        
+        document.getElementById('bioModal').style.display = 'block';
+        
+        // After modal content is loaded, attach event listeners to internal project links
+        attachProjectLinkListeners();
+    }
+}
+
+function closeModal() {
+    document.getElementById('bioModal').style.display = 'none';
+}
+
 function switchToProjects(projectId) {
     // Switch to Projects tab
     document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
     document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
     document.querySelector('[data-tab="projects"]').classList.add('active');
     document.getElementById('projects-content').classList.add('active');
+    
     // Close the bio modal
     closeModal();
+    
     // Scroll to specific project if ID provided
     if (projectId) {
         setTimeout(() => {
@@ -1200,13 +1198,48 @@ function switchToProjects(projectId) {
         window.scrollTo(0, 0);
     }
 }
-        // Close modal when clicking outside of it
-        window.onclick = function(event) {
-            const modal = document.getElementById('bioModal');
-            if (event.target == modal) {
-                closeModal();
-            }
+
+// Attach event listeners to project links within modal
+function attachProjectLinkListeners() {
+    const projectLinks = document.querySelectorAll('.project-link-internal');
+    projectLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const projectId = link.getAttribute('data-project');
+            switchToProjects(projectId);
+        });
+    });
+}
+
+// Event delegation for student cards
+document.addEventListener('DOMContentLoaded', () => {
+    const studentsGrid = document.getElementById('studentsGrid');
+    
+    studentsGrid.addEventListener('click', (e) => {
+        // Find the student card that was clicked
+        const card = e.target.closest('.student-card.has-bio');
+        if (card) {
+            // Extract student ID from the data-name attribute
+            const studentName = card.getAttribute('data-name');
+            const studentId = studentName.toLowerCase().replace(/'/g, '').replace(/\s+/g, '-');
+            openModal(studentId);
         }
+    });
+    
+    // Close modal when clicking outside of it
+    const modal = document.getElementById('bioModal');
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
+    
+    // Close button
+    const closeBtn = document.querySelector('.close');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
+    }
+});
     </script>
 </body>
 </html>

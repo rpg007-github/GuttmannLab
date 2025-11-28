@@ -1862,13 +1862,13 @@ const seasonalEvents = [
 
 function getSeasonalBanner() {
     // TESTING: Override date
-    const month = 12;  // May
-    const day = 25;    // 4th
+    //const month = 12;  // May
+    //const day = 25;    // 4th
     
     // NORMAL CODE:
-    //const now = new Date();
-    //const month = now.getMonth() + 1;
-    //const day = now.getDate();
+    const now = new Date();
+    const month = now.getMonth() + 1;
+    const day = now.getDate();
     
     // Find matching event (most specific first - single day events take priority)
     const singleDayEvents = seasonalEvents.filter(e => e.startDay === e.endDay);

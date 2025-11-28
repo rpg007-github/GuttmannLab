@@ -89,7 +89,68 @@
             font-size: 2.5em;
             animation: pulse 2s infinite;
         }
+/* Star Wars Day Animations */
+@keyframes lightsaber-clash {
+    0%, 100% {
+        transform: rotate(-15deg) scale(1);
+        text-shadow: 
+            0 0 10px #00ff00,
+            0 0 20px #00ff00,
+            0 0 30px #00ff00,
+            0 0 40px #00ff00;
+    }
+    25% {
+        transform: rotate(15deg) scale(1.2);
+        text-shadow: 
+            0 0 15px #ff0000,
+            0 0 30px #ff0000,
+            0 0 45px #ff0000,
+            0 0 60px #ff0000;
+    }
+    50% {
+        transform: rotate(-10deg) scale(1.1);
+        text-shadow: 
+            0 0 15px #0066ff,
+            0 0 30px #0066ff,
+            0 0 45px #0066ff,
+            0 0 60px #0066ff;
+    }
+    75% {
+        transform: rotate(10deg) scale(1.2);
+        text-shadow: 
+            0 0 15px #9933ff,
+            0 0 30px #9933ff,
+            0 0 45px #9933ff,
+            0 0 60px #9933ff;
+    }
+}
 
+@keyframes starwars-crawl {
+    0%, 100% {
+        text-shadow: 
+            0 0 10px #FFE81F,
+            0 0 20px #FFE81F;
+    }
+    50% {
+        text-shadow: 
+            0 0 20px #FFE81F,
+            0 0 40px #FFE81F,
+            0 0 60px #FFE81F,
+            0 0 80px #FFE81F;
+        transform: scale(1.05);
+    }
+}
+
+.seasonal-banner[data-starwars="true"] .banner-icon {
+    animation: lightsaber-clash 2s ease-in-out infinite;
+    display: inline-block;
+    font-size: 2em;
+}
+
+.seasonal-banner[data-starwars="true"] .banner-text {
+    animation: starwars-crawl 3s ease-in-out infinite;
+    display: inline-block;
+}
         @keyframes pulse {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.1); }
@@ -1476,7 +1537,7 @@ const seasonalEvents = [
     { month: 5, startDay: 1, endDay: 31, icon: "💚", text: "May is Mental Health Awareness Month — brain health includes mental wellness.", bg: "linear-gradient(135deg, #27ae60 0%, #16a085 100%)", color: "white", link: "https://www.nami.org/Get-Involved/Awareness-Events/Mental-Health-Awareness-Month" },
     { month: 5, startDay: 1, endDay: 31, icon: "👴", text: "Older Americans Month — celebrating healthy aging research!", bg: "linear-gradient(135deg, #004C97 0%, #007A33 100%)", color: "white" },
     { month: 5, startDay: 26, endDay: 26, icon: "🇺🇸", text: "Memorial Day — honoring those who served. Lab closed for observance.", bg: "linear-gradient(135deg, #c0392b 0%, #2c3e50 100%)", color: "white" },
-    
+    { month: 5, startDay: 4, endDay: 4, icon: "⚔️", text: "May the 4th be with you! — Star Wars Day in the Guttmann Lab. Live long and prosper! 🖖", bg: "linear-gradient(135deg, #000000 0%, #0a0a1a 20%, #1a1a3e 40%, #000814 60%, #FFE81F 100%)", color: "#FFE81F", starwars: true },
     // JUNE
     { month: 6, startDay: 1, endDay: 30, icon: "💜", text: "June is Alzheimer's & Brain Awareness Month — #EndALZ. Join us in the fight!", bg: "linear-gradient(135deg, #8e44ad 0%, #3498db 100%)", color: "white", link: "https://www.alz.org/abam" },
     { month: 6, startDay: 21, endDay: 21, icon: "☀️", text: "Happy Summer Solstice — the longest day to make discoveries!", bg: "linear-gradient(135deg, #f39c12 0%, #e67e22 100%)", color: "white" },
@@ -1499,7 +1560,7 @@ const seasonalEvents = [
     // NOVEMBER
     { month: 11, startDay: 1, endDay: 30, icon: "💜", text: "November is National Alzheimer's Disease Awareness Month.", bg: "linear-gradient(135deg, #8e44ad 0%, #004C97 100%)", color: "white", link: "https://www.alz.org/" },
     { month: 11, startDay: 8, endDay: 8, icon: "🔬", text: "National STEM Day — inspiring the next generation of scientists!", bg: "linear-gradient(135deg, #3498db 0%, #27ae60 100%)", color: "white" },
-    { month: 11, startDay: 28, endDay: 28, icon: "🦃", text: "Happy Thanksgiving! Grateful for our students, mentors, and research community.", bg: "linear-gradient(135deg, #d35400 0%, #c0392b 100%)", color: "white" },
+    { month: 11, startDay: 28, endDay: 28, icon: "🦃", text: "Happy Thanksgiving! Grateful for our students, colleagues, and research community.", bg: "linear-gradient(135deg, #d35400 0%, #c0392b 100%)", color: "white" },
     
     // DECEMBER
     { month: 12, startDay: 1, endDay: 24, icon: "❄️", text: "Season's Greetings from the Guttmann Lab! Wishing you warmth and wonder.", bg: "linear-gradient(135deg, #3498db 0%, #2c3e50 100%)", color: "white" },
@@ -1531,18 +1592,25 @@ function displaySeasonalBanner() {
     const banner = document.getElementById('seasonalBanner');
     const event = getSeasonalBanner();
     
-    if (event) {
-        banner.style.background = event.bg;
-        banner.style.color = event.color;
-        
-        let html = `<span class="banner-icon">${event.icon}</span>`;
-        html += `<span class="banner-text">${event.text}</span>`;
-        if (event.link) {
-            html += `<a href="${event.link}" target="_blank" style="color: ${event.color}">Learn More →</a>`;
-        }
-        
-        banner.innerHTML = html;
-        banner.style.display = 'flex';
+   if (event) {
+    banner.style.background = event.bg;
+    banner.style.color = event.color;
+    
+    // Add Star Wars attribute for special animation
+    if (event.starwars) {
+        banner.setAttribute('data-starwars', 'true');
+    } else {
+        banner.removeAttribute('data-starwars');
+    }
+    
+    let html = `<span class="banner-icon">${event.icon}</span>`;
+    html += `<span class="banner-text">${event.text}</span>`;
+    if (event.link) {
+        html += `<a href="${event.link}" target="_blank" style="color: ${event.color}">Learn More →</a>`;
+    }
+    
+    banner.innerHTML = html;
+    banner.style.display = 'flex';
     } else {
         // Default banner when no special event
         banner.style.background = 'linear-gradient(135deg, #004C97 0%, #007A33 100%)';

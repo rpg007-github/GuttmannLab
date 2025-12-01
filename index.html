@@ -1077,15 +1077,15 @@
                         </div>
                     </div>
 
-                    <div class="student-card" data-name="Calypsa Coarsey" data-category="current">
-                        <div class="student-photo-container">
-                            <img src="calypsa-coarsey.jpg" alt="Calypsa Coarsey" class="student-photo">
-                        </div>
-                        <div class="student-info">
-                            <div class="student-name">Calypsa Coarsey</div>
-                            <span class="student-status">Current Student</span>
-                        </div>
-                    </div>
+<div class="student-card has-bio" data-name="Calypsa Coarsey" data-category="current" onclick="openModal('calypsa-coarsey')">
+    <div class="student-photo-container">
+        <img src="calypsa-coarsey.jpg" alt="Calypsa Coarsey" class="student-photo">
+    </div>
+    <div class="student-info">
+        <div class="student-name">Calypsa Coarsey</div>
+        <span class="student-status">Current Student</span>
+    </div>
+</div>
 
                     <div class="student-card has-bio" data-name="Campbell Smith" data-category="current" onclick="openModal('campbell-smith')">
     <div class="student-photo-container">
@@ -2134,6 +2134,10 @@ const bios = {
         bio: 'Caleb is a senior at the University of West Florida majoring in Biochemistry. He plans to pursue an MD/PhD with the ultimate goal of researching aging-related diseases. His academic and career interests are driven by a passion for advancing our understanding of the biological processes behind aging and age-associated conditions. <br><br><strong>Research Project:</strong> <a href="#" class="project-link-internal" data-project="nih-alzheimers" style="color: #007A33; font-weight: 600; text-decoration: underline;">NIH-Funded Research on Early Alzheimer\'s Detection</a>'
     },
 
+    'calypsa-coarsey': {
+    name: 'Calypsa Coarsey',
+    bio: 'Class of 2027 | Current Student<br><br>Calypsa joined the Guttmann Lab in Fall 2024 through the OUR Works program. Her research focuses on improving hydration and caloric intake in people with dementia using robotic pet interventions. She presented her findings at the Spring 2025 UWF Symposium.<br><br><strong>Research Project:</strong> <a href="#" onclick="switchToProjects(\'robotic-pet\'); return false;">Robotic Pet Intervention to Support Alzheimer\'s Caregivers</a>'
+},
     'campbell-smith': {
     name: 'Campbell Smith',
     bio: 'Class of 2026 | Biomedical Sciences Major<br><br>Campbell joined the Guttmann Lab in 2025, where his research focuses on physiological and psychological effects of Alzheimer\'s Disease. Outside the lab, he is preparing for dental school and volunteers doing community outreach and dental related volunteer activities.<br><br><strong>Research Project:</strong> <a href="#" onclick="switchToProjects(\'robotic-pet\'); return false;">Robotic Pet Intervention to Support Alzheimer\'s Caregivers</a>'

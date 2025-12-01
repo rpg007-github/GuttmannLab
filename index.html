@@ -1087,15 +1087,15 @@
                         </div>
                     </div>
 
-                    <div class="student-card" data-name="Campbell Smith" data-category="current">
-                        <div class="student-photo-container">
-                            <img src="campbell-smith.jpg" alt="Campbell Smith" class="student-photo">
-                        </div>
-                        <div class="student-info">
-                            <div class="student-name">Campbell Smith</div>
-                            <span class="student-status">Current Student</span>
-                        </div>
-                    </div>
+                    <div class="student-card has-bio" data-name="Campbell Smith" data-category="current" onclick="openModal('campbell-smith')">
+    <div class="student-photo-container">
+        <img src="Campbell-Smith.jpeg" alt="Campbell Smith" class="student-photo">
+    </div>
+    <div class="student-info">
+        <div class="student-name">Campbell Smith</div>
+        <span class="student-status current">Current</span>
+    </div>
+</div>
 
                     <div class="student-card has-bio" data-name="Carli Carrillo" data-category="current" onclick="openModal('carli-carrillo')">
                         <div class="student-photo-container">
@@ -2133,6 +2133,11 @@ const bios = {
         class: 'Class of 2025 | Biochemistry Major',
         bio: 'Caleb is a senior at the University of West Florida majoring in Biochemistry. He plans to pursue an MD/PhD with the ultimate goal of researching aging-related diseases. His academic and career interests are driven by a passion for advancing our understanding of the biological processes behind aging and age-associated conditions. <br><br><strong>Research Project:</strong> <a href="#" class="project-link-internal" data-project="nih-alzheimers" style="color: #007A33; font-weight: 600; text-decoration: underline;">NIH-Funded Research on Early Alzheimer\'s Detection</a>'
     },
+
+    'campbell-smith': {
+    name: 'Campbell Smith',
+    bio: 'Class of 2026 | Biomedical Sciences Major<br><br>Campbell joined the Guttmann Lab in 2025, where his research focuses on physiological and psychological effects of Alzheimer\'s Disease. Outside the lab, he is preparing for dental school and volunteers doing community outreach and dental related volunteer activities.<br><br><strong>Research Project:</strong> <a href="#" onclick="switchToProjects(\'nih-alzheimers\'); return false;">NIH-Funded Research on Early Alzheimer\'s Detection</a>'
+},
     'carli-carrillo': {
         name: 'Carli Carrillo',
         class: 'Class of 2027 | Biomedical Sciences Major<br>Minors: Spanish, Kugelman Honors Program',

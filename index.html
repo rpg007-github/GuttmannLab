@@ -1147,6 +1147,16 @@
                         </div>
                     </div>
 
+<div class="student-card has-bio" data-name="Lauren Kemp" data-category="current" onclick="openModal('lauren-kemp')">
+    <div class="student-photo-container">
+        <img src="lauren-kemp.jpg" alt="Lauren Kemp" class="student-photo">
+    </div>
+    <div class="student-info">
+        <div class="student-name">Lauren Kemp</div>
+        <span class="student-status">Current Student</span>
+    </div>
+</div>
+                    
                     <div class="student-card has-bio" data-name="Savannah Bonnett" data-category="current" onclick="openModal('savannah-bonnett')">
                         <div class="student-photo-container">
                             <img src="savannah-bonnett.jpg" alt="Savannah Bonnett" class="student-photo" style="object-position: center top;">
@@ -1246,7 +1256,17 @@
                             <span class="student-status alumni">Alumni</span>
                         </div>
                     </div>
-                   
+
+<div class="student-card has-bio" data-name="Erick Martinez" data-category="alumni" onclick="openModal('erick-martinez')">
+    <div class="student-photo-container">
+        <div class="student-photo-placeholder">EM</div>
+    </div>
+    <div class="student-info">
+        <div class="student-name">Erick E. Martinez</div>
+        <span class="student-status alumni">Alumni</span>
+    </div>
+</div>
+                    
 <div class="student-card has-bio" data-name="Isabel Holland" data-category="alumni" onclick="openModal('isabel-holland')">
     <div class="student-photo-container">
         <img src="isabell-holland.jpg" alt="Isabel Holland" class="student-photo">
@@ -2157,6 +2177,13 @@ const bios = {
         class: 'Class of 2026 | Biomedical Sciences Major<br>Minor: Psychology',
         bio: 'D\'Juan is a junior at the University of West Florida majoring in Biomedical Sciences with a minor in Psychology. He is passionate about pursuing a career in medicine and has a strong interest in Alzheimer\'s research, particularly in understanding how the disease impacts the brain and memory. His academic focus reflects a deep curiosity about the connection between biology and behavior. Outside the classroom, D\'Juan volunteers in his community and is dedicated to helping others in meaningful ways. <br><br><strong>Research Project:</strong> <a href="#" class="project-link-internal" data-project="nih-alzheimers" style="color: #007A33; font-weight: 600; text-decoration: underline;">NIH-Funded Research on Early Alzheimer\'s Detection</a>'
     },
+
+    'erick-martinez': {
+    name: 'Erick E. Martinez',
+    class: 'Class of 2025 | B.S. Biomedical Sciences, University of West Florida',
+    bio: 'Erick joined the Guttmann Lab in Summer 2024 as a Research Assistant, contributing to Alzheimer\'s disease research focused on identifying precursor biomarkers for early detection. He supported biomarker development utilizing phage display techniques, with responsibilities including preparation and maintenance of <i>E. coli</i> cultures, phage tittering, data collection and analysis, and adherence to established laboratory protocols. After completing training, he assisted in onboarding new students by teaching proper laboratory procedures and safety protocols.<br><br>Erick served six years on active duty in the United States Navy. As an undergraduate, he was Vice President of the American Society for Microbiology and a member of the Student Veterans Association. He also volunteered at the Health and Hope Clinic as a Patient Care Advocate. Erick has been accepted into the Class of 2030 at Lincoln Memorial University DeBusk College of Osteopathic Medicine (LMU-DCOM), where he aspires to serve as a flight surgeon and later pursue emergency medicine.'
+},
+    
 'gia-najarro': {
     name: 'Gianna Najarro',
     class: 'Class of 2025 | B.S. Biological Science, Florida State University',
@@ -2174,6 +2201,12 @@ const bios = {
         class: 'Class of 2027 | Biomedical Sciences Major',
         bio: 'Joseph is a junior at the University of West Florida majoring in Biomedical Sciences. He plans to pursue an MD/PhD with his end goal being a well-rounded clinician and researcher. His academic and career interests are driven by a passion for advancing our understanding of the biological processes behind internal medicine. With strong interests in both family medicine and surgery, he seeks to bridge the gap between hands-on patient care and translational research. <br><br><strong>Research Project:</strong> <a href="#" class="project-link-internal" data-project="nih-alzheimers" style="color: #007A33; font-weight: 600; text-decoration: underline;">NIH-Funded Research on Early Alzheimer\'s Detection</a>'
     },
+
+    'lauren-kemp': {
+    name: 'Lauren Kemp',
+    class: 'Class of 2026 | English Major, University of Florida',
+    bio: 'Lauren joined the Guttmann Lab in 2022 and participated in the UWF Summer Undergraduate Research Program (SURP) for two consecutive summers. Her research focused on identifying mechanisms of Alzheimer\'s disease pathology, including statistical analysis of experimental data. After transferring to the University of Florida, Lauren applied her neurodegenerative disease research experience to the LaVoie Lab, where she has contributed to Parkinson\'s disease research as a volunteer for nearly two years.'
+},
     'savannah-bonnett': {
         name: 'Savannah Bonnett',
         class: 'Class of 2027 | Biology Major',
@@ -2218,7 +2251,8 @@ const bios = {
         bio: 'Christina graduated from the University of West Florida with a Bachelor of Science in Biomedical Sciences in 2021 and completed her Master of Science in Biology in 2023. During her graduate studies, she served as a Graduate Teaching Assistant in anatomy labs and worked as a research lab assistant.<br><br>After graduation, Christina taught Pre-IB Biology at Vanguard High School and served as Lab Manager for Marion County Public School\'s BSL-2 Research Lab, where she mentored students competing at state and international science fairs. Currently, she is a Visiting Instructor and Lab Manager at UWF, teaching pharmacology and biochemistry labs. In the Guttmann Lab, she conducts research on early biomarker detection of Alzheimer\'s disease, focusing on post-translational modifications of the tau protein.<br><br><strong>Research Project:</strong> <a href="#" class="project-link-internal" data-project="nih-alzheimers" style="color: #007A33; font-weight: 600; text-decoration: underline;">NIH-Funded Research on Early Alzheimer\'s Detection</a>',
         link: 'https://www.linkedin.com/in/christina-kilpatrick-44333021b/'
     },
-    'joshua-cook': {
+
+        'joshua-cook': {
         name: 'Joshua J. Cook, M.S. (DS), M.S. (CRM), ACRP-PM, CCRC',
         class: 'Alumni',
         bio: 'Joshua is an interdisciplinary professional with over 8 years of experience in Biomedical Science, 5+ years in Clinical Research, and 2+ years in Data Science, with a strong ability to synthesize complex data, develop predictive models, and lead impactful clinical research projects. Currently, he is a Clinical Researcher at Woodlands Medical Specialists and an Adjunct Instructor at the University of West Florida. Certified in Project Management and Clinical Research Coordination, he is committed to advancing healthcare through innovative clinical trial design and management. As a science communicator and instructor, he excels in conveying complex information to diverse audiences and is passionate about teaching and mentorship.<br><br><strong>Research Project:</strong> <a href="#" class="project-link-internal" data-project="clinical-trial" style="color: #007A33; font-weight: 600; text-decoration: underline;">Clinical Trial Coordination for Alzheimer\'s Disease</a>'

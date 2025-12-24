@@ -1473,6 +1473,18 @@
         <span class="student-status alumni">Alumni</span>
     </div>
 </div>
+
+
+    <!-- Gonzalez, Cristina -->
+<div class="student-card has-bio" data-name="Cristina Gonzalez" data-category="alumni" onclick="openModal('cristina-gonzalez')">
+    <div class="student-photo-container">
+        <img src="cristina-gonzalez.jpeg" alt="Cristina Gonzalez" class="student-photo">
+    </div>
+    <div class="student-info">
+        <div class="student-name">Cristina Gonzalez</div>
+        <span class="student-status alumni">Alumni</span>
+    </div>
+</div>
                     <!-- Hayslip, Matt -->
                     <div class="student-card has-bio" data-name="Matt Hayslip" data-category="alumni" onclick="openModal('matt-hayslip')">
                         <div class="student-photo-container">
@@ -1711,7 +1723,7 @@
                     <!-- ALF Neuroplasticity -->
                     <div class="project-card">
                         <div class="project-header">
-                            <h3 class="project-title">ALF Neuroplasticity Assessment: Optimizing Cognitive Activities</h3>
+                            <h3 class="project-title" id="alf-neuroplasticity">ALF Neuroplasticity Assessment: Optimizing Cognitive Activities</h3>
                             <div class="project-icon">🧩</div>
                         </div>
                         <p class="project-summary">Students are developing and validating assessment tools to evaluate how activities in Assisted Living Facilities promote neuroplasticity through motor function, sensory engagement, memory stimulation, and social interaction.</p>
@@ -2409,6 +2421,12 @@ const bios = {
     class: 'Class of 2025 | B.A. Neuroscience, Boston University',
     bio: 'Kayla joined the Guttmann Lab during the summer of 2024 as a research assistant. During her time in the lab, she worked on discovering biomarkers for Alzheimer\'s disease using phage display and greatly developed her understanding of translational science.<br><br>Along with her research experience at Boston University, she has focused her research endeavors on neuroinflammation, specifically glial involvement in neural diseases and disorders. Since graduating from BU, Kayla is currently pursuing a PhD in Molecular and Systems Pharmacology at Emory University.<br><br><strong>Research Project:</strong> <a href="#" class="project-link-internal" data-project="nih-alzheimers" style="color: #007A33; font-weight: 600; text-decoration: underline;">NIH-Funded Research on Early Alzheimer\'s Detection</a>',
     link: 'https://www.linkedin.com/in/kayla-dunson-77a8a6235'
+},
+
+    'cristina-gonzalez': {
+    name: 'Cristina Gonzalez',
+    class: 'Class of 2026 | Master of Public Health',
+    bio: 'Cristina joined the Guttmann Lab as an undergraduate research mentee, where she contributed to a neuroplasticity assessment project examining how structured activities in assisted living settings engage key domains of neuroplasticity, including motor, sensory, cognitive, and social function. Her work focused on survey design, pilot testing, and methodological refinement for a larger planned study, with an emphasis on safety, feasibility, and practical application in real-world care environments.<br><br>As a graduate student, Cristina brings prior clinical and public health experience to her research, informed by her background in patient care, familiarity with international health systems, and her work as a practice manager in a primary care setting, where she focuses on patient advocacy and improving access to equitable care for vulnerable populations.<br><br><strong>Research Project:</strong> <a href="#" class="project-link-internal" data-project="alf-neuroplasticity" style="color: #007A33; font-weight: 600; text-decoration: underline;">ALF Neuroplasticity Assessment</a>'
 },
     'alayna-kliche': {
         name: 'Alayna Kliche',

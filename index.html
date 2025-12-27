@@ -207,7 +207,7 @@
 
 
     <style>
-
+<script>
 		/* ============================================
    MODERN ENHANCEMENTS - Added 2024
    ============================================ */
@@ -1716,16 +1716,13 @@ html {
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-XFWF5H8X3L');
-<script>
-    // Show swipe hint on mobile only, once
-    if (window.innerWidth <= 768 && !localStorage.getItem('swipeHintShown')) {
-        setTimeout(() => {
-            document.getElementById('swipeHint').style.display = 'block';
-            localStorage.setItem('swipeHintShown', 'true');
-        }, 2000);
-    }
+gtag('config', 'G-XFWF5H8X3L');
 </script>
+</head>
+<body>
+    <div id="progressBar" style="position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, #007A33, #004C97); width: 0%; z-index: 9999; transition: width 0.1s ease;"></div>
+
+    <div class="container">
 	
 	<div class="container">
         <!-- Dynamic Seasonal Banner -->
@@ -1804,7 +1801,7 @@ html {
     <div class="tab active" data-tab="students">Students</div>
     <div class="tab" data-tab="outcomes">Where They Are Now</div>
     <div class="tab" data-tab="projects">Research</div>
-    <a href="#join" onclick="scroll<a href="javascript:void(0)" onclick="scrollToJoinSection()" style="margin-left: auto; padding: 20px 30px; background: #007A33; color: white; font-weight: 600; text-decoration: none; display: flex; align-items: center;">Join the Lab →</a>
+<a href="javascript:void(0)" onclick="scrollToJoinSection()" style="margin-left: auto; padding: 20px 30px; background: #007A33; color: white; font-weight: 600; text-decoration: none; display: flex; align-items: center;">Join the Lab →</a>
 </div>
 
         <div class="tab-content active" id="students-content">
@@ -2738,13 +2735,13 @@ html {
                 
                 <div style="background: white; padding: 25px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); border-left: 5px solid #FFB81C;">
                     <h3 style="color: #004C97; margin-bottom: 10px;">Peyton Lurk</h3>
-                    <p style="color: #666; margin-bottom: 15px;"><strong>B.S. Biomedical Sciences (UWF)</strong> | M.P.H. (FSU)</p>
+                    <p style="color: #666; margin-bottom: 15px;"><strong>Class of 2019</strong> | B.S. Biomedical Sciences | M.P.H. (FSU)</p>
                     <p style="line-height: 1.6;"><strong>Epidemiologist at Florida Department of Health (FDOH)</strong>. Focuses on reducing cancer mortality through data-driven analysis, policy development, and strategic partnerships with Florida Cancer Data System and Florida Cancer Connect.</p>
                 </div>
 
                 <div style="background: white; padding: 25px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); border-left: 5px solid #FFB81C;">
                     <h3 style="color: #004C97; margin-bottom: 10px;">Joshua Cook</h3>
-                    <p style="color: #666; margin-bottom: 15px;"><strong>M.S. Data Science | M.S. Clinical Research Management</strong></p>
+                    <p style="color: #666; margin-bottom: 15px;"><strong>Class of 2017</strong> | M.S. Data Science | M.S. Clinical Research Management</p>
                     <p style="line-height: 1.6;"><strong>Clinical Researcher at Woodlands Medical Specialists</strong> and Adjunct Instructor at UWF. ACRP-PM and CCRC certified. 8+ years in Biomedical Science, 5+ years in Clinical Research, 2+ years in Data Science.</p>
                 </div>
 
@@ -3880,19 +3877,12 @@ if ('connection' in navigator) {
         document.body.classList.add('reduce-motion');
     }
 }
-
+		</script)
 // Console Easter egg
 console.log('%c🧬 Guttmann Research Lab', 'font-size: 24px; font-weight: bold; color: #004C97;');
 console.log('%cAdvancing neuroscience research at UWF', 'font-size: 14px; color: #007A33;');
 console.log('%cInterested in joining? Contact rguttmann@uwf.edu', 'font-size: 12px; color: #666;');
-</script>
-</head>
-<body>
-    <div id="progressBar" style="position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, #007A33, #004C97); width: 0%; z-index: 9999; transition: width 0.1s ease;"></div>
-  <!-- Swipe indicator for mobile -->
-<div id="swipeHint" style="display: none; position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.7); color: white; padding: 10px 20px; border-radius: 25px; font-size: 14px; z-index: 1000; animation: fadeInOut 3s ease forwards;">
-    👆 Swipe to navigate tabs
-</div>
+
 
 <style>
     @keyframes fadeInOut {

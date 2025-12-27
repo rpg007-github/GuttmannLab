@@ -363,7 +363,432 @@ body {
             gap: 15px;
             animation: fadeIn 0.5s ease;
         }
+/* ============================================
+   ULTRA-MODERN ENHANCEMENTS - 2024
+   ============================================ */
 
+/* Glassmorphism effects */
+.glass-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Smooth page transitions */
+.tab-content {
+    animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Enhanced card hover with 3D tilt effect */
+.student-card {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.student-card:hover {
+    transform: translateY(-10px) rotateX(2deg);
+}
+
+/* Gradient text for headings */
+.gradient-text {
+    background: linear-gradient(135deg, #004C97 0%, #007A33 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Animated gradient border */
+.gradient-border {
+    position: relative;
+    background: white;
+    border-radius: 15px;
+}
+
+.gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 17px;
+    background: linear-gradient(135deg, #004C97, #007A33, #FFB81C, #004C97);
+    background-size: 300% 300%;
+    animation: gradientShift 4s ease infinite;
+    z-index: -1;
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* Floating animation for icons */
+.float-animation {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Pulse glow effect */
+.pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 0 20px rgba(0, 122, 51, 0.3); }
+    50% { box-shadow: 0 0 40px rgba(0, 122, 51, 0.6); }
+}
+
+/* Modern scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #004C97, #007A33);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #003366, #005a24);
+}
+
+/* Selection highlight */
+::selection {
+    background: rgba(0, 76, 151, 0.3);
+    color: #004C97;
+}
+
+/* Enhanced button styles */
+.modern-btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.modern-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.modern-btn:active::after {
+    width: 300px;
+    height: 300px;
+}
+
+/* Skeleton loading for images */
+@keyframes skeletonPulse {
+    0%, 100% { background-color: #e9ecef; }
+    50% { background-color: #f8f9fa; }
+}
+
+.skeleton-loading {
+    animation: skeletonPulse 1.5s ease-in-out infinite;
+}
+
+/* Responsive typography */
+html {
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    html { font-size: 14px; }
+}
+
+@media (min-width: 1400px) {
+    html { font-size: 18px; }
+}
+
+/* Enhanced mobile experience */
+@media (max-width: 768px) {
+    /* Better touch targets */
+    .filter-btn {
+        padding: 14px 24px;
+        min-height: 48px;
+    }
+    
+    .tab {
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+    }
+    
+    /* Stack hero stats on mobile */
+    section > div > div:last-child {
+        justify-content: center;
+    }
+    
+    /* Full-width cards on mobile */
+    .students-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    /* Better modal on mobile */
+    .modal-content {
+        margin: 10px;
+        width: calc(100% - 20px);
+        max-height: calc(100vh - 20px);
+        overflow-y: auto;
+    }
+    
+    .modal-header {
+        padding: 20px;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+    
+    .modal-body {
+        padding: 20px;
+    }
+    
+    /* Adjust hero section */
+    section[style*="padding: 60px 40px"] {
+        padding: 40px 20px !important;
+    }
+    
+    /* Smaller spotlight on mobile */
+    #studentSpotlight {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px 20px !important;
+    }
+    
+    #studentSpotlight img {
+        margin-bottom: 10px;
+    }
+}
+
+/* Tablet optimizations */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .students-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .tabs {
+        padding: 0 20px;
+    }
+    
+    .tab {
+        padding: 15px 20px;
+        font-size: 16px;
+    }
+}
+
+/* Large screen optimizations */
+@media (min-width: 1600px) {
+    .container {
+        max-width: 1600px;
+    }
+    
+    .students-grid {
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    }
+}
+
+/* Dark mode support (optional - users can enable in OS) */
+@media (prefers-color-scheme: dark) {
+    /* Uncomment to enable dark mode
+    body {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    }
+    
+    .container {
+        background: #0f0f23;
+        color: #e9ecef;
+    }
+    
+    .student-card {
+        background: #1a1a2e;
+    }
+    
+    .student-name {
+        color: #7aa2f7;
+    }
+    
+    .controls, .did-you-know {
+        background: #16213e;
+    }
+    
+    #searchInput {
+        background: #1a1a2e;
+        color: #e9ecef;
+        border-color: #3b4261;
+    }
+    
+    .filter-btn {
+        background: #1a1a2e;
+        color: #7aa2f7;
+        border-color: #3b4261;
+    }
+    
+    .project-card {
+        background: #1a1a2e;
+    }
+    */
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .student-card {
+        border: 2px solid #000;
+    }
+    
+    .filter-btn {
+        border-width: 3px;
+    }
+}
+
+/* Reduced data mode - disable heavy animations */
+@media (prefers-reduced-data: reduce) {
+    .student-photo-container {
+        animation: none;
+    }
+}
+
+/* Container queries for modern browsers */
+@supports (container-type: inline-size) {
+    .students-grid {
+        container-type: inline-size;
+    }
+    
+    @container (max-width: 600px) {
+        .student-card {
+            flex-direction: column;
+        }
+    }
+}
+
+/* Improved focus indicators for accessibility */
+.tab:focus-visible,
+.filter-btn:focus-visible,
+.student-card:focus-visible,
+.expand-btn:focus-visible,
+.project-link:focus-visible {
+    outline: 3px solid #FFB81C;
+    outline-offset: 3px;
+}
+
+/* Loading state for buttons */
+.loading {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.loading::after {
+    content: '';
+    width: 16px;
+    height: 16px;
+    border: 2px solid transparent;
+    border-top-color: currentColor;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    display: inline-block;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Staggered animation for grid items */
+.student-card:nth-child(1) { animation-delay: 0.05s; }
+.student-card:nth-child(2) { animation-delay: 0.1s; }
+.student-card:nth-child(3) { animation-delay: 0.15s; }
+.student-card:nth-child(4) { animation-delay: 0.2s; }
+.student-card:nth-child(5) { animation-delay: 0.25s; }
+.student-card:nth-child(6) { animation-delay: 0.3s; }
+.student-card:nth-child(7) { animation-delay: 0.35s; }
+.student-card:nth-child(8) { animation-delay: 0.4s; }
+
+/* Smooth image zoom on hover */
+.student-photo-container img {
+    transition: transform 0.5s ease;
+}
+
+.student-card:hover .student-photo-container img {
+    transform: scale(1.05);
+}
+
+/* Better project card interactions */
+.project-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* Animated underline for links */
+.animated-link {
+    position: relative;
+    text-decoration: none;
+}
+
+.animated-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: currentColor;
+    transition: width 0.3s ease;
+}
+
+.animated-link:hover::after {
+    width: 100%;
+}
+
+/* Badge animations */
+.student-status {
+    transition: all 0.3s ease;
+}
+
+.student-card:hover .student-status {
+    transform: scale(1.05);
+}
+
+/* Smooth accordion for project details */
+.project-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, padding 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.project-details.show {
+    max-height: 2000px;
+    opacity: 1;
+    padding-top: 20px;
+    padding-bottom: 0;
+}
        /* ============================================
    SEASONAL BANNER ANIMATIONS
    ============================================ */
@@ -1342,11 +1767,268 @@ document.querySelectorAll('.student-photo').forEach(img => {
 document.querySelectorAll('img:not([loading])').forEach(img => {
     img.setAttribute('loading', 'lazy');
 });
+
+	// ============================================
+// ULTRA-MODERN ENHANCEMENTS - 2024
+// ============================================
+
+// Smooth scroll for all anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const target = document.querySelector(targetId);
+        if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+});
+
+// Parallax effect for hero section
+const heroSection = document.querySelector('section[style*="background: linear-gradient"]');
+if (heroSection) {
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        if (scrolled < 600) {
+            heroSection.style.backgroundPositionY = scrolled * 0.3 + 'px';
+        }
+    });
+}
+
+// Dynamic header shadow on scroll
+const tabs = document.querySelector('.tabs');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) {
+        tabs.style.boxShadow = '0 4px 20px rgba(0,0,0,0.15)';
+    } else {
+        tabs.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+    }
+});
+
+// Typewriter effect for hero text (optional enhancement)
+function typeWriter(element, text, speed = 50) {
+    let i = 0;
+    element.textContent = '';
+    function type() {
+        if (i < text.length) {
+            element.textContent += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+        }
+    }
+    type();
+}
+
+// Count-up animation for statistics
+function animateCountUp(element, target, duration = 2000) {
+    const start = 0;
+    const increment = target / (duration / 16);
+    let current = start;
+    
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+            element.textContent = target + (element.dataset.suffix || '');
+            clearInterval(timer);
+        } else {
+            element.textContent = Math.floor(current) + (element.dataset.suffix || '');
+        }
+    }, 16);
+}
+
+// Trigger count-up when stats are visible
+const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const statElements = entry.target.querySelectorAll('[data-count]');
+            statElements.forEach(el => {
+                const target = parseInt(el.dataset.count);
+                animateCountUp(el, target);
+            });
+            statsObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
+// Apply to stats sections
+document.querySelectorAll('[style*="font-size: 2.5em"][style*="font-weight: 700"]').forEach(stat => {
+    const text = stat.textContent;
+    const num = parseInt(text);
+    if (!isNaN(num)) {
+        stat.dataset.count = num;
+        stat.dataset.suffix = text.replace(num, '');
+        stat.textContent = '0' + stat.dataset.suffix;
+        if (stat.parentElement) {
+            statsObserver.observe(stat.parentElement.parentElement);
+        }
+    }
+});
+
+// Keyboard navigation for student cards
+document.querySelectorAll('.student-card.has-bio').forEach(card => {
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('role', 'button');
+    card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            card.click();
+        }
+    });
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeModal();
+    }
+});
+
+// Trap focus in modal when open
+function trapFocus(modal) {
+    const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+    const firstFocusable = focusableElements[0];
+    const lastFocusable = focusableElements[focusableElements.length - 1];
+    
+    modal.addEventListener('keydown', (e) => {
+        if (e.key === 'Tab') {
+            if (e.shiftKey && document.activeElement === firstFocusable) {
+                e.preventDefault();
+                lastFocusable.focus();
+            } else if (!e.shiftKey && document.activeElement === lastFocusable) {
+                e.preventDefault();
+                firstFocusable.focus();
+            }
+        }
+    });
+}
+
+const bioModal = document.getElementById('bioModal');
+if (bioModal) {
+    trapFocus(bioModal);
+}
+
+// Touch gestures for mobile
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+}, { passive: true });
+
+document.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+}, { passive: true });
+
+function handleSwipe() {
+    const swipeThreshold = 100;
+    const diff = touchStartX - touchEndX;
+    
+    // Only handle swipe if modal is closed
+    if (document.getElementById('bioModal').style.display === 'block') return;
+    
+    const tabs = document.querySelectorAll('.tab');
+    const activeTab = document.querySelector('.tab.active');
+    const activeIndex = Array.from(tabs).indexOf(activeTab);
+    
+    if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0 && activeIndex < tabs.length - 1) {
+            // Swipe left - next tab
+            tabs[activeIndex + 1].click();
+        } else if (diff < 0 && activeIndex > 0) {
+            // Swipe right - previous tab
+            tabs[activeIndex - 1].click();
+        }
+    }
+}
+
+// Preload images for smoother experience
+function preloadImages() {
+    const images = document.querySelectorAll('.student-photo');
+    images.forEach(img => {
+        const src = img.getAttribute('src');
+        if (src) {
+            const preload = new Image();
+            preload.src = src;
+        }
+    });
+}
+preloadImages();
+
+// Add haptic feedback for mobile (if supported)
+function vibrate(duration = 10) {
+    if (navigator.vibrate) {
+        navigator.vibrate(duration);
+    }
+}
+
+document.querySelectorAll('.filter-btn, .tab, .expand-btn').forEach(btn => {
+    btn.addEventListener('click', () => vibrate(10));
+});
+
+// Performance optimization: Pause animations when tab is not visible
+document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+        document.body.classList.add('reduce-motion');
+    } else {
+        document.body.classList.remove('reduce-motion');
+    }
+});
+
+// Add CSS class for paused animations
+const styleSheet = document.createElement('style');
+styleSheet.textContent = `
+    .reduce-motion *, .reduce-motion *::before, .reduce-motion *::after {
+        animation-play-state: paused !important;
+        transition: none !important;
+    }
+`;
+document.head.appendChild(styleSheet);
+
+// Network-aware image loading
+if ('connection' in navigator) {
+    const connection = navigator.connection;
+    if (connection.saveData || connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g') {
+        // Disable heavy animations on slow connections
+        document.body.classList.add('reduce-motion');
+    }
+}
+
+// Console Easter egg
+console.log('%c🧬 Guttmann Research Lab', 'font-size: 24px; font-weight: bold; color: #004C97;');
+console.log('%cAdvancing neuroscience research at UWF', 'font-size: 14px; color: #007A33;');
+console.log('%cInterested in joining? Contact rguttmann@uwf.edu', 'font-size: 12px; color: #666;');
 </script>
 </head>
 <body>
     <div id="progressBar" style="position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, #007A33, #004C97); width: 0%; z-index: 9999; transition: width 0.1s ease;"></div>
-    <div class="container">
+  <!-- Swipe indicator for mobile -->
+<div id="swipeHint" style="display: none; position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.7); color: white; padding: 10px 20px; border-radius: 25px; font-size: 14px; z-index: 1000; animation: fadeInOut 3s ease forwards;">
+    👆 Swipe to navigate tabs
+</div>
+
+<style>
+    @keyframes fadeInOut {
+        0% { opacity: 0; transform: translateX(-50%) translateY(20px); }
+        20% { opacity: 1; transform: translateX(-50%) translateY(0); }
+        80% { opacity: 1; transform: translateX(-50%) translateY(0); }
+        100% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+    }
+</style>
+
+<script>
+    // Show swipe hint on mobile only, once
+    if (window.innerWidth <= 768 && !localStorage.getItem('swipeHintShown')) {
+        setTimeout(() => {
+            document.getElementById('swipeHint').style.display = 'block';
+            localStorage.setItem('swipeHintShown', 'true');
+        }, 2000);
+    }
+</script>
+	
+	<div class="container">
         <!-- Dynamic Seasonal Banner -->
         <div id="seasonalBanner" class="seasonal-banner"></div>
 
@@ -2461,10 +3143,31 @@ document.querySelectorAll('img:not([loading])').forEach(img => {
         <a href="mailto:rguttmann@uwf.edu" style="display: inline-flex; align-items: center; gap: 10px; background: #007A33; color: white; padding: 16px 35px; border-radius: 8px; font-size: 1.1em; font-weight: 600; text-decoration: none;">✉️ Contact Dr. Guttmann</a>
     </div>
 </section>
-       <footer>
-    <p>&copy; 2024 Guttmann Research Lab | University of West Florida</p>
-    <p><a href="https://uwf.edu/hmcse/departments/biology/faculty/dr-rodney-guttmann.html" target="_blank">Dr. Rodney Guttmann, Principal Investigator</a></p>
-    <p><a href="https://www.linkedin.com/in/rodney-guttmann-aba66bb" target="_blank">LinkedIn Profile</a></p>
+     <footer style="background: linear-gradient(135deg, #1a1a2e 0%, #2c3e50 100%); padding: 50px 40px 30px;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; text-align: left;">
+            <div>
+                <h4 style="color: #FFB81C; margin-bottom: 15px; font-size: 1.2em;">🧬 Guttmann Research Lab</h4>
+                <p style="color: #adb5bd; line-height: 1.6; margin: 0;">Advancing Alzheimer's disease research through innovative phage display technology and undergraduate mentorship.</p>
+            </div>
+            <div>
+                <h4 style="color: #FFB81C; margin-bottom: 15px; font-size: 1.2em;">Quick Links</h4>
+                <p style="margin: 8px 0;"><a href="#students-content" style="color: #adb5bd; text-decoration: none; transition: color 0.3s;">Our Students</a></p>
+                <p style="margin: 8px 0;"><a href="#projects-content" style="color: #adb5bd; text-decoration: none; transition: color 0.3s;">Research Projects</a></p>
+                <p style="margin: 8px 0;"><a href="#outcomes-content" style="color: #adb5bd; text-decoration: none; transition: color 0.3s;">Alumni Outcomes</a></p>
+                <p style="margin: 8px 0;"><a href="#join" style="color: #adb5bd; text-decoration: none; transition: color 0.3s;">Join the Lab</a></p>
+            </div>
+            <div>
+                <h4 style="color: #FFB81C; margin-bottom: 15px; font-size: 1.2em;">Connect</h4>
+                <p style="margin: 8px 0;"><a href="https://uwf.edu/hmcse/departments/biology/faculty/dr-rodney-guttmann.html" target="_blank" style="color: #adb5bd; text-decoration: none;">🎓 UWF Faculty Profile</a></p>
+                <p style="margin: 8px 0;"><a href="https://www.linkedin.com/in/rodney-guttmann-aba66bb" target="_blank" style="color: #adb5bd; text-decoration: none;">💼 LinkedIn</a></p>
+                <p style="margin: 8px 0;"><a href="mailto:rguttmann@uwf.edu" style="color: #adb5bd; text-decoration: none;">✉️ rguttmann@uwf.edu</a></p>
+            </div>
+        </div>
+        <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; text-align: center;">
+            <p style="color: #6c757d; margin: 0; font-size: 0.9em;">&copy; 2024 Guttmann Research Lab | University of West Florida | Department of Biology</p>
+        </div>
+    </div>
 </footer>
     </div>
 

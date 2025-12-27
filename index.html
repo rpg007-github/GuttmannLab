@@ -207,6 +207,122 @@
 
 
     <style>
+
+		/* ============================================
+   MODERN ENHANCEMENTS - Added 2024
+   ============================================ */
+
+:root {
+    --uwf-blue: #004C97;
+    --uwf-green: #007A33;
+    --uwf-gold: #FFB81C;
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+    --shadow-md: 0 5px 20px rgba(0,0,0,0.1);
+    --transition-normal: 0.3s ease;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Accessibility: Better focus states */
+*:focus-visible {
+    outline: 3px solid var(--uwf-gold);
+    outline-offset: 2px;
+}
+
+/* Accessibility: Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    html { scroll-behavior: auto; }
+}
+
+/* Better text rendering */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scroll animations */
+.student-card {
+    opacity: 0;
+    transform: translateY(20px);
+}
+.student-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out, box-shadow 0.3s ease;
+}
+
+/* Image loading shimmer */
+.student-photo-container {
+    position: relative;
+    background: linear-gradient(90deg, #e9ecef 25%, #f8f9fa 50%, #e9ecef 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+.student-photo-container img {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.student-photo-container img.loaded {
+    opacity: 1;
+}
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* Modern tooltip for student cards */
+.student-card.has-bio::after {
+    content: "Click to read bio";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: rgba(0,0,0,0.85);
+    color: white;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 10;
+}
+.student-card.has-bio:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Print styles */
+@media print {
+    .seasonal-banner, .did-you-know, #studentSpotlight, .tabs, #backToTop, #progressBar, .filter-buttons, .search-container, #join { display: none !important; }
+    .container { box-shadow: none; }
+    .student-card { break-inside: avoid; }
+    .tab-content { display: block !important; }
+}
+
+/* Mobile tab improvements */
+@media (max-width: 768px) {
+    .tabs {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    .tabs::-webkit-scrollbar { display: none; }
+    .tab {
+        white-space: nowrap;
+        padding: 15px 15px;
+        font-size: 14px;
+    }
+}
         * {
             margin: 0;
             padding: 0;
@@ -811,20 +927,7 @@
             box-shadow: 0 15px 40px rgba(0,0,0,0.2);
         }
 
-        .student-card.has-bio::after {
-            content: "📖 Click for bio";
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: rgba(0,76,151,0.9);
-            color: white;
-            padding: 5px 12px;
-            border-radius: 15px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        .student-photo-container {
+             .student-photo-container {
             width: 100%;
             height: 280px;
             overflow: hidden;
@@ -1193,9 +1296,56 @@
   gtag('js', new Date());
 
   gtag('config', 'G-XFWF5H8X3L');
+	// ============================================
+// MODERN ENHANCEMENTS - Added 2024
+// ============================================
+
+// Scroll Progress Bar
+window.addEventListener('scroll', () => {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    const bar = document.getElementById('progressBar');
+    if (bar) bar.style.width = scrolled + '%';
+});
+
+// Intersection Observer for Card Animations
+const cardObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => {
+                entry.target.classList.add('is-visible');
+            }, index * 30);
+        }
+    });
+}, { threshold: 0.1 });
+
+// Observe cards after page load
+setTimeout(() => {
+    document.querySelectorAll('.student-card').forEach(card => {
+        cardObserver.observe(card);
+    });
+}, 100);
+
+// Image Loading with Fade-in
+document.querySelectorAll('.student-photo').forEach(img => {
+    if (img.complete) {
+        img.classList.add('loaded');
+    } else {
+        img.addEventListener('load', () => {
+            img.classList.add('loaded');
+        });
+    }
+});
+
+// Add Lazy Loading to All Images
+document.querySelectorAll('img:not([loading])').forEach(img => {
+    img.setAttribute('loading', 'lazy');
+});
 </script>
 </head>
 <body>
+    <div id="progressBar" style="position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, #007A33, #004C97); width: 0%; z-index: 9999; transition: width 0.1s ease;"></div>
     <div class="container">
         <!-- Dynamic Seasonal Banner -->
         <div id="seasonalBanner" class="seasonal-banner"></div>

@@ -1220,7 +1220,23 @@
             <div style="padding: 40px;">
                 
 <div class="students-grid" id="studentsGrid">
-                    
+
+<!-- ============================================ -->
+<!-- PRINCIPAL INVESTIGATOR -->
+<!-- ============================================ -->
+
+<div class="student-card has-bio" data-name="Dr. Rodney Guttmann" data-category="current" onclick="openModal('rodney-guttmann')" style="border: 2px solid #004C97;">
+    <div class="student-photo-container">
+        <img src="rodney-guttmann.webp" alt="Dr. Rodney Guttmann" class="student-photo">
+    </div>
+    <div class="student-info">
+        <div class="student-name">Dr. Rodney Guttmann</div>
+        <span class="student-status" style="background: #004C97;">Principal Investigator</span>
+    </div>
+</div>
+
+
+    
                     <!-- ============================================ -->
                     <!-- CURRENT STUDENTS - Alphabetical by Last Name -->
                     <!-- ============================================ -->
@@ -2456,7 +2472,12 @@ setInterval(nextFact, 15000);
 // ============================================
 const bios = {
    
-   
+   'rodney-guttmann': {
+    name: 'Dr. Rodney Guttmann',
+    class: 'Professor of Biology | Interim Department Chair',
+    bio: 'I came to UWF in 2009 after earning tenure at the University of Kentucky, where I worked at the Sanders-Brown Center on Aging. My research focuses on finding ways to detect Alzheimer\'s disease earlier, before the damage is done, using a technique called phage display to identify blood-based biomarkers. Along the way, my lab has also developed peptide therapeutics and contributed to clinical trials.<br><br>What I\'m most proud of is the students. Over 100 undergraduates have come through this lab, and many have gone on to PhD programs at Penn, Kentucky, UAB, and Florida State, or to medical and PA schools. Watching students discover they can do real science, not just read about it, is why I do this work.<br><br>I also run the NeuroNauts Scholars program, an NIH-funded summer research experience for high school students. The goal is simple: show young people that a life in science is possible, especially kids who might not see that path on their own.<br><br>If you\'re a student thinking about research, reach out. The best time to start is now.<br><br><a href="https://uwf.edu/hmcse/departments/biology/faculty/dr-rodney-guttmann.html" target="_blank" style="color: #007A33;">UWF Faculty Profile</a>',
+    link: 'https://www.linkedin.com/in/rodney-guttmann-aba66bb/'
+},
     'alaina-talboy': {
     name: 'Alaina Talboy, PhD',
     class: 'M.A. Applied Experimental Psychology (UWF)<br>Ph.D. Cognition & Neuroscience (USF)',

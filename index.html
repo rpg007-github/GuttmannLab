@@ -266,10 +266,6 @@ body {
     animation: shimmer 1.5s infinite;
 }
 .student-photo-container img {
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-.student-photo-container img.loaded {
     opacity: 1;
 }
 @keyframes shimmer {
@@ -1721,303 +1717,6 @@ html {
   gtag('js', new Date());
 
   gtag('config', 'G-XFWF5H8X3L');
-// ============================================
-// MODERN ENHANCEMENTS - Added 2024
-// ============================================
-
-// Scroll Progress Bar
-window.addEventListener('scroll', () => {
-    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrolled = (winScroll / height) * 100;
-    const bar = document.getElementById('progressBar');
-    if (bar) bar.style.width = scrolled + '%';
-});
-
-// Intersection Observer for Card Animations
-const cardObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry, index) => {
-        if (entry.isIntersecting) {
-            setTimeout(() => {
-                entry.target.classList.add('is-visible');
-            }, index * 30);
-        }
-    });
-}, { threshold: 0.1 });
-
-// Observe cards after page load
-setTimeout(() => {
-    document.querySelectorAll('.student-card').forEach(card => {
-        cardObserver.observe(card);
-    });
-}, 100);
-
-// Image Loading with Fade-in
-document.querySelectorAll('.student-photo').forEach(img => {
-    if (img.complete) {
-        img.classList.add('loaded');
-    } else {
-        img.addEventListener('load', () => {
-            img.classList.add('loaded');
-        });
-    }
-});
-
-// Add Lazy Loading to All Images
-document.querySelectorAll('img:not([loading])').forEach(img => {
-    img.setAttribute('loading', 'lazy');
-});
-
-	// ============================================
-// ULTRA-MODERN ENHANCEMENTS - 2024
-// ============================================
-
-// Smooth scroll for all anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        
-        const target = document.querySelector(targetId);
-        if (target) {
-            e.preventDefault();
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-    });
-});
-
-// Parallax effect for hero section
-const heroSection = document.querySelector('section[style*="background: linear-gradient"]');
-if (heroSection) {
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        if (scrolled < 600) {
-            heroSection.style.backgroundPositionY = scrolled * 0.3 + 'px';
-        }
-    });
-}
-
-// Dynamic header shadow on scroll
-const tabs = document.querySelector('.tabs');
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 100) {
-        tabs.style.boxShadow = '0 4px 20px rgba(0,0,0,0.15)';
-    } else {
-        tabs.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-    }
-});
-
-// Typewriter effect for hero text (optional enhancement)
-function typeWriter(element, text, speed = 50) {
-    let i = 0;
-    element.textContent = '';
-    function type() {
-        if (i < text.length) {
-            element.textContent += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        }
-    }
-    type();
-}
-
-// Count-up animation for statistics
-function animateCountUp(element, target, duration = 2000) {
-    const start = 0;
-    const increment = target / (duration / 16);
-    let current = start;
-    
-    const timer = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-            element.textContent = target + (element.dataset.suffix || '');
-            clearInterval(timer);
-        } else {
-            element.textContent = Math.floor(current) + (element.dataset.suffix || '');
-        }
-    }, 16);
-}
-
-// Trigger count-up when stats are visible
-const statsObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const statElements = entry.target.querySelectorAll('[data-count]');
-            statElements.forEach(el => {
-                const target = parseInt(el.dataset.count);
-                animateCountUp(el, target);
-            });
-            statsObserver.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.5 });
-
-// Apply to stats sections
-document.querySelectorAll('[style*="font-size: 2.5em"][style*="font-weight: 700"]').forEach(stat => {
-    const text = stat.textContent;
-    const num = parseInt(text);
-    if (!isNaN(num)) {
-        stat.dataset.count = num;
-        stat.dataset.suffix = text.replace(num, '');
-        stat.textContent = '0' + stat.dataset.suffix;
-        if (stat.parentElement) {
-            statsObserver.observe(stat.parentElement.parentElement);
-        }
-    }
-});
-
-// Keyboard navigation for student cards
-document.querySelectorAll('.student-card.has-bio').forEach(card => {
-    card.setAttribute('tabindex', '0');
-    card.setAttribute('role', 'button');
-    card.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            card.click();
-        }
-    });
-});
-
-// Close modal with Escape key
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        closeModal();
-    }
-});
-
-// Trap focus in modal when open
-function trapFocus(modal) {
-    const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
-    const firstFocusable = focusableElements[0];
-    const lastFocusable = focusableElements[focusableElements.length - 1];
-    
-    modal.addEventListener('keydown', (e) => {
-        if (e.key === 'Tab') {
-            if (e.shiftKey && document.activeElement === firstFocusable) {
-                e.preventDefault();
-                lastFocusable.focus();
-            } else if (!e.shiftKey && document.activeElement === lastFocusable) {
-                e.preventDefault();
-                firstFocusable.focus();
-            }
-        }
-    });
-}
-
-const bioModal = document.getElementById('bioModal');
-if (bioModal) {
-    trapFocus(bioModal);
-}
-
-// Touch gestures for mobile
-let touchStartX = 0;
-let touchEndX = 0;
-
-document.addEventListener('touchstart', (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-}, { passive: true });
-
-document.addEventListener('touchend', (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
-}, { passive: true });
-
-function handleSwipe() {
-    const swipeThreshold = 100;
-    const diff = touchStartX - touchEndX;
-    
-    // Only handle swipe if modal is closed
-    if (document.getElementById('bioModal').style.display === 'block') return;
-    
-    const tabs = document.querySelectorAll('.tab');
-    const activeTab = document.querySelector('.tab.active');
-    const activeIndex = Array.from(tabs).indexOf(activeTab);
-    
-    if (Math.abs(diff) > swipeThreshold) {
-        if (diff > 0 && activeIndex < tabs.length - 1) {
-            // Swipe left - next tab
-            tabs[activeIndex + 1].click();
-        } else if (diff < 0 && activeIndex > 0) {
-            // Swipe right - previous tab
-            tabs[activeIndex - 1].click();
-        }
-    }
-}
-
-// Preload images for smoother experience
-function preloadImages() {
-    const images = document.querySelectorAll('.student-photo');
-    images.forEach(img => {
-        const src = img.getAttribute('src');
-        if (src) {
-            const preload = new Image();
-            preload.src = src;
-        }
-    });
-}
-preloadImages();
-
-// Add haptic feedback for mobile (if supported)
-function vibrate(duration = 10) {
-    if (navigator.vibrate) {
-        navigator.vibrate(duration);
-    }
-}
-
-document.querySelectorAll('.filter-btn, .tab, .expand-btn').forEach(btn => {
-    btn.addEventListener('click', () => vibrate(10));
-});
-
-// Performance optimization: Pause animations when tab is not visible
-document.addEventListener('visibilitychange', () => {
-    if (document.hidden) {
-        document.body.classList.add('reduce-motion');
-    } else {
-        document.body.classList.remove('reduce-motion');
-    }
-});
-
-// Add CSS class for paused animations
-const styleSheet = document.createElement('style');
-styleSheet.textContent = `
-    .reduce-motion *, .reduce-motion *::before, .reduce-motion *::after {
-        animation-play-state: paused !important;
-        transition: none !important;
-    }
-`;
-document.head.appendChild(styleSheet);
-
-// Network-aware image loading
-if ('connection' in navigator) {
-    const connection = navigator.connection;
-    if (connection.saveData || connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g') {
-        // Disable heavy animations on slow connections
-        document.body.classList.add('reduce-motion');
-    }
-}
-
-// Console Easter egg
-console.log('%c🧬 Guttmann Research Lab', 'font-size: 24px; font-weight: bold; color: #004C97;');
-console.log('%cAdvancing neuroscience research at UWF', 'font-size: 14px; color: #007A33;');
-console.log('%cInterested in joining? Contact rguttmann@uwf.edu', 'font-size: 12px; color: #666;');
-</script>
-</head>
-<body>
-    <div id="progressBar" style="position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, #007A33, #004C97); width: 0%; z-index: 9999; transition: width 0.1s ease;"></div>
-  <!-- Swipe indicator for mobile -->
-<div id="swipeHint" style="display: none; position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.7); color: white; padding: 10px 20px; border-radius: 25px; font-size: 14px; z-index: 1000; animation: fadeInOut 3s ease forwards;">
-    👆 Swipe to navigate tabs
-</div>
-
-<style>
-    @keyframes fadeInOut {
-        0% { opacity: 0; transform: translateX(-50%) translateY(20px); }
-        20% { opacity: 1; transform: translateX(-50%) translateY(0); }
-        80% { opacity: 1; transform: translateX(-50%) translateY(0); }
-        100% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
-    }
-</style>
-
 <script>
     // Show swipe hint on mobile only, once
     if (window.innerWidth <= 768 && !localStorage.getItem('swipeHintShown')) {
@@ -2105,7 +1804,7 @@ console.log('%cInterested in joining? Contact rguttmann@uwf.edu', 'font-size: 12
     <div class="tab active" data-tab="students">Students</div>
     <div class="tab" data-tab="outcomes">Where They Are Now</div>
     <div class="tab" data-tab="projects">Research</div>
-    <a href="#join" onclick="scrollToJoin(event)" style="margin-left: auto; padding: 20px 30px; background: #007A33; color: white; font-weight: 600; text-decoration: none; display: flex; align-items: center;">Join the Lab →</a>
+    <a href="#join" onclick="scroll<a href="javascript:void(0)" onclick="scrollToJoinSection()" style="margin-left: auto; padding: 20px 30px; background: #007A33; color: white; font-weight: 600; text-decoration: none; display: flex; align-items: center;">Join the Lab →</a>
 </div>
 
         <div class="tab-content active" id="students-content">
@@ -3848,13 +3547,20 @@ function attachProjectLinkListeners() {
     });
 }
 // ============================================
-// SCROLL TO JOIN SECTION
+// SCROLL TO JOIN SECTION - ROBUST VERSION
 // ============================================
-function scrollToJoin(event) {
-    event.preventDefault();
+function scrollToJoinSection() {
     const joinSection = document.getElementById('join');
     if (joinSection) {
-        joinSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Get the position of the join section
+        const rect = joinSection.getBoundingClientRect();
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const targetPosition = rect.top + scrollTop - 80; // 80px offset for sticky header
+        
+        window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+        });
     }
 }
 // ============================================
@@ -3900,5 +3606,301 @@ window.addEventListener('scroll', () => {
     btn.style.opacity = window.scrollY > 500 ? '1' : '0';
 });
 </script>
+		// ============================================
+// MODERN ENHANCEMENTS - Added 2024
+// ============================================
+
+// Scroll Progress Bar
+window.addEventListener('scroll', () => {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    const bar = document.getElementById('progressBar');
+    if (bar) bar.style.width = scrolled + '%';
+});
+
+// Intersection Observer for Card Animations
+const cardObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => {
+                entry.target.classList.add('is-visible');
+            }, index * 30);
+        }
+    });
+}, { threshold: 0.1 });
+
+// Observe cards after page load
+setTimeout(() => {
+    document.querySelectorAll('.student-card').forEach(card => {
+        cardObserver.observe(card);
+    });
+}, 100);
+
+// Image Loading with Fade-in
+document.querySelectorAll('.student-photo').forEach(img => {
+    if (img.complete) {
+        img.classList.add('loaded');
+    } else {
+        img.addEventListener('load', () => {
+            img.classList.add('loaded');
+        });
+    }
+});
+
+// Add Lazy Loading to All Images
+document.querySelectorAll('img:not([loading])').forEach(img => {
+    img.setAttribute('loading', 'lazy');
+});
+
+	// ============================================
+// ULTRA-MODERN ENHANCEMENTS - 2024
+// ============================================
+
+// Smooth scroll for all anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const target = document.querySelector(targetId);
+        if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+});
+
+// Parallax effect for hero section
+const heroSection = document.querySelector('section[style*="background: linear-gradient"]');
+if (heroSection) {
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        if (scrolled < 600) {
+            heroSection.style.backgroundPositionY = scrolled * 0.3 + 'px';
+        }
+    });
+}
+
+// Dynamic header shadow on scroll
+const tabs = document.querySelector('.tabs');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) {
+        tabs.style.boxShadow = '0 4px 20px rgba(0,0,0,0.15)';
+    } else {
+        tabs.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+    }
+});
+
+// Typewriter effect for hero text (optional enhancement)
+function typeWriter(element, text, speed = 50) {
+    let i = 0;
+    element.textContent = '';
+    function type() {
+        if (i < text.length) {
+            element.textContent += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+        }
+    }
+    type();
+}
+
+// Count-up animation for statistics
+function animateCountUp(element, target, duration = 2000) {
+    const start = 0;
+    const increment = target / (duration / 16);
+    let current = start;
+    
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+            element.textContent = target + (element.dataset.suffix || '');
+            clearInterval(timer);
+        } else {
+            element.textContent = Math.floor(current) + (element.dataset.suffix || '');
+        }
+    }, 16);
+}
+
+// Trigger count-up when stats are visible
+const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const statElements = entry.target.querySelectorAll('[data-count]');
+            statElements.forEach(el => {
+                const target = parseInt(el.dataset.count);
+                animateCountUp(el, target);
+            });
+            statsObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
+// Apply to stats sections
+document.querySelectorAll('[style*="font-size: 2.5em"][style*="font-weight: 700"]').forEach(stat => {
+    const text = stat.textContent;
+    const num = parseInt(text);
+    if (!isNaN(num)) {
+        stat.dataset.count = num;
+        stat.dataset.suffix = text.replace(num, '');
+        stat.textContent = '0' + stat.dataset.suffix;
+        if (stat.parentElement) {
+            statsObserver.observe(stat.parentElement.parentElement);
+        }
+    }
+});
+
+// Keyboard navigation for student cards
+document.querySelectorAll('.student-card.has-bio').forEach(card => {
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('role', 'button');
+    card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            card.click();
+        }
+    });
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeModal();
+    }
+});
+
+// Trap focus in modal when open
+function trapFocus(modal) {
+    const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+    const firstFocusable = focusableElements[0];
+    const lastFocusable = focusableElements[focusableElements.length - 1];
+    
+    modal.addEventListener('keydown', (e) => {
+        if (e.key === 'Tab') {
+            if (e.shiftKey && document.activeElement === firstFocusable) {
+                e.preventDefault();
+                lastFocusable.focus();
+            } else if (!e.shiftKey && document.activeElement === lastFocusable) {
+                e.preventDefault();
+                firstFocusable.focus();
+            }
+        }
+    });
+}
+
+const bioModal = document.getElementById('bioModal');
+if (bioModal) {
+    trapFocus(bioModal);
+}
+
+// Touch gestures for mobile
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+}, { passive: true });
+
+document.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+}, { passive: true });
+
+function handleSwipe() {
+    const swipeThreshold = 100;
+    const diff = touchStartX - touchEndX;
+    
+    // Only handle swipe if modal is closed
+    if (document.getElementById('bioModal').style.display === 'block') return;
+    
+    const tabs = document.querySelectorAll('.tab');
+    const activeTab = document.querySelector('.tab.active');
+    const activeIndex = Array.from(tabs).indexOf(activeTab);
+    
+    if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0 && activeIndex < tabs.length - 1) {
+            // Swipe left - next tab
+            tabs[activeIndex + 1].click();
+        } else if (diff < 0 && activeIndex > 0) {
+            // Swipe right - previous tab
+            tabs[activeIndex - 1].click();
+        }
+    }
+}
+
+// Preload images for smoother experience
+function preloadImages() {
+    const images = document.querySelectorAll('.student-photo');
+    images.forEach(img => {
+        const src = img.getAttribute('src');
+        if (src) {
+            const preload = new Image();
+            preload.src = src;
+        }
+    });
+}
+preloadImages();
+
+// Add haptic feedback for mobile (if supported)
+function vibrate(duration = 10) {
+    if (navigator.vibrate) {
+        navigator.vibrate(duration);
+    }
+}
+
+document.querySelectorAll('.filter-btn, .tab, .expand-btn').forEach(btn => {
+    btn.addEventListener('click', () => vibrate(10));
+});
+
+// Performance optimization: Pause animations when tab is not visible
+document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+        document.body.classList.add('reduce-motion');
+    } else {
+        document.body.classList.remove('reduce-motion');
+    }
+});
+
+// Add CSS class for paused animations
+const styleSheet = document.createElement('style');
+styleSheet.textContent = `
+    .reduce-motion *, .reduce-motion *::before, .reduce-motion *::after {
+        animation-play-state: paused !important;
+        transition: none !important;
+    }
+`;
+document.head.appendChild(styleSheet);
+
+// Network-aware image loading
+if ('connection' in navigator) {
+    const connection = navigator.connection;
+    if (connection.saveData || connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g') {
+        // Disable heavy animations on slow connections
+        document.body.classList.add('reduce-motion');
+    }
+}
+
+// Console Easter egg
+console.log('%c🧬 Guttmann Research Lab', 'font-size: 24px; font-weight: bold; color: #004C97;');
+console.log('%cAdvancing neuroscience research at UWF', 'font-size: 14px; color: #007A33;');
+console.log('%cInterested in joining? Contact rguttmann@uwf.edu', 'font-size: 12px; color: #666;');
+</script>
+</head>
+<body>
+    <div id="progressBar" style="position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, #007A33, #004C97); width: 0%; z-index: 9999; transition: width 0.1s ease;"></div>
+  <!-- Swipe indicator for mobile -->
+<div id="swipeHint" style="display: none; position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.7); color: white; padding: 10px 20px; border-radius: 25px; font-size: 14px; z-index: 1000; animation: fadeInOut 3s ease forwards;">
+    👆 Swipe to navigate tabs
+</div>
+
+<style>
+    @keyframes fadeInOut {
+        0% { opacity: 0; transform: translateX(-50%) translateY(20px); }
+        20% { opacity: 1; transform: translateX(-50%) translateY(0); }
+        80% { opacity: 1; transform: translateX(-50%) translateY(0); }
+        100% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+    }
+</style>
 </body>
 </html>

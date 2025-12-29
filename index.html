@@ -2262,7 +2262,15 @@ gtag('config', 'G-XFWF5H8X3L');
         <span class="student-status alumni">Alumni</span>
     </div>
 </div>
-    
+    <div class="student-card has-bio" data-name="Christopher Bijou" data-category="alumni" onclick="openModal('chris-bijou')">
+    <div class="student-photo-container">
+        <img src="chris-bijou.jpg" alt="Christopher Bijou" class="student-photo">
+    </div>
+    <div class="student-info">
+        <div class="student-name">Christopher Bijou</div>
+        <span class="student-status alumni">Alumni</span>
+    </div>
+</div>
                     <!-- Cook, Joshua -->
                     <div class="student-card has-bio" data-name="Joshua Cook" data-category="alumni" onclick="openModal('joshua-cook')">
                         <div class="student-photo-container">
@@ -2977,6 +2985,12 @@ gtag('config', 'G-XFWF5H8X3L');
             <p style="line-height: 1.6;"><strong>Data Scientist at SIXT</strong>. Currently pursuing M.S. in Analytics at <strong>Georgia Institute of Technology</strong>. Also holds a B.S. in Computer Engineering from Florida Atlantic University. Architects ETL pipelines and develops business intelligence dashboards.</p>
         </div>
 <div style="background: white; padding: 25px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); border-left: 5px solid #007A33;">
+
+	<div style="background: white; padding: 25px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); border-left: 5px solid #007A33;">
+    <h3 style="color: #007A33; margin-bottom: 10px;">Christopher Bijou</h3>
+    <p style="color: #666; margin-bottom: 15px;"><strong>Class of 2019</strong> | B.S. Biology | Forensic Studies Minor</p>
+    <p style="line-height: 1.6;"><strong>M.S., New York University</strong>. Currently works in <strong>biotech industry</strong> completing target validation and QC for lung and colon cancer therapeutics.</p>
+</div>
     <h3 style="color: #007A33; margin-bottom: 10px;">Alaina Talboy, PhD</h3>
     <p style="color: #666; margin-bottom: 15px;"><strong>M.A. Applied Experimental Psychology (UWF)</strong> | Ph.D. Cognition & Neuroscience (USF)</p>
     <p style="line-height: 1.6;"><strong>Lead UX Scientist at UKG</strong>. Previously Senior Research Manager at <strong>Microsoft</strong> and Senior Researcher in AI Ethics at <strong>Indeed</strong>. Award-winning educator and author of "What I Wish I Knew: A Field Guide for Thriving in Graduate Studies." Has published 19 articles and a book since transitioning to industry.</p>
@@ -3425,6 +3439,12 @@ const bios = {
         class: 'Class of 2028 | Biomedical Sciences Major',
         bio: 'Alayna was born in Rapid City, South Dakota and graduated from Pace High School in 2024. She is majoring in Biomedical Sciences and plans to attend medical school to become a neurosurgeon. In addition to her interests in biology and healthcare, Alayna enjoys spending time with family and friends, learning new skills, and creating 3D art through ceramics and crochet.<br><br><strong>Research Project:</strong> <a href="#" class="project-link-internal" data-project="nih-alzheimers" style="color: #007A33; font-weight: 600; text-decoration: underline;">NIH-Funded Research on Early Alzheimer\'s Detection</a>'
     },
+
+	'chris-bijou': {
+    name: 'Christopher Bijou',
+    class: 'Class of 2019 | B.S. Biology | Forensic Studies Minor',
+    bio: 'Chris graduated from the University of West Florida in 2019 with a Bachelor of Science in Biology and a minor in Forensic Studies. At UWF, he conducted research in the Guttmann Lab investigating Alzheimer\'s disease and Tau protein concentrations in patients.<br><br>After graduation, Chris moved to New York to pursue a master\'s degree at New York University, where his research focused on recombinant DNA and cyclobutane pyrimidine dimer repair mechanisms. During his time at NYU, he taught several undergraduate courses and laboratories. He currently works in the biotech industry, completing target validation and quality control for lung and colon cancer therapeutics.<br><br>Outside of science, Chris enjoys working out, WWE, and reading.'
+},
     'bonnie-bruner': {
         name: 'Bonnie Bruner',
         class: 'Class of 2026 | Biomedical Sciences Major<br>Minors: Medical Humanities, Kugelman Honors',
@@ -4130,5 +4150,6 @@ if (localStorage.getItem('darkMode') === 'enabled') {
 
 </body>
 </html>
+
 
 

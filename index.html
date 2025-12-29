@@ -3809,16 +3809,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Display first fact
     displayFact();
     
-    // Student card click handling
-    const studentsGrid = document.getElementById('studentsGrid');
-    studentsGrid.addEventListener('click', (e) => {
-        const card = e.target.closest('.student-card.has-bio');
-        if (card) {
-            const studentName = card.getAttribute('data-name');
-            const studentId = studentName.toLowerCase().replace(/'/g, '').replace(/\s+/g, '-');
-            openModal(studentId);
-        }
-    });
     
     // Modal close handling
     const modal = document.getElementById('bioModal');
@@ -4174,6 +4164,7 @@ if (localStorage.getItem('darkMode') === 'enabled') {
 
 </body>
 </html>
+
 
 
 

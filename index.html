@@ -3513,11 +3513,13 @@ const bios = {
 
     'calypsa-coarsey': {
     name: 'Calypsa Coarsey',
-    bio: 'Class of 2027 | Current Student<br><br>Calypsa joined the Guttmann Lab in Fall 2024 through the OUR Works program. Her research focuses on improving hydration and caloric intake in people with dementia using robotic pet interventions. She presented her findings at the Spring 2025 UWF Symposium.<br><br><strong>Research Project:</strong> <a href="#" onclick="switchToProjects(\'robotic-pet\'); return false;">Robotic Pet Intervention to Support Alzheimer\'s Caregivers</a>'
+    class: 'Class of 2027 | Current Student',
+    bio: 'Calypsa joined the Guttmann Lab in Fall 2024 through the OUR Works program. Her research focuses on improving hydration and caloric intake in people with dementia using robotic pet interventions. She presented her findings at the Spring 2025 UWF Symposium.<br><br><strong>Research Project:</strong> <a href="#" onclick="switchToProjects(\'robotic-pet\'); return false;">Robotic Pet Intervention to Support Alzheimer\'s Caregivers</a>'
 },
     'campbell-smith': {
     name: 'Campbell Smith',
-    bio: 'Class of 2026 | Biomedical Sciences Major<br><br>Campbell joined the Guttmann Lab in 2025, where his research focuses on physiological and psychological effects of Alzheimer\'s Disease. Outside the lab, he is preparing for dental school and volunteers doing community outreach and dental related volunteer activities.<br><br><strong>Research Project:</strong> <a href="#" onclick="switchToProjects(\'robotic-pet\'); return false;">Robotic Pet Intervention to Support Alzheimer\'s Caregivers</a>'
+    class: 'Class of 2026 | Biomedical Sciences Major',
+    bio: 'Campbell joined the Guttmann Lab in 2025, where his research focuses on physiological and psychological effects of Alzheimer\'s Disease. Outside the lab, he is preparing for dental school and volunteers doing community outreach and dental related volunteer activities.<br><br><strong>Research Project:</strong> <a href="#" onclick="switchToProjects(\'robotic-pet\'); return false;">Robotic Pet Intervention to Support Alzheimer\'s Caregivers</a>'
 },
 
     'cameron-killingsworth': {
@@ -3651,6 +3653,7 @@ const bios = {
 
     'sophiya-sims': {
     name: 'Peyton (Sophiya) Sims',
+    class: 'Class of 2022 | General Biology',
     bio: 'B.S. General Biology, University of West Florida, 2022<br>Ph.D. Pharmacology, University of Kentucky, 2027 (Projected)<br><br>Sophiya joined the Guttmann Lab in 2020, focusing on detecting phospho-tau 217 in cerebral spinal fluid samples obtained from healthy and demented subjects using phage-display technology. After graduating from UWF with a bachelor\'s in general biology in 2022, she joined the Thibault lab in the Department of Pharmacology and Nutritional Sciences at the University of Kentucky, where her thesis assesses alterations in brain metabolism and catecholaminergic signaling across multiple models of disease (i.e. AD, aging, and diabetes). She hopes to continue this line of investigation after graduation with a post-doc position.<br><br><strong>Research Project:</strong> <a href="#" onclick="switchToProjects(\'nih-alzheimers\'); return false;">NIH-Funded Research on Early Alzheimer\'s Detection</a><br><br><a href="https://www.linkedin.com/in/sophiya-sims-458b09265/" target="_blank">LinkedIn</a>'
 },
     'peyton-lurk': {
@@ -3734,7 +3737,7 @@ function openModal(studentId) {
     const bio = bios[studentId];
     if (bio) {
         document.getElementById('modalName').textContent = bio.name;
-        document.getElementById('modalClass').innerHTML = bio.class;
+        document.getElementById('modalClass').innerHTML = bio.class || '';
         document.getElementById('modalBio').innerHTML = bio.bio;
         
         const linkContainer = document.getElementById('modalLink');
@@ -4164,6 +4167,7 @@ if (localStorage.getItem('darkMode') === 'enabled') {
 
 </body>
 </html>
+
 
 
 

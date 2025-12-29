@@ -4149,6 +4149,10 @@ if (localStorage.getItem('darkMode') === 'enabled') {
     document.body.classList.add('dark-mode');
     document.getElementById('darkModeToggle').textContent = '🌙';
 }
+// Fix modal positioning
+document.addEventListener('DOMContentLoaded', function() {
+    document.body.appendChild(document.getElementById('bioModal'));
+});
 </script>
 
     <!-- Modal for Student Bios -->
@@ -4167,6 +4171,7 @@ if (localStorage.getItem('darkMode') === 'enabled') {
     </div>
 </body>
 </html>
+
 
 
 

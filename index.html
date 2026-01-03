@@ -1397,10 +1397,37 @@ html {
             justify-content: center;
         }
 
-        .student-photo {
+    .student-photo {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center 20%;
+            transition: transform 0.3s ease;
+        }
+
+        /* Individual photo position adjustments */
+        .student-card[data-name="Bonnie Bruner"] .student-photo {
+            object-position: 30% 25%;
+        }
+
+        .student-card[data-name="Carly Goodman"] .student-photo {
+            object-position: center 15%;
+        }
+
+        .student-card[data-name="Caleb Hanners"] .student-photo {
+            object-position: center 10%;
+        }
+
+        .student-card[data-name="Savannah Bonnett"] .student-photo {
+            object-position: 60% 20%;
+        }
+
+        .student-card[data-name="Bryley Lyublanovits"] .student-photo {
+            object-position: center 15%;
+        }
+
+        .student-card[data-name="Carli Carrillo"] .student-photo {
+            object-position: center 25%;
         }
 
         .student-photo-placeholder {
@@ -4203,6 +4230,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 </body>
 </html>
+
 
 
 

@@ -2547,6 +2547,16 @@ gtag('config', 'G-XFWF5H8X3L');
                         </div>
                     </div>
 
+<div class="student-card has-bio" data-name="Lexie Tremaine" data-category="alumni" onclick="openModal('lexie-tremaine')">
+    <div class="student-photo-container">
+        <img src="lexie-tremaine.png" alt="Lexie Tremaine" class="student-photo">
+    </div>
+    <div class="student-info">
+        <div class="student-name">Lexie Tremaine</div>
+        <span class="student-status alumni">Alumni</span>
+    </div>
+</div>
+	
                     <!-- Williamson, Abigail -->
                     <div class="student-card has-bio" data-name="Abigail Williamson" data-category="alumni" onclick="openModal('abby-williamson')">
                         <div class="student-photo-container">
@@ -3002,7 +3012,17 @@ gtag('config', 'G-XFWF5H8X3L');
                     <p style="color: #666; margin-bottom: 15px;"><strong>Class of 2021</strong> | Biomedical Sciences</p>
                     <p style="line-height: 1.6;"><strong>NCCPA Board Certified Physician Assistant</strong>. Completed M.S. in Physician Assistant Practice at Florida State University College of Medicine (2024). Previously Medical Assistant at Health and Hope Clinic.</p>
                 </div>
-
+<div style="background: white; border-radius: 15px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+    <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 15px;">
+        <img src="lexie-tremaine.png" alt="Lexie Tremaine" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover;">
+        <div>
+            <h3 style="color: #00314D; margin: 0;">Lexie Tremaine</h3>
+            <p style="color: #666; margin: 5px 0 0 0;">Medical Student</p>
+        </div>
+    </div>
+    <p style="color: #666; margin-bottom: 15px;"><strong>Class of 2025</strong> | B.S. Biology</p>
+    <p style="color: #00314D; font-weight: 600;">Alabama College of Osteopathic Medicine</p>
+</div>
             </div>
         </div>
 
@@ -3499,7 +3519,11 @@ const bios = {
     bio: 'Kayla joined the Guttmann Lab during the summer of 2024 as a research assistant. During her time in the lab, she worked on discovering biomarkers for Alzheimer\'s disease using phage display and greatly developed her understanding of translational science.<br><br>Along with her research experience at Boston University, she has focused her research endeavors on neuroinflammation, specifically glial involvement in neural diseases and disorders. Since graduating from BU, Kayla is currently pursuing a PhD in Molecular and Systems Pharmacology at Emory University.<br><br><strong>Research Project:</strong> <a href="#" class="project-link-internal" data-project="nih-alzheimers" style="color: #007A33; font-weight: 600; text-decoration: underline;">NIH-Funded Research on Early Alzheimer\'s Detection</a>',
     link: 'https://www.linkedin.com/in/kayla-dunson-77a8a6235'
 },
-
+'lexie-tremaine': {
+    name: 'Lexie Tremaine',
+    class: 'Class of 2025 | B.S. Biology',
+    bio: 'Lexie joined the Guttmann Lab in Summer 2023, where she assisted in undergraduate research focused on identifying a novel binding partner to inactivate hyperactive EGFR in cancer-like cells using a bacteriophage display library. Lexie is currently a student at the Alabama College of Osteopathic Medicine.'
+},
 'cham-swift': {
     name: 'Cham Swift',
     class: 'Class of 2029 | Biomedical Sciences',
@@ -4250,6 +4274,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 </body>
 </html>
+
 
 
 

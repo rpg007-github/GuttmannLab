@@ -2487,10 +2487,10 @@ gtag('config', 'G-XFWF5H8X3L');
 <!-- Noll, Anthony -->
 <div class="student-card has-bio" data-name="Anthony Noll" data-category="alumni" onclick="openModal('anthony-noll')">
     <div class="student-photo-container">
-        <div class="student-photo-placeholder">AN</div>
+        <img src="anthony-noll.jpg" alt="Anthony Noll" class="student-photo">
     </div>
     <div class="student-info">
-        <div class="student-name">Anthony Noll, DO, MHA</div>
+        <div class="student-name">Anthony Noll</div>
         <span class="student-status alumni">Alumni</span>
     </div>
 </div>
@@ -3046,7 +3046,11 @@ gtag('config', 'G-XFWF5H8X3L');
                     <p style="color: #666; margin-bottom: 15px;"><strong>Class of 2022</strong> | Biomedical Sciences</p>
                     <p style="line-height: 1.6;"><strong>NCCPA Board Certified Physician Assistant</strong>. Completed M.S. in Physician Assistant Practice at Florida State University College of Medicine (2024). Clinical expertise spans family medicine, emergency medicine, OB/GYN, general surgery, pediatrics, dermatology, geriatrics, and internal medicine. Passionate about preventative and lifestyle medicine with a patient-centered approach to care.</p>
                 </div>
-
+<div style="background: white; padding: 25px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); border-left: 5px solid #007A33;">
+    <h3 style="color: #007A33; margin-bottom: 10px;">Anthony Noll, D.O.</h3>
+    <p style="color: #666; margin-bottom: 15px;"><strong>Class of 2018 and 2020</strong> | B.S. Healthcare Administration</p>
+    <p style="line-height: 1.6;"><strong>Alabama College of Osteopathic Medicine (Class of 2023)</strong>. Currently completing <strong>Internal Medicine Residency at Corewell Health Lakeland Hospitals</strong> in Saint Joseph, Michigan (Class of 2026). Will complete a <strong>Sports Medicine Fellowship at the University of South Alabama</strong> starting July 2026.</p>
+</div>
                 <!-- Maddy Scott -->
                 <div style="background: white; border-radius: 15px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-left: 5px solid #007A33;">
                     <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 15px;">
@@ -3589,6 +3593,7 @@ const spotlights = [
     { photo: "maddy-scott.jpg", text: "<strong>Maddy Scott</strong> (Class of 2024) is a first-year medical student at Alabama College of Osteopathic Medicine." },
     { photo: "savannah-snider.jpg", text: "<strong>Savannah Snider</strong> (Class of 2021) is now a board-certified Physician Assistant after completing her M.S. at Florida State." },
     { photo: "lexie-tremaine.png", text: "<strong>Lexie Tremaine</strong> (Class of 2025) is now a medical student at Alabama College of Osteopathic Medicine." },
+	{ photo: "anthony-noll.jpg", text: "<strong>Anthony Noll</strong> (Class of 2018 and 2020) completed medical school at Alabama College of Osteopathic Medicine and is now an Internal Medicine resident, heading to a Sports Medicine Fellowship at University of South Alabama." },
     
     // Public Health & Research
     { photo: "peyton-lurk.jpg", text: "<strong>Peyton Lurk</strong> (Class of 2019) earned his MPH at FSU and now serves as an Epidemiologist at the Florida Department of Health." },
@@ -3717,10 +3722,9 @@ const bios = {
 },
 
 'anthony-noll': {
-    name: 'Anthony Noll, DO, MHA',
-    class: 'Class of 2019 | M.H.A. Healthcare Administration',
-    bio: 'Anthony served as a Study Coordinator with the UWF Clinical Trials Department from 2018 to 2019, where he was responsible for regulatory compliance, data entry, EMR management, and strategic planning for clinical research studies.<br><br>He earned his Doctor of Osteopathic Medicine from Alabama College of Osteopathic Medicine in 2023 and is currently a PGY-3 Internal Medicine Resident at Corewell Health in St. Joseph, Michigan.<br><br><strong>Research Project:</strong> <a href="#" class="project-link-internal" data-project="clinical-trial" style="color: #007A33; font-weight: 600; text-decoration: underline;">Clinical Trial Coordination for Alzheimer\'s Disease</a>',
-    link: 'https://www.linkedin.com/in/anthony-noll-do-mha-47196a174/'
+    name: 'Anthony Noll',
+    class: 'Class of 2018 and 2020 | B.S. Healthcare Administration',
+    bio: 'Anthony served on the UWF Clinical Trials Department team from 2018-2019 as a Study Coordinator, where he was responsible for regulatory compliance, data entry, EMR management, and strategic planning for clinical research studies.<br><br>After graduating from UWF, Anthony completed his medical school training at the Alabama College of Osteopathic Medicine (Class of 2023). He is currently completing his Internal Medicine Residency at Corewell Health Lakeland Hospitals in Saint Joseph, Michigan (Class of 2026).<br><br>Anthony will be completing a Sports Medicine Fellowship at the University of South Alabama for one year starting July 2026. His future goals include practicing medicine in both inpatient and outpatient settings and serving the local community where he settles.'
 },
     
 'janiya-belyeu': {
@@ -4420,6 +4424,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 </body>
 </html>
+
 
 
 

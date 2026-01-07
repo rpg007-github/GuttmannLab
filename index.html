@@ -2175,13 +2175,13 @@ gtag('config', 'G-XFWF5H8X3L');
                     </div>
 
                     <!-- Kemp, Lauren -->
-                    <div class="student-card has-bio" data-name="Lauren Kemp" data-category="current" onclick="openModal('lauren-kemp')">
+                    <div class="student-card has-bio" data-name="Lauren Kemp" data-category="alumni" onclick="openModal('lauren-kemp')">
                         <div class="student-photo-container">
                             <img src="Lauren-kemp.jpg" alt="Lauren Kemp" class="student-photo">
                         </div>
                         <div class="student-info">
                             <div class="student-name">Lauren Kemp</div>
-                            <span class="student-status">Current Student</span>
+                            <span class="student-status">Alumni</span>
                         </div>
                     </div>
 
@@ -2219,13 +2219,13 @@ gtag('config', 'G-XFWF5H8X3L');
                     </div>
 
 <!-- McConnell, Liz -->
-<div class="student-card has-bio" data-name="Liz McConnell" data-category="current" onclick="openModal('liz-mcconnell')">
+<div class="student-card has-bio" data-name="Liz McConnell" data-category="Alumni" onclick="openModal('liz-mcconnell')">
     <div class="student-photo-container">
         <div class="student-photo-placeholder">LM</div>
     </div>
     <div class="student-info">
         <div class="student-name">Liz McConnell</div>
-        <span class="student-status">Current Student</span>
+        <span class="student-status">Alumni</span>
     </div>
 </div>
     
@@ -2295,24 +2295,24 @@ gtag('config', 'G-XFWF5H8X3L');
     </div>
 </div>
 
-	<div class="student-card has-bio" data-name="T'Yanna Williams" data-category="current" onclick="openModal('tyanna-williams')">
+	<div class="student-card has-bio" data-name="T'Yanna Williams" data-category="Alumni" onclick="openModal('tyanna-williams')">
     <div class="student-photo-container">
         <img src="tyanna-williams.PNG" alt="T'Yanna Williams" class="student-photo">
     </div>
     <div class="student-info">
         <div class="student-name">T'Yanna Williams</div>
-        <span class="student-status">Current Student</span>
+        <span class="student-status">Alumni</span>
     </div>
 </div>
     
                     <!-- Wimberly, D'juan -->
-                    <div class="student-card has-bio" data-name="D'juan Wimberly" data-category="current" onclick="openModal('djuan-wimberly')">
+                    <div class="student-card has-bio" data-name="D'juan Wimberly" data-category="Alumni" onclick="openModal('djuan-wimberly')">
                         <div class="student-photo-container">
                             <img src="djuan-wimberly.jpg" alt="D'juan Wimberly" class="student-photo">
                         </div>
                         <div class="student-info">
                             <div class="student-name">D'juan Wimberly</div>
-                            <span class="student-status">Current Student</span>
+                            <span class="student-status">Alumni</span>
                         </div>
                     </div>
 
@@ -3645,7 +3645,35 @@ setInterval(updateSpotlight, 8000);
 // STUDENT BIOGRAPHIES
 // ============================================
 const bios = {
-   
+   // Automatically sort student cards alphabetically by last name (except Rodney first)
+document.addEventListener('DOMContentLoaded', function() {
+    const grids = document.querySelectorAll('.students-grid');
+    
+    grids.forEach(grid => {
+        const cards = Array.from(grid.querySelectorAll('.student-card'));
+        
+        // Separate Rodney's card from the rest
+        const rodneyCard = cards.find(card => card.getAttribute('data-name') === 'Rodney Guttmann');
+        const otherCards = cards.filter(card => card.getAttribute('data-name') !== 'Rodney Guttmann');
+        
+        // Sort the other cards alphabetically by last name
+        otherCards.sort((a, b) => {
+            const nameA = a.getAttribute('data-name');
+            const nameB = b.getAttribute('data-name');
+            
+            // Extract last names (last word in the name)
+            const lastNameA = nameA.split(' ').pop().toLowerCase();
+            const lastNameB = nameB.split(' ').pop().toLowerCase();
+            
+            return lastNameA.localeCompare(lastNameB);
+        });
+        
+        // Clear the grid and re-append: Rodney first, then sorted cards
+        grid.innerHTML = '';
+        if (rodneyCard) grid.appendChild(rodneyCard);
+        otherCards.forEach(card => grid.appendChild(card));
+    });
+});
   'rodney-guttmann': {
     name: 'Dr. Rodney Guttmann',
     class: 'Professor of Biology | Interim Department Chair',
@@ -4424,6 +4452,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 </body>
 </html>
+
 
 
 

@@ -3642,11 +3642,17 @@ document.getElementById('spotlightText').style.transition = 'opacity 0.3s';
 setInterval(updateSpotlight, 8000);
 
 // ============================================
-// STUDENT BIOGRAPHIES
+// AUTOMATICALLY MOVE AND SORT STUDENT CARDS
 // ============================================
-const bios = {
-   // Automatically sort student cards alphabetically by last name (except Rodney first)
 document.addEventListener('DOMContentLoaded', function() {
+    // STEP 1: Move cards to correct section based on data-category
+    const currentGrid = document.querySelector('#students-content .students-grid');
+    const alumniGrid = document.querySelector('#students-content .students-grid');
+    
+    // Note: Since you only have one grid that shows filtered cards,
+    // the category-based moving happens through the filter buttons
+    
+    // STEP 2: Sort cards alphabetically by last name (except Rodney first)
     const grids = document.querySelectorAll('.students-grid');
     
     grids.forEach(grid => {
@@ -3674,6 +3680,11 @@ document.addEventListener('DOMContentLoaded', function() {
         otherCards.forEach(card => grid.appendChild(card));
     });
 });
+
+// ============================================
+// STUDENT BIOGRAPHIES
+// ============================================
+const bios = {
   'rodney-guttmann': {
     name: 'Dr. Rodney Guttmann',
     class: 'Professor of Biology | Interim Department Chair',
@@ -4452,6 +4463,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 </body>
 </html>
+
 
 
 

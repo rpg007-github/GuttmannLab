@@ -2351,7 +2351,15 @@ gtag('config', 'G-XFWF5H8X3L');
                             <span class="student-status alumni">Alumni</span>
                         </div>
                     </div>
-
+<div class="student-card has-bio" data-name="Emily Ramsden" data-category="alumni" onclick="openModal('emily-ramsden')">
+  <div class="student-photo-container">
+    <img src="emily-ramsden.jpg" alt="Emily Ramsden" class="student-photo">
+  </div>
+  <div class="student-info">
+    <div class="student-name">Emily Ramsden</div>
+    <span class="student-status alumni">Alumni</span>
+  </div>
+</div>
 
     <!-- Dunson, Kayla -->
 <div class="student-card has-bio" data-name="Kayla Dunson" data-category="alumni" onclick="openModal('kayla-dunson')">
@@ -3115,7 +3123,11 @@ gtag('config', 'G-XFWF5H8X3L');
                     <p style="color: #666; margin-bottom: 15px;"><strong>Class of 2019</strong> | M.H.A. Healthcare Administration</p>
                     <p style="line-height: 1.6;"><strong>PGY-3 Internal Medicine Resident at Corewell Health</strong> in St. Joseph, Michigan. Earned Doctor of Osteopathic Medicine from Alabama College of Osteopathic Medicine (2023). Former Study Coordinator with UWF Clinical Trials Department focusing on regulatory compliance and clinical research management.</p>
                 </div>
-
+<div style="background: white; padding: 25px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); border-left: 5px solid #007A33;">
+  <h3 style="color: #007A33; margin-bottom: 10px;">Emily Ramsden</h3>
+  <p style="color: #666; margin-bottom: 15px;"><strong>Class of 2024</strong> | Biology Major</p>
+  <p style="line-height: 1.6;">Accepted to medical school with interests in neurology or OB/GYN. Contributed to Spidroin research using M13KE bacteriophage display techniques and presented at multiple symposiums. Gained clinical experience as a medical assistant and scribe following graduation.</p>
+</div>
             </div>
         </div>
 
@@ -3594,7 +3606,10 @@ const spotlights = [
     { photo: "savannah-snider.jpg", text: "<strong>Savannah Snider</strong> (Class of 2021) is now a board-certified Physician Assistant after completing her M.S. at Florida State." },
     { photo: "lexie-tremaine.png", text: "<strong>Lexie Tremaine</strong> (Class of 2025) is now a medical student at Alabama College of Osteopathic Medicine." },
 	{ photo: "anthony-noll.jpg", text: "<strong>Anthony Noll</strong> (Class of 2018 and 2020) completed medical school at Alabama College of Osteopathic Medicine and is now an Internal Medicine resident, heading to a Sports Medicine Fellowship at University of South Alabama." },
-    
+    {
+  photo: "emily-ramsden.jpg",
+  text: "<strong>Emily Ramsden</strong> (Class of 2024) contributed to Spidroin research using M13KE bacteriophage display and has been accepted to medical school, pursuing neurology or OB/GYN."
+}
     // Public Health & Research
     { photo: "peyton-lurk.jpg", text: "<strong>Peyton Lurk</strong> (Class of 2019) earned his MPH at FSU and now serves as an Epidemiologist at the Florida Department of Health." },
     { photo: "joshua-cook.jpg", text: "<strong>Joshua Cook</strong> (Class of 2017) is a Clinical Researcher at Woodlands Medical Specialists and Adjunct Instructor at UWF." },
@@ -3720,7 +3735,11 @@ const bios = {
     bio: 'Cham joined the Guttmann Lab in 2025 as part of the OUR FYRE program. She is currently shadowing in the lab and learning foundational techniques in Alzheimer\'s disease research. In Spring 2025, she plans to take on an active role conducting experiments, performing statistical analysis, and contributing to data visualization for ongoing projects.<br><br>Cham is motivated by her mother\'s multiple sclerosis diagnosis, which sparked her passion for neuroscience and her commitment to understanding neurodegenerative diseases. She hopes her research experience will prepare her for a career advancing treatments for patients and families affected by these conditions.<br><br><strong>Research Project:</strong> <a href="#" class="project-link-internal" data-project="nih-alzheimers" style="color: #007A33; font-weight: 600; text-decoration: underline;">NIH-Funded Research on Early Alzheimer\'s Detection</a>',
     link: 'https://www.linkedin.com/in/cham-swift-aa635b3a1'
 },
-
+'emily-ramsden': {
+  name: 'Emily Ramsden',
+  class: 'Class of 2024 | Biology Major',
+  bio: 'Emily joined the Guttmann Lab in February 2025 and contributed to the Spidroin project. This research attempted to use M13KE bacteriophage display techniques to synthesize the spider web protein, Spidroin. She presented this work at the UWF Spring Research Symposium in April 2024 and the SURP Symposium in August 2024. These research experiences strengthened her scientific skills and supported her path toward medical school.<br><br>Following graduation, Emily worked as a medical assistant and scribe, gaining valuable clinical experience. She has been accepted to medical school and is interested in pursuing neurology or obstetrics and gynecology (OB/GYN), where she plans to apply her research background to future clinical practice.'
+},
 	'samantha-macfarland': {
     name: 'Samantha MacFarland',
     class: 'Class of 2025 | B.S. Biology',
@@ -4463,6 +4482,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 </body>
 </html>
+
 
 
 

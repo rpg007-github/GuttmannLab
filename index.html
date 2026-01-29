@@ -2250,7 +2250,17 @@ gtag('config', 'G-XFWF5H8X3L');
                             <span class="student-status">Current Student</span>
                         </div>
                     </div>
-
+ <!-- Neidigk, Daniel -->
+<div class="student-card has-bio" data-name="Daniel Romero-Neidigk" data-category="alumni" onclick="openModal('daniel-romero-neidigk')">
+    <div class="student-photo-container">
+        <img src="daniel-n.png" alt="Daniel Romero-Neidigk" class="student-photo">
+    </div>
+    <div class="student-info">
+        <div class="student-name">Daniel Romero-Neidigk</div>
+        <span class="student-status alumni">Alumni</span>
+    </div>
+</div>
+	
                     <!-- Shaw, Savannah -->
                     <div class="student-card has-bio" data-name="Savannah Shaw" data-category="current" onclick="openModal('savannah-shaw')">
                         <div class="student-photo-container">
@@ -2965,6 +2975,12 @@ gtag('config', 'G-XFWF5H8X3L');
                     <p style="line-height: 1.6;">PhD Student in Pharmacology Graduate Program at <strong>University of Pennsylvania Perelman School of Medicine</strong>. Previously completed post-baccalaureate fellowship at NIEHS/NIH focusing on hippocampal area CA2 and synaptic plasticity.</p>
                 </div>
 
+				<!-- Daniel Neidgk -->
+<div style="background: white; padding: 25px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); border-left: 5px solid #007A33;">
+    <h3 style="color: #007A33; margin-bottom: 10px;">Daniel Romero-Neidigk</h3>
+    <p style="color: #666; margin-bottom: 15px;"><strong>Class of 2023</strong> | B.S. Chemistry/Biochemistry, Biomedical Sciences</p>
+    <p style="line-height: 1.6;">PhD student in Biochemistry at the University of Alabama at Birmingham. Co-authored a published theoretical paper on experimental evolution in fly models of Alzheimer's disease. Currently developing mouse embryonic stem cell models of craniofacial developmental disorders.</p>
+</div>
                 <!-- Abigail Williamson -->
                 <div style="background: white; border-radius: 15px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-left: 5px solid #004C97;">
                     <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 15px;">
@@ -3601,6 +3617,10 @@ const spotlights = [
     { photo: "kayla-dunson.png", text: "<strong>Kayla Dunson</strong> (Summer 2024) is now a PhD student in Molecular and Systems Pharmacology at Emory University." },
     { photo: "allie-linkous.jpg", text: "<strong>Allie Linkous</strong> (Class of 2024) is researching aging at the Buck Institute before pursuing a PhD in Cell Biology." },
     { photo: "sophiya-sims.jpg", text: "<strong>Peyton (Sophiya) Sims</strong> (Class of 2022) is pursuing her PhD in Pharmacology at the University of Kentucky." },
+	{
+    photo: "daniel-n.png",
+    text: "<strong>Daniel Romero-Neidigk</strong> (Class of 2023) co-authored a published paper on experimental evolution in Alzheimer's disease models and is now pursuing his PhD in Biochemistry at UAB."
+},
     
     // Medical & PA Programs
 // Medical & PA Programs
@@ -3740,6 +3760,12 @@ const bios = {
   name: 'Emily Ramsden',
   class: 'Class of 2024 | Biology Major',
   bio: 'Emily joined the Guttmann Lab in February 2025 and contributed to the Spidroin project. This research attempted to use M13KE bacteriophage display techniques to synthesize the spider web protein, Spidroin. She presented this work at the UWF Spring Research Symposium in April 2024 and the SURP Symposium in August 2024. These research experiences strengthened her scientific skills and supported her path toward medical school.<br><br>Following graduation, Emily worked as a medical assistant and scribe, gaining valuable clinical experience. She has been accepted to medical school and is interested in pursuing neurology or obstetrics and gynecology (OB/GYN), where she plans to apply her research background to future clinical practice.<br><br><strong>Research Project:</strong> <a href="#" class="project-link-internal" data-project="spider-silk" style="color: #007A33; font-weight: 600; text-decoration: underline;">Spider Silk Phage Display: Biomaterial Engineering</a>'
+},
+
+	'daniel-romero-neidigk': {
+    name: 'Daniel Romero-Neidigk',
+    class: 'Class of 2023 | B.S. Chemistry/Biochemistry, Biomedical Sciences | Minor: Psychology',
+    bio: 'Daniel joined the Guttmann lab in 2021 and worked with Dr. Guttmann until his graduation in December 2023. Together, they successfully published a theoretical research paper proposing the use of experimental evolution in a fly model of Alzheimer\'s disease to determine the molecular mechanisms that underlie cognitive reserve.<br><br>Daniel is currently a PhD student in Biochemistry at the University of Alabama at Birmingham, where he is working to develop mouse embryonic stem cell models of craniofacial developmental disorders.'
 },
 	'samantha-macfarland': {
     name: 'Samantha MacFarland',
@@ -4476,3 +4502,4 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 </body>
 </html>
+

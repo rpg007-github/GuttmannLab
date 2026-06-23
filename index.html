@@ -2088,7 +2088,46 @@ gtag('config', 'G-XFWF5H8X3L');
                     <!-- ============================================ -->
                     <!-- CURRENT STUDENTS - Alphabetical by Last Name -->
                     <!-- ============================================ -->
-                    
+                    <!-- ============================================ -->
+<!-- NEURONAUTS SCHOLARS - Cohort 1 (Summer 2026) -->
+<!-- ============================================ -->
+<div style="width: 100%; grid-column: 1 / -1; margin: 10px 0 20px 0; padding: 20px 24px; background: linear-gradient(135deg, rgba(0,76,151,0.06) 0%, rgba(0,122,51,0.06) 100%); border-radius: 12px; border-left: 5px solid #004C97;">
+  <h3 style="color: #004C97; font-size: 1.2rem; font-weight: 700; margin: 0 0 6px 0;">🧠 NeuroNauts Scholars — Cohort 1 (Summer 2026)</h3>
+  <p style="color: #555; font-size: 0.9rem; margin: 0; line-height: 1.6;">NIH-funded, competitive eight-week research program for high school students from Escambia and Santa Rosa Counties. Scholars conduct original neuroscience research in active UWF laboratories.</p>
+</div>
+
+<!-- Aung, Lukas -->
+<div class="student-card has-bio" data-name="Lukas Aung" data-category="current" onclick="openModal('lukas-aung')">
+    <div class="student-photo-container">
+        <img src="lukas-aung.png" alt="Lukas Aung" class="student-photo">
+    </div>
+    <div class="student-info">
+        <div class="student-name">Lukas Aung</div>
+        <span class="student-status current">NeuroNauts Scholar</span>
+    </div>
+</div>
+
+<!-- Currier, Victoria -->
+<div class="student-card has-bio" data-name="Victoria Currier" data-category="current" onclick="openModal('victoria-currier')">
+    <div class="student-photo-container">
+        <img src="victoria-currier.jpg" alt="Victoria Currier" class="student-photo">
+    </div>
+    <div class="student-info">
+        <div class="student-name">Victoria Currier</div>
+        <span class="student-status current">NeuroNauts Scholar</span>
+    </div>
+</div>
+
+<!-- Palewicz, Francesca -->
+<div class="student-card has-bio" data-name="Francesca Palewicz" data-category="current" onclick="openModal('francesca-palewicz')">
+    <div class="student-photo-container">
+        <img src="francesca-palewicz.jpg" alt="Francesca Palewicz" class="student-photo">
+    </div>
+    <div class="student-info">
+        <div class="student-name">Francesca Palewicz</div>
+        <span class="student-status current">NeuroNauts Scholar</span>
+    </div>
+</div>
                     <!-- Bacon, Sean -->
                     <div class="student-card has-bio" data-name="Sean Bacon" data-category="current" onclick="openModal('sean-bacon')">
                         <div class="student-photo-container">
@@ -3765,6 +3804,12 @@ const spotlights = [
     { photo: "cristina-gonzalez.jpeg", text: "<strong>Cristina Gonzalez</strong> (Class of 2026) contributed to neuroplasticity research and is pursuing her Master of Public Health." },
     { photo: "joey-peterson.jpg", text: "<strong>Joey Peterson</strong> (Class of 2024) created phage libraries for spider silk research and is now a Graduate Research Assistant at Florida State." },
     { photo: "zina-yousef.jpeg", text: "<strong>Zina Yousef</strong> (Class of 2025) contributed to cancer RTK research and is working in pathology while preparing for PA school." }
+
+	,
+    // NeuroNauts Cohort 1
+    { photo: "lukas-aung.png", text: "<strong>Lukas Aung</strong>, a high school junior from Pensacola, is conducting original Alzheimer\'s biomarker research in the Guttmann Lab as an inaugural NIH-funded NeuroNauts Scholar." },
+    { photo: "victoria-currier.jpg", text: "<strong>Victoria Currier</strong> is exploring how phage display can identify Alzheimer\'s biomarkers as an inaugural NeuroNauts Scholar — aspiring to one day practice as an anesthesiologist." },
+    { photo: "francesca-palewicz.jpg", text: "<strong>Francesca Palewicz</strong>, a rising senior from Gulf Breeze, is developing skills in Western blotting and phage display as an inaugural NIH-funded NeuroNauts Scholar at UWF." }
 ];
 
 let spotlightIndex = 0;
@@ -3839,7 +3884,30 @@ document.addEventListener('DOMContentLoaded', function() {
 // STUDENT BIOGRAPHIES
 // ============================================
 const bios = {
-  'rodney-guttmann': {
+ 
+	// Aung, Lukas
+  'lukas-aung': {
+    name: 'Lukas Aung',
+    class: 'NeuroNauts Scholar, Cohort 1 | Summer 2026 | Pensacola High School',
+    bio: 'Lukas joined the Guttmann Lab as a member of the inaugural cohort of the NeuroNauts Scholars Program — an NIH-funded, competitive eight-week research initiative for high school students from Escambia and Santa Rosa Counties.<br><br>His work contributed to research aimed at identifying a definitive biomarker of Alzheimer\'s disease in the Tau protein within cerebrospinal fluid (CSF), using phage display technology with the M13 bacteriophage to enable detection of the disease in its earliest stages. He also gained hands-on experience with gel electrophoresis and recombinant protein expression.<br><br>Lukas is a rising junior at Pensacola High School with a strong interest in biomedical sciences — particularly the application of bacteriophages to medicine — and plans to pursue a career in research. The NeuroNauts program gave him his first experience running independent experiments in a real research environment.<br><br><strong>Research Project:</strong> <a href="#" class="project-link-internal" data-project="neuronauts" style="color: #007A33; font-weight: 600; text-decoration: underline;">NeuroNauts Scholars</a>'
+  },
+
+  // Currier, Victoria
+  'victoria-currier': {
+    name: 'Victoria Currier',
+    class: 'NeuroNauts Scholar, Cohort 1 | Summer 2026 | Pensacola State College Charter Academy',
+    bio: 'Victoria conducted research in the Guttmann Lab during Summer 2026 as part of the inaugural cohort of the NIH-funded NeuroNauts Scholars Program. As part of the lab\'s ongoing Alzheimer\'s disease research, her work explored how phage display technology can be used to identify biomarkers that may improve early detection of the disease.<br><br>Before joining NeuroNauts, most of Victoria\'s science experience came from textbooks and classroom labs. The program gave her firsthand experience with how scientific discoveries are actually made. She learned protein purification, gel electrophoresis, and Western blotting, and gained direct experience with the full process of scientific investigation.<br><br>Victoria is a student at Pensacola State College Charter Academy with a strong interest in medicine and neuroscience. Her long-term goal is to become an anesthesiologist, and she is eager to continue exploring the intersection of scientific research and patient care.<br><br><strong>Research Project:</strong> <a href="#" class="project-link-internal" data-project="neuronauts" style="color: #007A33; font-weight: 600; text-decoration: underline;">NeuroNauts Scholars</a>'
+  },
+
+  // Palewicz, Francesca
+  'francesca-palewicz': {
+    name: 'Francesca Palewicz',
+    class: 'NeuroNauts Scholar, Cohort 1 | Summer 2026 | Gulf Breeze High School',
+    bio: 'Francesca conducted research in the Guttmann Lab during Summer 2026 as a participant in the inaugural cohort of the NeuroNauts Scholars Program — an NIH-funded eight-week research internship at the University of West Florida for high school students in Escambia and Santa Rosa Counties.<br><br>Her work focused on identifying potential biomarkers for Alzheimer\'s disease, with the goal of improving early diagnosis and advancing understanding of disease mechanisms. She developed laboratory skills in protein purification, polyacrylamide gel electrophoresis, Western blotting, and phage display techniques.<br><br>Francesca is a rising senior at Gulf Breeze High School with interests in biochemistry and clinical biology research. Her experience in the Guttmann Lab is the first step in what she describes as an invaluable research journey.<br><br><strong>Research Project:</strong> <a href="#" class="project-link-internal" data-project="neuronauts" style="color: #007A33; font-weight: 600; text-decoration: underline;">NeuroNauts Scholars</a>'
+  },
+	
+	
+	'rodney-guttmann': {
     name: 'Dr. Rodney Guttmann',
     class: 'Professor of Biology | Interim Department Chair',
     bio: 'I came to UWF in 2009 after earning tenure at the University of Kentucky, where I worked at the Sanders-Brown Center on Aging. My research focuses on finding ways to detect Alzheimer\'s disease earlier, before the damage is done, using a technique called phage display to identify blood-based biomarkers. Along the way, my lab has also developed peptide therapeutics and contributed to clinical trials.<br><br>What I\'m most proud of is the students. Over 100 undergraduates have come through this lab, and many have gone on to PhD programs at Penn, Kentucky, UAB, and Florida State, or to medical and PA schools. Watching students discover they can do real science, not just read about it, is why I do this work.<br><br>If you\'re a student thinking about research, reach out. The best time to start is now.<br><br><a href="https://uwf.edu/hmcse/departments/biology/faculty/dr-rodney-guttmann.html" target="_blank" style="color: #007A33;">UWF Faculty Profile</a>',

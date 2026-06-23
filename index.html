@@ -1491,6 +1491,11 @@ html {
             color: #333;
         }
 
+		.student-status.neuronauts {
+            background: linear-gradient(135deg, #004C97, #007A33);
+            color: white;
+        }
+
         /* Projects Styles */
         .projects-container {
             max-width: 1200px;
@@ -2103,7 +2108,7 @@ gtag('config', 'G-XFWF5H8X3L');
     </div>
     <div class="student-info">
         <div class="student-name">Lukas Aung</div>
-        <span class="student-status current">NeuroNauts Scholar</span>
+        <span class="student-status neuronauts">NeuroNauts Scholar</span>
     </div>
 </div>
 
@@ -2114,7 +2119,7 @@ gtag('config', 'G-XFWF5H8X3L');
     </div>
     <div class="student-info">
         <div class="student-name">Victoria Currier</div>
-        <span class="student-status current">NeuroNauts Scholar</span>
+        <span class="student-status neuronauts">NeuroNauts Scholar</span>
     </div>
 </div>
 
@@ -2125,7 +2130,7 @@ gtag('config', 'G-XFWF5H8X3L');
     </div>
     <div class="student-info">
         <div class="student-name">Francesca Palewicz</div>
-        <span class="student-status current">NeuroNauts Scholar</span>
+        <span class="student-status neuronauts">NeuroNauts Scholar</span>
     </div>
 </div>
                     <!-- Bacon, Sean -->
@@ -3844,38 +3849,47 @@ setInterval(updateSpotlight, 8000);
 // AUTOMATICALLY MOVE AND SORT STUDENT CARDS
 // ============================================
 document.addEventListener('DOMContentLoaded', function() {
-    // STEP 1: Move cards to correct section based on data-category
-    const currentGrid = document.querySelector('#students-content .students-grid');
-    const alumniGrid = document.querySelector('#students-content .students-grid');
-    
-    // Note: Since you only have one grid that shows filtered cards,
-    // the category-based moving happens through the filter buttons
-    
-    // STEP 2: Sort cards alphabetically by last name (except Rodney first)
+    const neuronautNames = ['Lukas Aung', 'Victoria Currier', 'Francesca Palewicz'];
+
     const grids = document.querySelectorAll('.students-grid');
-    
+
     grids.forEach(grid => {
         const cards = Array.from(grid.querySelectorAll('.student-card'));
-        
-        // Separate Rodney's card from the rest
+
+        // Separate into three groups
         const rodneyCard = cards.find(card => card.getAttribute('data-name') === 'Rodney Guttmann');
-        const otherCards = cards.filter(card => card.getAttribute('data-name') !== 'Rodney Guttmann');
-        
-        // Sort the other cards alphabetically by last name
-        otherCards.sort((a, b) => {
-            const nameA = a.getAttribute('data-name');
-            const nameB = b.getAttribute('data-name');
-            
-            // Extract last names (last word in the name)
-            const lastNameA = nameA.split(' ').pop().toLowerCase();
-            const lastNameB = nameB.split(' ').pop().toLowerCase();
-            
-            return lastNameA.localeCompare(lastNameB);
+        const neuronautCards = cards.filter(card => neuronautNames.includes(card.getAttribute('data-name')));
+        const otherCards = cards.filter(card =>
+            card.getAttribute('data-name') !== 'Rodney Guttmann' &&
+            !neuronautNames.includes(card.getAttribute('data-name'))
+        );
+
+        // Sort NeuroNauts by last name
+        neuronautCards.sort((a, b) => {
+            const lastA = a.getAttribute('data-name').split(' ').pop().toLowerCase();
+            const lastB = b.getAttribute('data-name').split(' ').pop().toLowerCase();
+            return lastA.localeCompare(lastB);
         });
-        
-        // Clear the grid and re-append: Rodney first, then sorted cards
+
+        // Sort everyone else by last name
+        otherCards.sort((a, b) => {
+            const lastA = a.getAttribute('data-name').split(' ').pop().toLowerCase();
+            const lastB = b.getAttribute('data-name').split(' ').pop().toLowerCase();
+            return lastA.localeCompare(lastB);
+        });
+
+        // Build the NeuroNauts header
+        const neuronautHeader = document.createElement('div');
+        neuronautHeader.style.cssText = 'width:100%; grid-column:1/-1; margin:10px 0 20px 0; padding:20px 24px; background:linear-gradient(135deg,rgba(0,76,151,0.07) 0%,rgba(0,122,51,0.07) 100%); border-radius:12px; border-left:5px solid #004C97;';
+        neuronautHeader.innerHTML = '<h3 style="color:#004C97;font-size:1.2rem;font-weight:700;margin:0 0 6px 0;">🧠 NeuroNauts Scholars — Cohort 1 (Summer 2026)</h3><p style="color:#555;font-size:0.9rem;margin:0;line-height:1.6;">NIH-funded, competitive eight-week research program for high school students from Escambia and Santa Rosa Counties. Scholars conduct original neuroscience research in active UWF laboratories.</p>';
+
+        // Rebuild grid: Rodney → NeuroNauts header + cards → everyone else
         grid.innerHTML = '';
         if (rodneyCard) grid.appendChild(rodneyCard);
+        if (neuronautCards.length > 0) {
+            grid.appendChild(neuronautHeader);
+            neuronautCards.forEach(card => grid.appendChild(card));
+        }
         otherCards.forEach(card => grid.appendChild(card));
     });
 });

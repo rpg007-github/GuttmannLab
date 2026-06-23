@@ -430,7 +430,11 @@ body {
 .student-card:hover {
     transform: translateY(-10px) rotateX(2deg);
 }
-
+.student-card[data-name="Lukas Aung"]:hover,
+.student-card[data-name="Victoria Currier"]:hover,
+.student-card[data-name="Francesca Palewicz"]:hover {
+    transform: translateY(-10px);
+}
 /* Gradient text for headings */
 .gradient-text {
     background: linear-gradient(135deg, #004C97 0%, #007A33 100%);

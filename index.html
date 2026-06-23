@@ -2094,12 +2094,7 @@ gtag('config', 'G-XFWF5H8X3L');
                     <!-- CURRENT STUDENTS - Alphabetical by Last Name -->
                     <!-- ============================================ -->
                     <!-- ============================================ -->
-<!-- NEURONAUTS SCHOLARS - Cohort 1 (Summer 2026) -->
-<!-- ============================================ -->
-<div style="width: 100%; grid-column: 1 / -1; margin: 10px 0 20px 0; padding: 20px 24px; background: linear-gradient(135deg, rgba(0,76,151,0.06) 0%, rgba(0,122,51,0.06) 100%); border-radius: 12px; border-left: 5px solid #004C97;">
-  <h3 style="color: #004C97; font-size: 1.2rem; font-weight: 700; margin: 0 0 6px 0;">🧠 NeuroNauts Scholars — Cohort 1 (Summer 2026)</h3>
-  <p style="color: #555; font-size: 0.9rem; margin: 0; line-height: 1.6;">NIH-funded, competitive eight-week research program for high school students from Escambia and Santa Rosa Counties. Scholars conduct original neuroscience research in active UWF laboratories.</p>
-</div>
+
 
 <!-- Aung, Lukas -->
 <div class="student-card has-bio" data-name="Lukas Aung" data-category="current" onclick="openModal('lukas-aung')">
@@ -3850,13 +3845,10 @@ setInterval(updateSpotlight, 8000);
 // ============================================
 document.addEventListener('DOMContentLoaded', function() {
     const neuronautNames = ['Lukas Aung', 'Victoria Currier', 'Francesca Palewicz'];
-
     const grids = document.querySelectorAll('.students-grid');
 
     grids.forEach(grid => {
         const cards = Array.from(grid.querySelectorAll('.student-card'));
-
-        // Separate into three groups
         const rodneyCard = cards.find(card => card.getAttribute('data-name') === 'Rodney Guttmann');
         const neuronautCards = cards.filter(card => neuronautNames.includes(card.getAttribute('data-name')));
         const otherCards = cards.filter(card =>
@@ -3864,32 +3856,47 @@ document.addEventListener('DOMContentLoaded', function() {
             !neuronautNames.includes(card.getAttribute('data-name'))
         );
 
-        // Sort NeuroNauts by last name
-        neuronautCards.sort((a, b) => {
-            const lastA = a.getAttribute('data-name').split(' ').pop().toLowerCase();
-            const lastB = b.getAttribute('data-name').split(' ').pop().toLowerCase();
-            return lastA.localeCompare(lastB);
-        });
+        neuronautCards.sort((a, b) => a.getAttribute('data-name').split(' ').pop().toLowerCase().localeCompare(b.getAttribute('data-name').split(' ').pop().toLowerCase()));
+        otherCards.sort((a, b) => a.getAttribute('data-name').split(' ').pop().toLowerCase().localeCompare(b.getAttribute('data-name').split(' ').pop().toLowerCase()));
 
-        // Sort everyone else by last name
-        otherCards.sort((a, b) => {
-            const lastA = a.getAttribute('data-name').split(' ').pop().toLowerCase();
-            const lastB = b.getAttribute('data-name').split(' ').pop().toLowerCase();
-            return lastA.localeCompare(lastB);
-        });
-
-        // Build the NeuroNauts header
-        const neuronautHeader = document.createElement('div');
-        neuronautHeader.style.cssText = 'width:100%; grid-column:1/-1; margin:10px 0 20px 0; padding:20px 24px; background:linear-gradient(135deg,rgba(0,76,151,0.07) 0%,rgba(0,122,51,0.07) 100%); border-radius:12px; border-left:5px solid #004C97;';
-        neuronautHeader.innerHTML = '<h3 style="color:#004C97;font-size:1.2rem;font-weight:700;margin:0 0 6px 0;">🧠 NeuroNauts Scholars — Cohort 1 (Summer 2026)</h3><p style="color:#555;font-size:0.9rem;margin:0;line-height:1.6;">NIH-funded, competitive eight-week research program for high school students from Escambia and Santa Rosa Counties. Scholars conduct original neuroscience research in active UWF laboratories.</p>';
-
-        // Rebuild grid: Rodney → NeuroNauts header + cards → everyone else
         grid.innerHTML = '';
         if (rodneyCard) grid.appendChild(rodneyCard);
+
         if (neuronautCards.length > 0) {
-            grid.appendChild(neuronautHeader);
-            neuronautCards.forEach(card => grid.appendChild(card));
+            // NeuroNauts featured band — full-width, visually distinct
+            const band = document.createElement('div');
+            band.style.cssText = 'grid-column:1/-1; margin:20px 0 0 0; background:linear-gradient(135deg,#004C97 0%,#007A33 100%); border-radius:16px; padding:28px 32px 32px; box-shadow:0 8px 30px rgba(0,76,151,0.2);';
+            band.innerHTML = `
+                <div style="display:flex;align-items:center;gap:14px;margin-bottom:8px;">
+                    <span style="font-size:2em;">🧠</span>
+                    <div>
+                        <h2 style="color:white;margin:0;font-size:1.5rem;font-weight:800;letter-spacing:-0.3px;">NeuroNauts Scholars Program</h2>
+                        <div style="display:inline-block;background:rgba(255,255,255,0.2);color:white;padding:3px 12px;border-radius:50px;font-size:0.72em;font-weight:700;margin-top:5px;letter-spacing:0.5px;">NIH FUNDED · R25 · COHORT 1 · SUMMER 2026</div>
+                    </div>
+                    <a href="https://sites.google.com/uwf.edu/uwfneuronautsinfo/home" target="_blank" style="margin-left:auto;background:rgba(255,255,255,0.15);color:white;padding:8px 18px;border-radius:8px;font-size:0.85em;font-weight:600;text-decoration:none;border:1px solid rgba(255,255,255,0.3);white-space:nowrap;">Program Website →</a>
+                </div>
+                <p style="color:rgba(255,255,255,0.85);font-size:0.9rem;margin:0 0 24px 0;max-width:700px;line-height:1.6;">A competitive eight-week summer research experience for high school students from Escambia and Santa Rosa Counties. Scholars earn a $4,500 stipend and conduct original neuroscience research in active UWF laboratories.</p>
+                <div id="neuronautsCardContainer" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;"></div>
+            `;
+            grid.appendChild(band);
+
+            const container = band.querySelector('#neuronautsCardContainer');
+            neuronautCards.forEach(card => {
+                // Restyle cards for the dark background
+                card.style.cssText = 'background:rgba(255,255,255,0.95);border-radius:14px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.15);cursor:pointer;position:relative;opacity:0;transform:translateY(20px);transition:all 0.3s ease;';
+                card.classList.add('is-visible');
+                container.appendChild(card);
+                // Trigger animation
+                setTimeout(() => { card.style.opacity='1'; card.style.transform='translateY(0)'; }, 100);
+            });
+
+            // Divider before main grid
+            const divider = document.createElement('div');
+            divider.style.cssText = 'grid-column:1/-1; margin:40px 0 10px 0; display:flex; align-items:center; gap:15px;';
+            divider.innerHTML = '<h2 style="color:#004C97;font-size:1.3rem;font-weight:700;white-space:nowrap;margin:0;">Current Students & Alumni</h2><div style="flex:1;height:3px;background:linear-gradient(90deg,#007A33,transparent);border-radius:2px;"></div>';
+            grid.appendChild(divider);
         }
+
         otherCards.forEach(card => grid.appendChild(card));
     });
 });

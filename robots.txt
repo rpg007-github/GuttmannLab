@@ -1,8 +1,4 @@
-# Robots.txt for Guttmann Research Lab
-# https://rpg007-github.github.io/GuttmannLab/
-
 User-agent: *
 Allow: /
 
-# Sitemap location
-Sitemap: https://rpg007-github.github.io/GuttmannLab/sitemap.xml
+Sitemap: https://guttmannlab.org/sitemap.xml

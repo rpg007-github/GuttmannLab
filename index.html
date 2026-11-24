@@ -2226,6 +2226,17 @@ gtag('config', 'G-XFWF5H8X3L');
                         </div>
                     </div>
 
+<!-- Grant, AJ -->
+<div class="student-card has-bio" data-name="AJ Grant" data-category="current" onclick="openModal('aj-grant')">
+    <div class="student-photo-container">
+        <img src="Grant_AJ.jpg" alt="AJ Grant" class="student-photo">
+    </div>
+    <div class="student-info">
+        <div class="student-name">AJ Grant</div>
+        <span class="student-status">Current Student</span>
+    </div>
+</div>
+
                    <!-- Hanners, Caleb -->
 <div class="student-card has-bio" data-name="Caleb Hanners" data-category="alumni" onclick="openModal('caleb-hanners')">
     <div class="student-photo-container">
@@ -2289,6 +2300,17 @@ gtag('config', 'G-XFWF5H8X3L');
     <div class="student-info">
         <div class="student-name">Bryley Lyublanovits</div>
         <span class="student-status alumni">Alumni</span>
+    </div>
+</div>
+
+<!-- Maal, Kallie -->
+<div class="student-card has-bio" data-name="Kallie Maal" data-category="current" onclick="openModal('kallie-maal')">
+    <div class="student-photo-container">
+        <img src="Maal_Kallie.jpg" alt="Kallie Maal" class="student-photo">
+    </div>
+    <div class="student-info">
+        <div class="student-name">Kallie Maal</div>
+        <span class="student-status">Current Student</span>
     </div>
 </div>
 
@@ -3831,7 +3853,11 @@ const spotlights = [
     // NeuroNauts Cohort 1
     { photo: "lukas-aung.png", text: "<strong>Lukas Aung</strong>, a high school junior from Pensacola, is conducting original Alzheimer\'s biomarker research in the Guttmann Lab as an inaugural NIH-funded NeuroNauts Scholar." },
     { photo: "victoria-currier.jpg", text: "<strong>Victoria Currier</strong> is exploring how phage display can identify Alzheimer\'s biomarkers as an inaugural NeuroNauts Scholar — aspiring to one day practice as an anesthesiologist." },
-    { photo: "francesca-palewicz.jpg", text: "<strong>Francesca Palewicz</strong>, a rising senior from Gulf Breeze, is developing skills in Western blotting and phage display as an inaugural NIH-funded NeuroNauts Scholar at UWF." }
+    { photo: "francesca-palewicz.jpg", text: "<strong>Francesca Palewicz</strong>, a rising senior from Gulf Breeze, is developing skills in Western blotting and phage display as an inaugural NIH-funded NeuroNauts Scholar at UWF." },
+    // Grant, AJ
+    { photo: "Grant_AJ.jpg", text: "<strong>AJ Grant</strong> (Class of 2027) is a Collegiate High School student interning as a lab assistant in the Guttmann Lab and planning a career in neuroscience research." },
+    // Maal, Kallie
+    { photo: "Maal_Kallie.jpg", text: "<strong>Kallie Maal</strong> (Class of 2026) produces tau protein for Alzheimer's disease research and plans a growth year of clinical experience before dental school." }
 ];
 
 let spotlightIndex = 0;
@@ -4109,6 +4135,13 @@ const bios = {
         class: 'Biochemistry Major | 2024 Top Scholar',
         bio: 'Carly is a Biochemistry major and 2024 Top Scholar at the University of West Florida. She joined the Guttmann Lab in Fall 2024 and plans to pursue an MD/PhD, combining her interests in clinical medicine and biomedical research. <br><br><strong>Research Project:</strong> <a href="#" class="project-link-internal" data-project="nih-alzheimers" style="color: #007A33; font-weight: 600; text-decoration: underline;">NIH-Funded Research on Early Alzheimer\'s Detection</a>'
     },
+    // Grant, AJ
+    'aj-grant': {
+        name: 'AJ Grant',
+        class: 'Class of 2027 | High School',
+        bio: 'AJ was born in Mountain Home, Idaho, and moved to Niceville, Florida in 2022. AJ will graduate from Northwest Florida State College\'s Collegiate High School in 2027 and plans to major in Cell and Molecular Neuroscience and pursue a career in neuroscience research. AJ joined the Guttmann Lab in the fall semester of 2026, where AJ interns as a lab assistant as part of the high school capstone project. Outside the lab, AJ enjoys art, reading, and computer programming.<br><br><strong>Research Project:</strong> <a href="#" class="project-link-internal" data-project="nih-alzheimers" style="color: #007A33; font-weight: 600; text-decoration: underline;">NIH-Funded Research on Early Alzheimer\'s Detection</a>'
+    },
+
     'djuan-wimberly': {
         name: 'D\'juan Wimberly',
         class: 'Class of 2026 | Biomedical Sciences Major<br>Minor: Psychology',
@@ -4131,6 +4164,13 @@ const bios = {
     class: 'Class of 2025 | B.S. Biological Science, Florida State University',
     bio: 'Gianna joined the Guttmann Lab in 2025 following her graduation from Florida State University with a degree in Biological Science. Her research investigates the mechanistic links between the oral microbiome, periodontal pathology, and neuroinflammatory processes associated with Alzheimer\'s disease pathogenesis. This work examines how oral bacterial dysbiosis and periodontal inflammation may contribute to systemic inflammatory responses and blood-brain barrier disruption in neurodegenerative disease. Beyond her research activities, Gianna is preparing her applications for dental school and continues to build her clinical expertise and professional credentials.'
 },
+
+    // Maal, Kallie
+    'kallie-maal': {
+        name: 'Kallie Maal',
+        class: 'Class of 2026 | B.S. in Biomedical Sciences',
+        bio: 'Kallie was born in Pensacola, Florida and graduated from West Port High School in Ocala, Florida in 2023. She is majoring in Biomedical Sciences and plans to spend a growth year building her clinical experience before attending dental school. Kallie joined the Guttmann Lab in Spring 2026, where she works on tau protein production for research in Alzheimer\'s disease and related conditions. She also supports the lab\'s grant writing and outreach. Outside the lab, Kallie is passionate about community health and enjoys volunteering. In her free time, Kallie loves flying as an instrument rated private pilot and practicing yoga.<br><br><strong>Research Project:</strong> <a href="#" class="project-link-internal" data-project="tau-oligomer" style="color: #007A33; font-weight: 600; text-decoration: underline;">Phage-Display for Tau Oligomer Disruption</a>'
+    },
 
     'liz-mcconnell': {
     name: 'Liz McConnell',

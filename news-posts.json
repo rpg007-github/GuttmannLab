@@ -1,0 +1,37 @@
+[
+ {
+  "slug": "new-web-address",
+  "title": "The Guttmann Research Lab has a new home on the web",
+  "date": "2026-11-24",
+  "category": "Lab news",
+  "summary": "The lab website now lives at guttmannlab.org, with an updated CV, a news page, and regular posts on Alzheimer's research, caregiver resources and student programs.",
+  "keywords": [
+   "Guttmann Research Lab",
+   "Alzheimer's disease research",
+   "University of West Florida",
+   "undergraduate research"
+  ],
+  "body_html": "<p>The Guttmann Research Lab website now has its own address: <a href=\"https://guttmannlab.org/\">guttmannlab.org</a>. Everything that was on the old address is here, and the old address forwards visitors to the new one.</p>\n<h2>What you will find on the site</h2>\n<p>The lab studies Alzheimer's disease and related dementias at the University of West Florida. The main site describes our research projects, including our work on early detection with phage display technology and a study of how robotic pets may help family caregivers of people living with dementia. It also introduces the undergraduate researchers who make the work possible and shows where our alumni go next.</p>\n<h2>What is new</h2>\n<p>This news page is new. About once a week we plan to share short, plain language posts in three areas: research explainers that describe what scientists know about Alzheimer's disease and why it matters, practical resources for families and caregivers, and updates on student programs such as the NeuroNauts Scholars Program for high school students and undergraduate research opportunities at UWF.</p>\n<p>You can follow along with the <a href=\"https://guttmannlab.org/feed.xml\">news feed</a> in any feed reader, or just check back here.</p>\n<h2>Join us</h2>\n<p>Students interested in research are welcome to explore the <a href=\"https://guttmannlab.org/\">main site</a> and reach out. Our curriculum vitae is also available as an <a href=\"https://guttmannlab.org/guttmann-cv.pdf\">accessible PDF</a>.</p>"
+ },
+ {
+  "slug": "neuronauts-scholars-program",
+  "title": "NeuroNauts Scholars: how a summer neuroscience program for high school students works",
+  "date": "2026-11-24",
+  "category": "Program update",
+  "summary": "The NeuroNauts Scholars Program places high school students from Escambia and Santa Rosa Counties in University of West Florida research labs for eight weeks. Here is how it works and how selection happens.",
+  "keywords": [
+   "NeuroNauts Scholars Program",
+   "high school summer research Pensacola",
+   "NIH R25",
+   "neuroscience research for high school students",
+   "University of West Florida"
+  ],
+  "body_html": "<p>The NeuroNauts Scholars Program is an eight week summer research experience at the University of West Florida for high school juniors and seniors from Escambia and Santa Rosa Counties. It is funded by a five year R25 grant from the National Institute of Neurological Disorders and Stroke, part of the National Institutes of Health.</p>\n<h2>What scholars do</h2>\n<p>Each scholar works 40 hours per week in an active UWF research laboratory, paired with a faculty mentor based on their interests. The work is real, ongoing research, not a simulated exercise. Alongside lab time, scholars take part in weekly seminars, scientific writing and data interpretation workshops, and NIH required training on research ethics and responsible conduct. The summer ends with a formal research symposium where scholars present their work. Scholars receive a $4,500 stipend.</p>\n<h2>The first cohort</h2>\n<p>The inaugural program ran from June 1 through July 24, 2026. Eight scholars were chosen from more than 20 applicants, who came from nearly every high school in the Pensacola region.</p>\n<h2>How selection works</h2>\n<p>Selection starts with a faculty eligibility screen. A review panel then reads academic records, personal statements and teacher recommendations, and about a dozen finalists are interviewed in person on campus. The final group is chosen to reflect the region and to include students who will benefit most from the experience.</p>\n<h2>Learn more or apply</h2>\n<p>Applications open each spring. The program website has current details, deadlines and information about the 2026 cohort: <a href=\"https://sites.google.com/uwf.edu/uwfneuronautsinfo/home\">NeuroNauts program website</a>. The NeuroNauts program is directed by Dr. Rodney Guttmann of the UWF Department of Biology. You can also see how it fits into the lab's work on the <a href=\"https://guttmannlab.org/\">Guttmann Research Lab home page</a>.</p>",
+  "sources": [
+   {
+    "title": "NeuroNauts Scholars Program website",
+    "url": "https://sites.google.com/uwf.edu/uwfneuronautsinfo/home"
+   }
+  ]
+ }
+]
